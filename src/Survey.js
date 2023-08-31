@@ -1,6 +1,8 @@
 import React from "react";
 import * as Survey from "survey-react";
 import "survey-react/survey.css";
+import { API, graphqlOperation } from "aws-amplify";
+import { createSurveyResult } from "./graphql/mutations";
 
 const imageUrls = [
   "https://i.ibb.co/dKFNfQK/1.jpg",
