@@ -3,6 +3,9 @@ import * as Survey from "survey-react";
 import "survey-react/survey.css";
 import { DataStore } from '@aws-amplify/datastore';
 import { SurveyResult } from './models';
+import { Amplify, Auth } from 'aws-amplify';
+import awsconfig from './aws-exports';
+Amplify.configure(awsconfig);
 
 const imageUrls = [
   "https://i.ibb.co/dKFNfQK/1.jpg",
