@@ -1,4 +1,4 @@
-import Amplify from 'aws-amplify';
+import { Amplify } from 'aws-amplify';
 import awsconfig from './aws-exports';
 import React, { useEffect } from "react";
 import * as Survey from "survey-react";
