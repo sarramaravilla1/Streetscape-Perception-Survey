@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as Survey from "survey-react";
 import "survey-react/survey.css";
 import { DataStore } from '@aws-amplify/datastore';
