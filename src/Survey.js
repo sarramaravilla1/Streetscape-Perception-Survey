@@ -54,7 +54,7 @@ export default function SurveyComponent() {
   const model = new Survey.Model(surveyJson);
 
   // This function will be called when the user completes the survey.
-  const handleComplete = (survey, options) => {
+  const handleComplete = async (survey, options) => {
     // Get the survey results.
     const results = survey.data;
 
