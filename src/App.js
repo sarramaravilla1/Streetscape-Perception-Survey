@@ -33,15 +33,6 @@ function getRandomFourImages() {
   return result;
 }
 
-async function saveSurveyResult(selectedImageUrl) {
-  // Create a new SurveyResult entry using DataStore.
-  await DataStore.save(
-    new SurveyResult({
-      "question1": selectedImageUrl
-    })
-  );
-}
-
 export default function App() {
   const surveyJson = {
     title: "Urban visual thermal comfort survey: A case study of Singapore",
@@ -64,11 +55,20 @@ export default function App() {
 
   const model = new Survey.Model(surveyJson);
 
-  // Create a new SurveyResult entry using DataStore.
+  async function saveSurveyResult(selectedImageUrl) {
+    // Create a new SurveyResult entry using DataStore.
+    await DataStore.save(
+      new SurveyResult({
+        "question1": selectedImageUrl
+      })
+    );
+    console.log("Survey result saved:", selectedImageUrl);
+  }
+
+  // 在 model.onComplete.add 回调中调用 saveSurveyResult 函数
   model.onComplete.add((survey, options) => {
     const selectedImageUrl = survey.data.question1;
-    saveSurveyResult(selectedImageUrl);
-    console.log("Survey result saved:", selectedImageUrl);
+    saveSurveyResult(selectedImageUrl); // 在这里调用函数
   });
 
   return <Survey.Survey model={model} />;

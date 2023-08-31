@@ -1,0 +1,4 @@
+type SurveyResult @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  question1: String
+} 
