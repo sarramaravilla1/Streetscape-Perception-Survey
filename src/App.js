@@ -1,8 +1,11 @@
+import Amplify from 'aws-amplify';
 import React, { useEffect } from "react";
 import * as Survey from "survey-react";
 import "survey-react/survey.css";
 import { DataStore } from '@aws-amplify/datastore';
 import { SurveyResult } from './models';
+
+Amplify.configure(awsconfig);
 
 const imageUrls = [
   "https://i.ibb.co/dKFNfQK/1.jpg",
@@ -70,6 +73,9 @@ export default function App() {
   };
 
   useEffect(() => {
+
+    Amplify.configure(awsconfig);
+
     // Attach the onSurveyComplete function to the survey's onComplete event.
     model.onComplete.add(onSurveyComplete);
   }, []);
