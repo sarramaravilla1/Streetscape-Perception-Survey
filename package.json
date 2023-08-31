@@ -4,7 +4,8 @@
     "jquery": "3.6.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "survey-react": "1.9.79"
+    "survey-react": "1.9.79",
+    "typescript": "^5.2.2"
   },
   "main": "/index.js",
   "devDependencies": {
