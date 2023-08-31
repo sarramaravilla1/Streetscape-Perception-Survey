@@ -59,18 +59,18 @@ export default function SurveyComponent() {
     const results = survey.data;
 
     // Now you can send the results to your server.
-    fetch("https://your-api-gateway-url.com", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(results)
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    try {
+      const data = await API.graphql(
+        graphqlOperation(createSurveyResult, {
+          input: {
+            question1: results.question1
+          }
+        })
+      );
+      console.log(data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return <Survey.Survey model={model} onComplete={handleComplete} />;
