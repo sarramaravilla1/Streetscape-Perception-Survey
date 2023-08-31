@@ -1,12 +1,8 @@
-import { Amplify } from 'aws-amplify';
-import awsconfig from './aws-exports';
-import React, { useEffect } from "react";
+import React from "react";
 import * as Survey from "survey-react";
 import "survey-react/survey.css";
 import { DataStore } from '@aws-amplify/datastore';
 import { SurveyResult } from './models';
-
-Amplify.configure(awsconfig);
 
 const imageUrls = [
   "https://i.ibb.co/dKFNfQK/1.jpg",
@@ -37,6 +33,15 @@ function getRandomFourImages() {
   return result;
 }
 
+async function saveSurveyResult(selectedImageUrl) {
+  // Create a new SurveyResult entry using DataStore.
+  await DataStore.save(
+    new SurveyResult({
+      "question1": selectedImageUrl
+    })
+  );
+}
+
 export default function App() {
   const surveyJson = {
     title: "Urban visual thermal comfort survey: A case study of Singapore",
@@ -59,27 +64,12 @@ export default function App() {
 
   const model = new Survey.Model(surveyJson);
 
-  const onSurveyComplete = async (survey) => {
-    // Extract the user's selected image URL from the survey response.
+  // Create a new SurveyResult entry using DataStore.
+  model.onComplete.add((survey, options) => {
     const selectedImageUrl = survey.data.question1;
-
-    // Create a new SurveyResult entry using DataStore.
-    await DataStore.save(
-      new SurveyResult({
-        question1: selectedImageUrl
-      })
-    );
-
+    saveSurveyResult(selectedImageUrl);
     console.log("Survey result saved:", selectedImageUrl);
-  };
-
-  useEffect(() => {
-
-    Amplify.configure(awsconfig);
-
-    // Attach the onSurveyComplete function to the survey's onComplete event.
-    model.onComplete.add(onSurveyComplete);
-  }, []);
+  });
 
   return <Survey.Survey model={model} />;
 }
