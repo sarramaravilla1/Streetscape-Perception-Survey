@@ -12,6 +12,7 @@
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "survey-react": "^1.9.105",
+    "survey-react-ui": "^1.9.105",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
