@@ -440,43 +440,43 @@ const surveyJson = {
      {
       "type": "imagepicker",
       "name": "question5",
-      "title": "Which street view image do you believe exhibits the highest outdoor temperature?",
+      "title": "Which street view image do you perceive exhibits higher outdoor temperature?",
       "choices": getRandomTwoImages("question5")
      },
      {
       "type": "imagepicker",
       "name": "question6",
-      "title": "Which street view image do you perceive as having the most comfortable outdoor temperature for you?",
+      "title": "Which street view image do you perceive as having more comfortable outdoor temperature for you?",
       "choices": getRandomTwoImages("question6")
      },
      {
       "type": "imagepicker",
       "name": "question7",
-      "title": "Which street view image do you think showcases the highest sunlight intensity?",
+      "title": "Which street view image do you think showcases higher sunlight intensity?",
       "choices": getRandomTwoImages("question7")
      },
      {
       "type": "imagepicker",
       "name": "question8",
-      "title": "Which street view image do you think showcases the highest traffic volume?",
+      "title": "Which street view image do you think showcases a higher traffic volume?",
       "choices": getRandomTwoImages("question8")
      },
      {
       "type": "imagepicker",
       "name": "question9",
-      "title": "Which street view image do you think showcases the highest pedestrian activity?",
+      "title": "Which street view image do you think showcases higher pedestrian activities?",
       "choices": getRandomTwoImages("question9")
      },
      {
       "type": "imagepicker",
       "name": "question10",
-      "title": "Which street view image do you think showcases the highest abundance of greenery?",
+      "title": "Which street view image do you think showcases higher abundance of greenery?",
       "choices": getRandomTwoImages("question10")
      },
      {
       "type": "imagepicker",
       "name": "question11",
-      "title": "Which street view image do you think showcases the highest extent of shaded areas?",
+      "title": "Which street view image do you think showcases higher extent of shaded areas?",
       "choices": getRandomTwoImages("question11")
      }
     ],
@@ -488,31 +488,31 @@ const surveyJson = {
      {
       "type": "imagepicker",
       "name": "question12",
-      "title": "Which street view image stands out to you as the most impressive place?",
+      "title": "Which street view image stands out to you as a more impressive place?",
       "choices": getRandomTwoImages("question12")
      },
      {
       "type": "imagepicker",
       "name": "question13",
-      "title": "Which street view image stands out to you as the most enclosed space?",
+      "title": "Which street view image stands out to you as more enclosed space?",
       "choices": getRandomTwoImages("question13")
      },
      {
       "type": "imagepicker",
       "name": "question14",
-      "title": "Which street view image stands out to you as the most accommodating for human scale?",
+      "title": "Which street view image stands out to you as more accommodating for human scale?",
       "choices": getRandomTwoImages("question14")
      },
      {
       "type": "imagepicker",
       "name": "question15",
-      "title": "Which street view image stands out to you as the most transparent space?",
+      "title": "Which street view image stands out to you as more transparent space?",
       "choices": getRandomTwoImages("question15")
      },
      {
       "type": "imagepicker",
       "name": "question16",
-      "title": "Which street view image stands out to you as the most complex environment?",
+      "title": "Which street view image stands out to you as more complex environment?",
       "choices": getRandomTwoImages("question16")
      }
     ],
@@ -524,55 +524,55 @@ const surveyJson = {
      {
       "type": "imagepicker",
       "name": "question17",
-      "title": "Which street view image do you feel evokes the most vibrant atmosphere?",
+      "title": "Which street view image do you feel evokes more vibrant atmosphere?",
       "choices": getRandomTwoImages("question17")
      },
      {
       "type": "imagepicker",
       "name": "question18",
-      "title": "Which street view image do you feel evokes the most beautiful atmosphere?",
+      "title": "Which street view image do you feel evokes more beautiful atmosphere?",
       "choices": getRandomTwoImages("question18")
      },
      {
       "type": "imagepicker",
       "name": "question19",
-      "title": "Which street view image do you feel evokes the most affluent atmosphere?",
+      "title": "Which street view image do you feel evokes more affluent atmosphere?",
       "choices": getRandomTwoImages("question19")
      },
      {
       "type": "imagepicker",
       "name": "question20",
-      "title": "Which street view image do you feel evokes the most safe atmosphere?",
+      "title": "Which street view image do you feel evokes safer atmosphere?",
       "choices": getRandomTwoImages("question20")
      },
      {
       "type": "imagepicker",
       "name": "question21",
-      "title": "Which street view image do you feel evokes the most interesting atmosphere?",
+      "title": "Which street view image do you feel evokes more interesting atmosphere?",
       "choices": getRandomTwoImages("question21")
      },
      {
       "type": "imagepicker",
       "name": "question22",
-      "title": "Which street view image do you feel evokes the most monotonous atmosphere?",
+      "title": "Which street view image do you feel evokes more monotonous atmosphere?",
       "choices": getRandomTwoImages("question22")
      },
      {
       "type": "imagepicker",
       "name": "question23",
-      "title": "Which street view image do you feel evokes the most chaotic atmosphere?",
+      "title": "Which street view image do you feel evokes more chaotic atmosphere?",
       "choices": getRandomTwoImages("question23")
      },
      {
       "type": "imagepicker",
       "name": "question24",
-      "title": "Which street view image do you feel evokes the most depressing atmosphere?",
+      "title": "Which street view image do you feel evokes more depressing atmosphere?",
       "choices": getRandomTwoImages("question24")
      },
      {
       "type": "imagepicker",
       "name": "question25",
-      "title": "Which street view image do you feel evokes the most annoying atmosphere?",
+      "title": "Which street view image do you feel evokes more annoying atmosphere?",
       "choices": getRandomTwoImages("question25")
      }
     ],
