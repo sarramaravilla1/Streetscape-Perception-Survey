@@ -8,10 +8,10 @@
   "javascript": {
     "framework": "react",
     "config": {
-      "SourceDir": "src",
-      "DistributionDir": "build",
-      "BuildCommand": "npm.cmd run-script build",
-      "StartCommand": "npm.cmd run-script start"
+      "SourceDir": "/Users/sijieyang/Documents/GitHub/svi-survey/src",
+      "DistributionDir": "/Users/sijieyang/Documents/GitHub/svi-survey/build",
+      "BuildCommand": "npm run build",
+      "StartCommand": "npm run start"
     }
   }
 }
