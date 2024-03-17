@@ -547,10 +547,6 @@ const surveyJson = {
       "title": "How old are you?",
       "isRequired": true,
       "choices": [
-       {
-        "value": "<18",
-        "text": "Under 18"
-       },
        "19-24",
        "25-34",
        "35-44",
