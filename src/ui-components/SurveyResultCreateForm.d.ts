@@ -54,15 +54,15 @@ export declare type SurveyResultCreateFormInputValues = {
     wealthy?: string;
     boring?: string;
     depressing?: string;
-    eatingdrinking?: string;
-    nature?: string;
-    community?: string;
-    walking?: string;
-    sightseeing?: string;
-    perception?: string;
-    functionality?: string;
-    accessibility?: string;
-    contact?: string;
+    eatingdrinking?: string[];
+    nature?: string[];
+    community?: string[];
+    walking?: string[];
+    sightseeing?: string[];
+    perception?: string[];
+    functionality?: string[];
+    accessibility?: string[];
+    contact?: string[];
 };
 export declare type SurveyResultCreateFormValidationValues = {
     comfort1?: ValidationFunction<string>;

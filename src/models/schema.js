@@ -236,66 +236,75 @@ export const schema = {
                 },
                 "eatingdrinking": {
                     "name": "eatingdrinking",
-                    "isArray": false,
+                    "isArray": true,
                     "type": "String",
                     "isRequired": false,
-                    "attributes": []
+                    "attributes": [],
+                    "isArrayNullable": true
                 },
                 "nature": {
                     "name": "nature",
-                    "isArray": false,
+                    "isArray": true,
                     "type": "String",
                     "isRequired": false,
-                    "attributes": []
+                    "attributes": [],
+                    "isArrayNullable": true
                 },
                 "community": {
                     "name": "community",
-                    "isArray": false,
+                    "isArray": true,
                     "type": "String",
                     "isRequired": false,
-                    "attributes": []
+                    "attributes": [],
+                    "isArrayNullable": true
                 },
                 "walking": {
                     "name": "walking",
-                    "isArray": false,
+                    "isArray": true,
                     "type": "String",
                     "isRequired": false,
-                    "attributes": []
+                    "attributes": [],
+                    "isArrayNullable": true
                 },
                 "sightseeing": {
                     "name": "sightseeing",
-                    "isArray": false,
+                    "isArray": true,
                     "type": "String",
                     "isRequired": false,
-                    "attributes": []
+                    "attributes": [],
+                    "isArrayNullable": true
                 },
                 "perception": {
                     "name": "perception",
-                    "isArray": false,
+                    "isArray": true,
                     "type": "String",
                     "isRequired": false,
-                    "attributes": []
+                    "attributes": [],
+                    "isArrayNullable": true
                 },
                 "functionality": {
                     "name": "functionality",
-                    "isArray": false,
+                    "isArray": true,
                     "type": "String",
                     "isRequired": false,
-                    "attributes": []
+                    "attributes": [],
+                    "isArrayNullable": true
                 },
                 "accessibility": {
                     "name": "accessibility",
-                    "isArray": false,
+                    "isArray": true,
                     "type": "String",
                     "isRequired": false,
-                    "attributes": []
+                    "attributes": [],
+                    "isArrayNullable": true
                 },
                 "contact": {
                     "name": "contact",
-                    "isArray": false,
+                    "isArray": true,
                     "type": "String",
                     "isRequired": false,
-                    "attributes": []
+                    "attributes": [],
+                    "isArrayNullable": true
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -343,5 +352,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.4",
-    "version": "2de30a3acb22a44a2a0bff6b066b47f2"
+    "version": "f7c7aff591110bfdf32f5f9c66b57de2"
 };

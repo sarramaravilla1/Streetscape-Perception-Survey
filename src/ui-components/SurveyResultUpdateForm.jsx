@@ -6,10 +6,176 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
+import {
+  Badge,
+  Button,
+  Divider,
+  Flex,
+  Grid,
+  Icon,
+  ScrollView,
+  Text,
+  TextField,
+  useTheme,
+} from "@aws-amplify/ui-react";
 import { SurveyResult } from "../models";
 import { fetchByPath, getOverrideProps, validateField } from "./utils";
 import { DataStore } from "aws-amplify";
+function ArrayField({
+  items = [],
+  onChange,
+  label,
+  inputFieldRef,
+  children,
+  hasError,
+  setFieldValue,
+  currentFieldValue,
+  defaultFieldValue,
+  lengthLimit,
+  getBadgeText,
+  runValidationTasks,
+  errorMessage,
+}) {
+  const labelElement = <Text>{label}</Text>;
+  const {
+    tokens: {
+      components: {
+        fieldmessages: { error: errorStyles },
+      },
+    },
+  } = useTheme();
+  const [selectedBadgeIndex, setSelectedBadgeIndex] = React.useState();
+  const [isEditing, setIsEditing] = React.useState();
+  React.useEffect(() => {
+    if (isEditing) {
+      inputFieldRef?.current?.focus();
+    }
+  }, [isEditing]);
+  const removeItem = async (removeIndex) => {
+    const newItems = items.filter((value, index) => index !== removeIndex);
+    await onChange(newItems);
+    setSelectedBadgeIndex(undefined);
+  };
+  const addItem = async () => {
+    const { hasError } = runValidationTasks();
+    if (
+      currentFieldValue !== undefined &&
+      currentFieldValue !== null &&
+      currentFieldValue !== "" &&
+      !hasError
+    ) {
+      const newItems = [...items];
+      if (selectedBadgeIndex !== undefined) {
+        newItems[selectedBadgeIndex] = currentFieldValue;
+        setSelectedBadgeIndex(undefined);
+      } else {
+        newItems.push(currentFieldValue);
+      }
+      await onChange(newItems);
+      setIsEditing(false);
+    }
+  };
+  const arraySection = (
+    <React.Fragment>
+      {!!items?.length && (
+        <ScrollView height="inherit" width="inherit" maxHeight={"7rem"}>
+          {items.map((value, index) => {
+            return (
+              <Badge
+                key={index}
+                style={{
+                  cursor: "pointer",
+                  alignItems: "center",
+                  marginRight: 3,
+                  marginTop: 3,
+                  backgroundColor:
+                    index === selectedBadgeIndex ? "#B8CEF9" : "",
+                }}
+                onClick={() => {
+                  setSelectedBadgeIndex(index);
+                  setFieldValue(items[index]);
+                  setIsEditing(true);
+                }}
+              >
+                {getBadgeText ? getBadgeText(value) : value.toString()}
+                <Icon
+                  style={{
+                    cursor: "pointer",
+                    paddingLeft: 3,
+                    width: 20,
+                    height: 20,
+                  }}
+                  viewBox={{ width: 20, height: 20 }}
+                  paths={[
+                    {
+                      d: "M10 10l5.09-5.09L10 10l5.09 5.09L10 10zm0 0L4.91 4.91 10 10l-5.09 5.09L10 10z",
+                      stroke: "black",
+                    },
+                  ]}
+                  ariaLabel="button"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    removeItem(index);
+                  }}
+                />
+              </Badge>
+            );
+          })}
+        </ScrollView>
+      )}
+      <Divider orientation="horizontal" marginTop={5} />
+    </React.Fragment>
+  );
+  if (lengthLimit !== undefined && items.length >= lengthLimit && !isEditing) {
+    return (
+      <React.Fragment>
+        {labelElement}
+        {arraySection}
+      </React.Fragment>
+    );
+  }
+  return (
+    <React.Fragment>
+      {labelElement}
+      {isEditing && children}
+      {!isEditing ? (
+        <>
+          <Button
+            onClick={() => {
+              setIsEditing(true);
+            }}
+          >
+            Add item
+          </Button>
+          {errorMessage && hasError && (
+            <Text color={errorStyles.color} fontSize={errorStyles.fontSize}>
+              {errorMessage}
+            </Text>
+          )}
+        </>
+      ) : (
+        <Flex justifyContent="flex-end">
+          {(currentFieldValue || isEditing) && (
+            <Button
+              children="Cancel"
+              type="button"
+              size="small"
+              onClick={() => {
+                setFieldValue(defaultFieldValue);
+                setIsEditing(false);
+                setSelectedBadgeIndex(undefined);
+              }}
+            ></Button>
+          )}
+          <Button size="small" variation="link" onClick={addItem}>
+            {selectedBadgeIndex !== undefined ? "Save" : "Add"}
+          </Button>
+        </Flex>
+      )}
+      {arraySection}
+    </React.Fragment>
+  );
+}
 export default function SurveyResultUpdateForm(props) {
   const {
     id: idProp,
@@ -55,15 +221,15 @@ export default function SurveyResultUpdateForm(props) {
     wealthy: "",
     boring: "",
     depressing: "",
-    eatingdrinking: "",
-    nature: "",
-    community: "",
-    walking: "",
-    sightseeing: "",
-    perception: "",
-    functionality: "",
-    accessibility: "",
-    contact: "",
+    eatingdrinking: [],
+    nature: [],
+    community: [],
+    walking: [],
+    sightseeing: [],
+    perception: [],
+    functionality: [],
+    accessibility: [],
+    contact: [],
   };
   const [comfort1, setComfort1] = React.useState(initialValues.comfort1);
   const [comfort2, setComfort2] = React.useState(initialValues.comfort2);
@@ -157,15 +323,24 @@ export default function SurveyResultUpdateForm(props) {
     setWealthy(cleanValues.wealthy);
     setBoring(cleanValues.boring);
     setDepressing(cleanValues.depressing);
-    setEatingdrinking(cleanValues.eatingdrinking);
-    setNature(cleanValues.nature);
-    setCommunity(cleanValues.community);
-    setWalking(cleanValues.walking);
-    setSightseeing(cleanValues.sightseeing);
-    setPerception(cleanValues.perception);
-    setFunctionality(cleanValues.functionality);
-    setAccessibility(cleanValues.accessibility);
-    setContact(cleanValues.contact);
+    setEatingdrinking(cleanValues.eatingdrinking ?? []);
+    setCurrentEatingdrinkingValue("");
+    setNature(cleanValues.nature ?? []);
+    setCurrentNatureValue("");
+    setCommunity(cleanValues.community ?? []);
+    setCurrentCommunityValue("");
+    setWalking(cleanValues.walking ?? []);
+    setCurrentWalkingValue("");
+    setSightseeing(cleanValues.sightseeing ?? []);
+    setCurrentSightseeingValue("");
+    setPerception(cleanValues.perception ?? []);
+    setCurrentPerceptionValue("");
+    setFunctionality(cleanValues.functionality ?? []);
+    setCurrentFunctionalityValue("");
+    setAccessibility(cleanValues.accessibility ?? []);
+    setCurrentAccessibilityValue("");
+    setContact(cleanValues.contact ?? []);
+    setCurrentContactValue("");
     setErrors({});
   };
   const [surveyResultRecord, setSurveyResultRecord] = React.useState(
@@ -181,6 +356,29 @@ export default function SurveyResultUpdateForm(props) {
     queryData();
   }, [idProp, surveyResultModelProp]);
   React.useEffect(resetStateValues, [surveyResultRecord]);
+  const [currentEatingdrinkingValue, setCurrentEatingdrinkingValue] =
+    React.useState("");
+  const eatingdrinkingRef = React.createRef();
+  const [currentNatureValue, setCurrentNatureValue] = React.useState("");
+  const natureRef = React.createRef();
+  const [currentCommunityValue, setCurrentCommunityValue] = React.useState("");
+  const communityRef = React.createRef();
+  const [currentWalkingValue, setCurrentWalkingValue] = React.useState("");
+  const walkingRef = React.createRef();
+  const [currentSightseeingValue, setCurrentSightseeingValue] =
+    React.useState("");
+  const sightseeingRef = React.createRef();
+  const [currentPerceptionValue, setCurrentPerceptionValue] =
+    React.useState("");
+  const perceptionRef = React.createRef();
+  const [currentFunctionalityValue, setCurrentFunctionalityValue] =
+    React.useState("");
+  const functionalityRef = React.createRef();
+  const [currentAccessibilityValue, setCurrentAccessibilityValue] =
+    React.useState("");
+  const accessibilityRef = React.createRef();
+  const [currentContactValue, setCurrentContactValue] = React.useState("");
+  const contactRef = React.createRef();
   const validations = {
     comfort1: [],
     comfort2: [],
@@ -2385,13 +2583,9 @@ export default function SurveyResultUpdateForm(props) {
         hasError={errors.depressing?.hasError}
         {...getOverrideProps(overrides, "depressing")}
       ></TextField>
-      <TextField
-        label="Eatingdrinking"
-        isRequired={false}
-        isReadOnly={false}
-        value={eatingdrinking}
-        onChange={(e) => {
-          let { value } = e.target;
+      <ArrayField
+        onChange={async (items) => {
+          let values = items;
           if (onChange) {
             const modelFields = {
               comfort1,
@@ -2426,7 +2620,7 @@ export default function SurveyResultUpdateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking: value,
+              eatingdrinking: values,
               nature,
               community,
               walking,
@@ -2437,25 +2631,48 @@ export default function SurveyResultUpdateForm(props) {
               contact,
             };
             const result = onChange(modelFields);
-            value = result?.eatingdrinking ?? value;
+            values = result?.eatingdrinking ?? values;
           }
-          if (errors.eatingdrinking?.hasError) {
-            runValidationTasks("eatingdrinking", value);
-          }
-          setEatingdrinking(value);
+          setEatingdrinking(values);
+          setCurrentEatingdrinkingValue("");
         }}
-        onBlur={() => runValidationTasks("eatingdrinking", eatingdrinking)}
-        errorMessage={errors.eatingdrinking?.errorMessage}
-        hasError={errors.eatingdrinking?.hasError}
-        {...getOverrideProps(overrides, "eatingdrinking")}
-      ></TextField>
-      <TextField
-        label="Nature"
-        isRequired={false}
-        isReadOnly={false}
-        value={nature}
-        onChange={(e) => {
-          let { value } = e.target;
+        currentFieldValue={currentEatingdrinkingValue}
+        label={"Eatingdrinking"}
+        items={eatingdrinking}
+        hasError={errors?.eatingdrinking?.hasError}
+        runValidationTasks={async () =>
+          await runValidationTasks("eatingdrinking", currentEatingdrinkingValue)
+        }
+        errorMessage={errors?.eatingdrinking?.errorMessage}
+        setFieldValue={setCurrentEatingdrinkingValue}
+        inputFieldRef={eatingdrinkingRef}
+        defaultFieldValue={""}
+      >
+        <TextField
+          label="Eatingdrinking"
+          isRequired={false}
+          isReadOnly={false}
+          value={currentEatingdrinkingValue}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (errors.eatingdrinking?.hasError) {
+              runValidationTasks("eatingdrinking", value);
+            }
+            setCurrentEatingdrinkingValue(value);
+          }}
+          onBlur={() =>
+            runValidationTasks("eatingdrinking", currentEatingdrinkingValue)
+          }
+          errorMessage={errors.eatingdrinking?.errorMessage}
+          hasError={errors.eatingdrinking?.hasError}
+          ref={eatingdrinkingRef}
+          labelHidden={true}
+          {...getOverrideProps(overrides, "eatingdrinking")}
+        ></TextField>
+      </ArrayField>
+      <ArrayField
+        onChange={async (items) => {
+          let values = items;
           if (onChange) {
             const modelFields = {
               comfort1,
@@ -2491,7 +2708,7 @@ export default function SurveyResultUpdateForm(props) {
               boring,
               depressing,
               eatingdrinking,
-              nature: value,
+              nature: values,
               community,
               walking,
               sightseeing,
@@ -2501,89 +2718,46 @@ export default function SurveyResultUpdateForm(props) {
               contact,
             };
             const result = onChange(modelFields);
-            value = result?.nature ?? value;
+            values = result?.nature ?? values;
           }
-          if (errors.nature?.hasError) {
-            runValidationTasks("nature", value);
-          }
-          setNature(value);
+          setNature(values);
+          setCurrentNatureValue("");
         }}
-        onBlur={() => runValidationTasks("nature", nature)}
-        errorMessage={errors.nature?.errorMessage}
-        hasError={errors.nature?.hasError}
-        {...getOverrideProps(overrides, "nature")}
-      ></TextField>
-      <TextField
-        label="Community"
-        isRequired={false}
-        isReadOnly={false}
-        value={community}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
-              humidity,
-              velocity,
-              traffic,
-              greenery,
-              shading,
-              material,
-              imageability,
-              enclosure,
-              humanscale,
-              transparency,
-              complexity,
-              safe,
-              lively,
-              beautiful,
-              wealthy,
-              boring,
-              depressing,
-              eatingdrinking,
-              nature,
-              community: value,
-              walking,
-              sightseeing,
-              perception,
-              functionality,
-              accessibility,
-              contact,
-            };
-            const result = onChange(modelFields);
-            value = result?.community ?? value;
-          }
-          if (errors.community?.hasError) {
-            runValidationTasks("community", value);
-          }
-          setCommunity(value);
-        }}
-        onBlur={() => runValidationTasks("community", community)}
-        errorMessage={errors.community?.errorMessage}
-        hasError={errors.community?.hasError}
-        {...getOverrideProps(overrides, "community")}
-      ></TextField>
-      <TextField
-        label="Walking"
-        isRequired={false}
-        isReadOnly={false}
-        value={walking}
-        onChange={(e) => {
-          let { value } = e.target;
+        currentFieldValue={currentNatureValue}
+        label={"Nature"}
+        items={nature}
+        hasError={errors?.nature?.hasError}
+        runValidationTasks={async () =>
+          await runValidationTasks("nature", currentNatureValue)
+        }
+        errorMessage={errors?.nature?.errorMessage}
+        setFieldValue={setCurrentNatureValue}
+        inputFieldRef={natureRef}
+        defaultFieldValue={""}
+      >
+        <TextField
+          label="Nature"
+          isRequired={false}
+          isReadOnly={false}
+          value={currentNatureValue}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (errors.nature?.hasError) {
+              runValidationTasks("nature", value);
+            }
+            setCurrentNatureValue(value);
+          }}
+          onBlur={() => runValidationTasks("nature", currentNatureValue)}
+          errorMessage={errors.nature?.errorMessage}
+          hasError={errors.nature?.hasError}
+          ref={natureRef}
+          labelHidden={true}
+          {...getOverrideProps(overrides, "nature")}
+        ></TextField>
+      </ArrayField>
+      <ArrayField
+        onChange={async (items) => {
+          let values = items;
           if (onChange) {
             const modelFields = {
               comfort1,
@@ -2620,8 +2794,8 @@ export default function SurveyResultUpdateForm(props) {
               depressing,
               eatingdrinking,
               nature,
-              community,
-              walking: value,
+              community: values,
+              walking,
               sightseeing,
               perception,
               functionality,
@@ -2629,25 +2803,46 @@ export default function SurveyResultUpdateForm(props) {
               contact,
             };
             const result = onChange(modelFields);
-            value = result?.walking ?? value;
+            values = result?.community ?? values;
           }
-          if (errors.walking?.hasError) {
-            runValidationTasks("walking", value);
-          }
-          setWalking(value);
+          setCommunity(values);
+          setCurrentCommunityValue("");
         }}
-        onBlur={() => runValidationTasks("walking", walking)}
-        errorMessage={errors.walking?.errorMessage}
-        hasError={errors.walking?.hasError}
-        {...getOverrideProps(overrides, "walking")}
-      ></TextField>
-      <TextField
-        label="Sightseeing"
-        isRequired={false}
-        isReadOnly={false}
-        value={sightseeing}
-        onChange={(e) => {
-          let { value } = e.target;
+        currentFieldValue={currentCommunityValue}
+        label={"Community"}
+        items={community}
+        hasError={errors?.community?.hasError}
+        runValidationTasks={async () =>
+          await runValidationTasks("community", currentCommunityValue)
+        }
+        errorMessage={errors?.community?.errorMessage}
+        setFieldValue={setCurrentCommunityValue}
+        inputFieldRef={communityRef}
+        defaultFieldValue={""}
+      >
+        <TextField
+          label="Community"
+          isRequired={false}
+          isReadOnly={false}
+          value={currentCommunityValue}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (errors.community?.hasError) {
+              runValidationTasks("community", value);
+            }
+            setCurrentCommunityValue(value);
+          }}
+          onBlur={() => runValidationTasks("community", currentCommunityValue)}
+          errorMessage={errors.community?.errorMessage}
+          hasError={errors.community?.hasError}
+          ref={communityRef}
+          labelHidden={true}
+          {...getOverrideProps(overrides, "community")}
+        ></TextField>
+      </ArrayField>
+      <ArrayField
+        onChange={async (items) => {
+          let values = items;
           if (onChange) {
             const modelFields = {
               comfort1,
@@ -2685,97 +2880,54 @@ export default function SurveyResultUpdateForm(props) {
               eatingdrinking,
               nature,
               community,
-              walking,
-              sightseeing: value,
+              walking: values,
+              sightseeing,
               perception,
               functionality,
               accessibility,
               contact,
             };
             const result = onChange(modelFields);
-            value = result?.sightseeing ?? value;
+            values = result?.walking ?? values;
           }
-          if (errors.sightseeing?.hasError) {
-            runValidationTasks("sightseeing", value);
-          }
-          setSightseeing(value);
+          setWalking(values);
+          setCurrentWalkingValue("");
         }}
-        onBlur={() => runValidationTasks("sightseeing", sightseeing)}
-        errorMessage={errors.sightseeing?.errorMessage}
-        hasError={errors.sightseeing?.hasError}
-        {...getOverrideProps(overrides, "sightseeing")}
-      ></TextField>
-      <TextField
-        label="Perception"
-        isRequired={false}
-        isReadOnly={false}
-        value={perception}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
-              humidity,
-              velocity,
-              traffic,
-              greenery,
-              shading,
-              material,
-              imageability,
-              enclosure,
-              humanscale,
-              transparency,
-              complexity,
-              safe,
-              lively,
-              beautiful,
-              wealthy,
-              boring,
-              depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception: value,
-              functionality,
-              accessibility,
-              contact,
-            };
-            const result = onChange(modelFields);
-            value = result?.perception ?? value;
-          }
-          if (errors.perception?.hasError) {
-            runValidationTasks("perception", value);
-          }
-          setPerception(value);
-        }}
-        onBlur={() => runValidationTasks("perception", perception)}
-        errorMessage={errors.perception?.errorMessage}
-        hasError={errors.perception?.hasError}
-        {...getOverrideProps(overrides, "perception")}
-      ></TextField>
-      <TextField
-        label="Functionality"
-        isRequired={false}
-        isReadOnly={false}
-        value={functionality}
-        onChange={(e) => {
-          let { value } = e.target;
+        currentFieldValue={currentWalkingValue}
+        label={"Walking"}
+        items={walking}
+        hasError={errors?.walking?.hasError}
+        runValidationTasks={async () =>
+          await runValidationTasks("walking", currentWalkingValue)
+        }
+        errorMessage={errors?.walking?.errorMessage}
+        setFieldValue={setCurrentWalkingValue}
+        inputFieldRef={walkingRef}
+        defaultFieldValue={""}
+      >
+        <TextField
+          label="Walking"
+          isRequired={false}
+          isReadOnly={false}
+          value={currentWalkingValue}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (errors.walking?.hasError) {
+              runValidationTasks("walking", value);
+            }
+            setCurrentWalkingValue(value);
+          }}
+          onBlur={() => runValidationTasks("walking", currentWalkingValue)}
+          errorMessage={errors.walking?.errorMessage}
+          hasError={errors.walking?.hasError}
+          ref={walkingRef}
+          labelHidden={true}
+          {...getOverrideProps(overrides, "walking")}
+        ></TextField>
+      </ArrayField>
+      <ArrayField
+        onChange={async (items) => {
+          let values = items;
           if (onChange) {
             const modelFields = {
               comfort1,
@@ -2814,32 +2966,55 @@ export default function SurveyResultUpdateForm(props) {
               nature,
               community,
               walking,
-              sightseeing,
+              sightseeing: values,
               perception,
-              functionality: value,
+              functionality,
               accessibility,
               contact,
             };
             const result = onChange(modelFields);
-            value = result?.functionality ?? value;
+            values = result?.sightseeing ?? values;
           }
-          if (errors.functionality?.hasError) {
-            runValidationTasks("functionality", value);
-          }
-          setFunctionality(value);
+          setSightseeing(values);
+          setCurrentSightseeingValue("");
         }}
-        onBlur={() => runValidationTasks("functionality", functionality)}
-        errorMessage={errors.functionality?.errorMessage}
-        hasError={errors.functionality?.hasError}
-        {...getOverrideProps(overrides, "functionality")}
-      ></TextField>
-      <TextField
-        label="Accessibility"
-        isRequired={false}
-        isReadOnly={false}
-        value={accessibility}
-        onChange={(e) => {
-          let { value } = e.target;
+        currentFieldValue={currentSightseeingValue}
+        label={"Sightseeing"}
+        items={sightseeing}
+        hasError={errors?.sightseeing?.hasError}
+        runValidationTasks={async () =>
+          await runValidationTasks("sightseeing", currentSightseeingValue)
+        }
+        errorMessage={errors?.sightseeing?.errorMessage}
+        setFieldValue={setCurrentSightseeingValue}
+        inputFieldRef={sightseeingRef}
+        defaultFieldValue={""}
+      >
+        <TextField
+          label="Sightseeing"
+          isRequired={false}
+          isReadOnly={false}
+          value={currentSightseeingValue}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (errors.sightseeing?.hasError) {
+              runValidationTasks("sightseeing", value);
+            }
+            setCurrentSightseeingValue(value);
+          }}
+          onBlur={() =>
+            runValidationTasks("sightseeing", currentSightseeingValue)
+          }
+          errorMessage={errors.sightseeing?.errorMessage}
+          hasError={errors.sightseeing?.hasError}
+          ref={sightseeingRef}
+          labelHidden={true}
+          {...getOverrideProps(overrides, "sightseeing")}
+        ></TextField>
+      </ArrayField>
+      <ArrayField
+        onChange={async (items) => {
+          let values = items;
           if (onChange) {
             const modelFields = {
               comfort1,
@@ -2879,31 +3054,228 @@ export default function SurveyResultUpdateForm(props) {
               community,
               walking,
               sightseeing,
-              perception,
+              perception: values,
               functionality,
-              accessibility: value,
+              accessibility,
               contact,
             };
             const result = onChange(modelFields);
-            value = result?.accessibility ?? value;
+            values = result?.perception ?? values;
           }
-          if (errors.accessibility?.hasError) {
-            runValidationTasks("accessibility", value);
-          }
-          setAccessibility(value);
+          setPerception(values);
+          setCurrentPerceptionValue("");
         }}
-        onBlur={() => runValidationTasks("accessibility", accessibility)}
-        errorMessage={errors.accessibility?.errorMessage}
-        hasError={errors.accessibility?.hasError}
-        {...getOverrideProps(overrides, "accessibility")}
-      ></TextField>
-      <TextField
-        label="Contact"
-        isRequired={false}
-        isReadOnly={false}
-        value={contact}
-        onChange={(e) => {
-          let { value } = e.target;
+        currentFieldValue={currentPerceptionValue}
+        label={"Perception"}
+        items={perception}
+        hasError={errors?.perception?.hasError}
+        runValidationTasks={async () =>
+          await runValidationTasks("perception", currentPerceptionValue)
+        }
+        errorMessage={errors?.perception?.errorMessage}
+        setFieldValue={setCurrentPerceptionValue}
+        inputFieldRef={perceptionRef}
+        defaultFieldValue={""}
+      >
+        <TextField
+          label="Perception"
+          isRequired={false}
+          isReadOnly={false}
+          value={currentPerceptionValue}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (errors.perception?.hasError) {
+              runValidationTasks("perception", value);
+            }
+            setCurrentPerceptionValue(value);
+          }}
+          onBlur={() =>
+            runValidationTasks("perception", currentPerceptionValue)
+          }
+          errorMessage={errors.perception?.errorMessage}
+          hasError={errors.perception?.hasError}
+          ref={perceptionRef}
+          labelHidden={true}
+          {...getOverrideProps(overrides, "perception")}
+        ></TextField>
+      </ArrayField>
+      <ArrayField
+        onChange={async (items) => {
+          let values = items;
+          if (onChange) {
+            const modelFields = {
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality: values,
+              accessibility,
+              contact,
+            };
+            const result = onChange(modelFields);
+            values = result?.functionality ?? values;
+          }
+          setFunctionality(values);
+          setCurrentFunctionalityValue("");
+        }}
+        currentFieldValue={currentFunctionalityValue}
+        label={"Functionality"}
+        items={functionality}
+        hasError={errors?.functionality?.hasError}
+        runValidationTasks={async () =>
+          await runValidationTasks("functionality", currentFunctionalityValue)
+        }
+        errorMessage={errors?.functionality?.errorMessage}
+        setFieldValue={setCurrentFunctionalityValue}
+        inputFieldRef={functionalityRef}
+        defaultFieldValue={""}
+      >
+        <TextField
+          label="Functionality"
+          isRequired={false}
+          isReadOnly={false}
+          value={currentFunctionalityValue}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (errors.functionality?.hasError) {
+              runValidationTasks("functionality", value);
+            }
+            setCurrentFunctionalityValue(value);
+          }}
+          onBlur={() =>
+            runValidationTasks("functionality", currentFunctionalityValue)
+          }
+          errorMessage={errors.functionality?.errorMessage}
+          hasError={errors.functionality?.hasError}
+          ref={functionalityRef}
+          labelHidden={true}
+          {...getOverrideProps(overrides, "functionality")}
+        ></TextField>
+      </ArrayField>
+      <ArrayField
+        onChange={async (items) => {
+          let values = items;
+          if (onChange) {
+            const modelFields = {
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility: values,
+              contact,
+            };
+            const result = onChange(modelFields);
+            values = result?.accessibility ?? values;
+          }
+          setAccessibility(values);
+          setCurrentAccessibilityValue("");
+        }}
+        currentFieldValue={currentAccessibilityValue}
+        label={"Accessibility"}
+        items={accessibility}
+        hasError={errors?.accessibility?.hasError}
+        runValidationTasks={async () =>
+          await runValidationTasks("accessibility", currentAccessibilityValue)
+        }
+        errorMessage={errors?.accessibility?.errorMessage}
+        setFieldValue={setCurrentAccessibilityValue}
+        inputFieldRef={accessibilityRef}
+        defaultFieldValue={""}
+      >
+        <TextField
+          label="Accessibility"
+          isRequired={false}
+          isReadOnly={false}
+          value={currentAccessibilityValue}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (errors.accessibility?.hasError) {
+              runValidationTasks("accessibility", value);
+            }
+            setCurrentAccessibilityValue(value);
+          }}
+          onBlur={() =>
+            runValidationTasks("accessibility", currentAccessibilityValue)
+          }
+          errorMessage={errors.accessibility?.errorMessage}
+          hasError={errors.accessibility?.hasError}
+          ref={accessibilityRef}
+          labelHidden={true}
+          {...getOverrideProps(overrides, "accessibility")}
+        ></TextField>
+      </ArrayField>
+      <ArrayField
+        onChange={async (items) => {
+          let values = items;
           if (onChange) {
             const modelFields = {
               comfort1,
@@ -2946,21 +3318,46 @@ export default function SurveyResultUpdateForm(props) {
               perception,
               functionality,
               accessibility,
-              contact: value,
+              contact: values,
             };
             const result = onChange(modelFields);
-            value = result?.contact ?? value;
+            values = result?.contact ?? values;
           }
-          if (errors.contact?.hasError) {
-            runValidationTasks("contact", value);
-          }
-          setContact(value);
+          setContact(values);
+          setCurrentContactValue("");
         }}
-        onBlur={() => runValidationTasks("contact", contact)}
-        errorMessage={errors.contact?.errorMessage}
-        hasError={errors.contact?.hasError}
-        {...getOverrideProps(overrides, "contact")}
-      ></TextField>
+        currentFieldValue={currentContactValue}
+        label={"Contact"}
+        items={contact}
+        hasError={errors?.contact?.hasError}
+        runValidationTasks={async () =>
+          await runValidationTasks("contact", currentContactValue)
+        }
+        errorMessage={errors?.contact?.errorMessage}
+        setFieldValue={setCurrentContactValue}
+        inputFieldRef={contactRef}
+        defaultFieldValue={""}
+      >
+        <TextField
+          label="Contact"
+          isRequired={false}
+          isReadOnly={false}
+          value={currentContactValue}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (errors.contact?.hasError) {
+              runValidationTasks("contact", value);
+            }
+            setCurrentContactValue(value);
+          }}
+          onBlur={() => runValidationTasks("contact", currentContactValue)}
+          errorMessage={errors.contact?.errorMessage}
+          hasError={errors.contact?.hasError}
+          ref={contactRef}
+          labelHidden={true}
+          {...getOverrideProps(overrides, "contact")}
+        ></TextField>
+      </ArrayField>
       <Flex
         justifyContent="space-between"
         {...getOverrideProps(overrides, "CTAFlex")}

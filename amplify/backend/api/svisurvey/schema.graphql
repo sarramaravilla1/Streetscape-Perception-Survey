@@ -32,14 +32,14 @@ type SurveyResult @model @auth(rules: [{allow: public}]) {
   wealthy: String
   boring: String
   depressing: String
-  eatingdrinking: String
-  nature: String
-  community: String
-  walking: String
-  sightseeing: String
-  perception: String
-  functionality: String
-  accessibility: String
-  contact: String
+  eatingdrinking: [String]
+  nature: [String]
+  community: [String]
+  walking: [String]
+  sightseeing: [String]
+  perception: [String]
+  functionality: [String]
+  accessibility: [String]
+  contact: [String]
 }
  
