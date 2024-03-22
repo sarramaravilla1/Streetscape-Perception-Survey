@@ -1,5 +1,6 @@
 {
   "AppSyncApiName": "svisurvey",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthModeLastUpdated": "2024-03-22T02:42:00.664Z"
 }

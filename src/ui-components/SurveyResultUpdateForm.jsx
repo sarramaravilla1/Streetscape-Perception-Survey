@@ -23,90 +23,149 @@ export default function SurveyResultUpdateForm(props) {
     ...rest
   } = props;
   const initialValues = {
-    question1: "",
-    question2: "",
-    question3: "",
-    question4: "",
-    question5: "",
-    question6: "",
-    question7: "",
-    question8: "",
-    question9: "",
-    question10: "",
-    question11: "",
-    question12: "",
-    question13: "",
-    question14: "",
-    question15: "",
-    question16: "",
-    question17: "",
-    question18: "",
-    question19: "",
-    question20: "",
-    question21: "",
-    question22: "",
-    question23: "",
-    question24: "",
-    question25: "",
-    question26: "",
+    comfort1: "",
+    comfort2: "",
+    comfort3: "",
+    comfort4: "",
+    comfort5: "",
+    comfort6: "",
+    comfort7: "",
+    comfort8: "",
+    comfort9: "",
+    comfort10: "",
+    comfort11: "",
+    comfort12: "",
+    temp: "",
+    intensity: "",
+    heatsources: "",
+    humidity: "",
+    velocity: "",
+    traffic: "",
+    greenery: "",
+    shading: "",
+    material: "",
+    imageability: "",
+    enclosure: "",
+    humanscale: "",
+    transparency: "",
+    complexity: "",
+    safe: "",
+    lively: "",
+    beautiful: "",
+    wealthy: "",
+    boring: "",
+    depressing: "",
+    eatingdrinking: "",
+    nature: "",
+    community: "",
+    walking: "",
+    sightseeing: "",
+    perception: "",
+    functionality: "",
+    accessibility: "",
+    contact: "",
   };
-  const [question1, setQuestion1] = React.useState(initialValues.question1);
-  const [question2, setQuestion2] = React.useState(initialValues.question2);
-  const [question3, setQuestion3] = React.useState(initialValues.question3);
-  const [question4, setQuestion4] = React.useState(initialValues.question4);
-  const [question5, setQuestion5] = React.useState(initialValues.question5);
-  const [question6, setQuestion6] = React.useState(initialValues.question6);
-  const [question7, setQuestion7] = React.useState(initialValues.question7);
-  const [question8, setQuestion8] = React.useState(initialValues.question8);
-  const [question9, setQuestion9] = React.useState(initialValues.question9);
-  const [question10, setQuestion10] = React.useState(initialValues.question10);
-  const [question11, setQuestion11] = React.useState(initialValues.question11);
-  const [question12, setQuestion12] = React.useState(initialValues.question12);
-  const [question13, setQuestion13] = React.useState(initialValues.question13);
-  const [question14, setQuestion14] = React.useState(initialValues.question14);
-  const [question15, setQuestion15] = React.useState(initialValues.question15);
-  const [question16, setQuestion16] = React.useState(initialValues.question16);
-  const [question17, setQuestion17] = React.useState(initialValues.question17);
-  const [question18, setQuestion18] = React.useState(initialValues.question18);
-  const [question19, setQuestion19] = React.useState(initialValues.question19);
-  const [question20, setQuestion20] = React.useState(initialValues.question20);
-  const [question21, setQuestion21] = React.useState(initialValues.question21);
-  const [question22, setQuestion22] = React.useState(initialValues.question22);
-  const [question23, setQuestion23] = React.useState(initialValues.question23);
-  const [question24, setQuestion24] = React.useState(initialValues.question24);
-  const [question25, setQuestion25] = React.useState(initialValues.question25);
-  const [question26, setQuestion26] = React.useState(initialValues.question26);
+  const [comfort1, setComfort1] = React.useState(initialValues.comfort1);
+  const [comfort2, setComfort2] = React.useState(initialValues.comfort2);
+  const [comfort3, setComfort3] = React.useState(initialValues.comfort3);
+  const [comfort4, setComfort4] = React.useState(initialValues.comfort4);
+  const [comfort5, setComfort5] = React.useState(initialValues.comfort5);
+  const [comfort6, setComfort6] = React.useState(initialValues.comfort6);
+  const [comfort7, setComfort7] = React.useState(initialValues.comfort7);
+  const [comfort8, setComfort8] = React.useState(initialValues.comfort8);
+  const [comfort9, setComfort9] = React.useState(initialValues.comfort9);
+  const [comfort10, setComfort10] = React.useState(initialValues.comfort10);
+  const [comfort11, setComfort11] = React.useState(initialValues.comfort11);
+  const [comfort12, setComfort12] = React.useState(initialValues.comfort12);
+  const [temp, setTemp] = React.useState(initialValues.temp);
+  const [intensity, setIntensity] = React.useState(initialValues.intensity);
+  const [heatsources, setHeatsources] = React.useState(
+    initialValues.heatsources
+  );
+  const [humidity, setHumidity] = React.useState(initialValues.humidity);
+  const [velocity, setVelocity] = React.useState(initialValues.velocity);
+  const [traffic, setTraffic] = React.useState(initialValues.traffic);
+  const [greenery, setGreenery] = React.useState(initialValues.greenery);
+  const [shading, setShading] = React.useState(initialValues.shading);
+  const [material, setMaterial] = React.useState(initialValues.material);
+  const [imageability, setImageability] = React.useState(
+    initialValues.imageability
+  );
+  const [enclosure, setEnclosure] = React.useState(initialValues.enclosure);
+  const [humanscale, setHumanscale] = React.useState(initialValues.humanscale);
+  const [transparency, setTransparency] = React.useState(
+    initialValues.transparency
+  );
+  const [complexity, setComplexity] = React.useState(initialValues.complexity);
+  const [safe, setSafe] = React.useState(initialValues.safe);
+  const [lively, setLively] = React.useState(initialValues.lively);
+  const [beautiful, setBeautiful] = React.useState(initialValues.beautiful);
+  const [wealthy, setWealthy] = React.useState(initialValues.wealthy);
+  const [boring, setBoring] = React.useState(initialValues.boring);
+  const [depressing, setDepressing] = React.useState(initialValues.depressing);
+  const [eatingdrinking, setEatingdrinking] = React.useState(
+    initialValues.eatingdrinking
+  );
+  const [nature, setNature] = React.useState(initialValues.nature);
+  const [community, setCommunity] = React.useState(initialValues.community);
+  const [walking, setWalking] = React.useState(initialValues.walking);
+  const [sightseeing, setSightseeing] = React.useState(
+    initialValues.sightseeing
+  );
+  const [perception, setPerception] = React.useState(initialValues.perception);
+  const [functionality, setFunctionality] = React.useState(
+    initialValues.functionality
+  );
+  const [accessibility, setAccessibility] = React.useState(
+    initialValues.accessibility
+  );
+  const [contact, setContact] = React.useState(initialValues.contact);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     const cleanValues = surveyResultRecord
       ? { ...initialValues, ...surveyResultRecord }
       : initialValues;
-    setQuestion1(cleanValues.question1);
-    setQuestion2(cleanValues.question2);
-    setQuestion3(cleanValues.question3);
-    setQuestion4(cleanValues.question4);
-    setQuestion5(cleanValues.question5);
-    setQuestion6(cleanValues.question6);
-    setQuestion7(cleanValues.question7);
-    setQuestion8(cleanValues.question8);
-    setQuestion9(cleanValues.question9);
-    setQuestion10(cleanValues.question10);
-    setQuestion11(cleanValues.question11);
-    setQuestion12(cleanValues.question12);
-    setQuestion13(cleanValues.question13);
-    setQuestion14(cleanValues.question14);
-    setQuestion15(cleanValues.question15);
-    setQuestion16(cleanValues.question16);
-    setQuestion17(cleanValues.question17);
-    setQuestion18(cleanValues.question18);
-    setQuestion19(cleanValues.question19);
-    setQuestion20(cleanValues.question20);
-    setQuestion21(cleanValues.question21);
-    setQuestion22(cleanValues.question22);
-    setQuestion23(cleanValues.question23);
-    setQuestion24(cleanValues.question24);
-    setQuestion25(cleanValues.question25);
-    setQuestion26(cleanValues.question26);
+    setComfort1(cleanValues.comfort1);
+    setComfort2(cleanValues.comfort2);
+    setComfort3(cleanValues.comfort3);
+    setComfort4(cleanValues.comfort4);
+    setComfort5(cleanValues.comfort5);
+    setComfort6(cleanValues.comfort6);
+    setComfort7(cleanValues.comfort7);
+    setComfort8(cleanValues.comfort8);
+    setComfort9(cleanValues.comfort9);
+    setComfort10(cleanValues.comfort10);
+    setComfort11(cleanValues.comfort11);
+    setComfort12(cleanValues.comfort12);
+    setTemp(cleanValues.temp);
+    setIntensity(cleanValues.intensity);
+    setHeatsources(cleanValues.heatsources);
+    setHumidity(cleanValues.humidity);
+    setVelocity(cleanValues.velocity);
+    setTraffic(cleanValues.traffic);
+    setGreenery(cleanValues.greenery);
+    setShading(cleanValues.shading);
+    setMaterial(cleanValues.material);
+    setImageability(cleanValues.imageability);
+    setEnclosure(cleanValues.enclosure);
+    setHumanscale(cleanValues.humanscale);
+    setTransparency(cleanValues.transparency);
+    setComplexity(cleanValues.complexity);
+    setSafe(cleanValues.safe);
+    setLively(cleanValues.lively);
+    setBeautiful(cleanValues.beautiful);
+    setWealthy(cleanValues.wealthy);
+    setBoring(cleanValues.boring);
+    setDepressing(cleanValues.depressing);
+    setEatingdrinking(cleanValues.eatingdrinking);
+    setNature(cleanValues.nature);
+    setCommunity(cleanValues.community);
+    setWalking(cleanValues.walking);
+    setSightseeing(cleanValues.sightseeing);
+    setPerception(cleanValues.perception);
+    setFunctionality(cleanValues.functionality);
+    setAccessibility(cleanValues.accessibility);
+    setContact(cleanValues.contact);
     setErrors({});
   };
   const [surveyResultRecord, setSurveyResultRecord] = React.useState(
@@ -123,32 +182,47 @@ export default function SurveyResultUpdateForm(props) {
   }, [idProp, surveyResultModelProp]);
   React.useEffect(resetStateValues, [surveyResultRecord]);
   const validations = {
-    question1: [],
-    question2: [],
-    question3: [],
-    question4: [],
-    question5: [],
-    question6: [],
-    question7: [],
-    question8: [],
-    question9: [],
-    question10: [],
-    question11: [],
-    question12: [],
-    question13: [],
-    question14: [],
-    question15: [],
-    question16: [],
-    question17: [],
-    question18: [],
-    question19: [],
-    question20: [],
-    question21: [],
-    question22: [],
-    question23: [],
-    question24: [],
-    question25: [],
-    question26: [],
+    comfort1: [],
+    comfort2: [],
+    comfort3: [],
+    comfort4: [],
+    comfort5: [],
+    comfort6: [],
+    comfort7: [],
+    comfort8: [],
+    comfort9: [],
+    comfort10: [],
+    comfort11: [],
+    comfort12: [],
+    temp: [],
+    intensity: [],
+    heatsources: [],
+    humidity: [],
+    velocity: [],
+    traffic: [],
+    greenery: [],
+    shading: [],
+    material: [],
+    imageability: [],
+    enclosure: [],
+    humanscale: [],
+    transparency: [],
+    complexity: [],
+    safe: [],
+    lively: [],
+    beautiful: [],
+    wealthy: [],
+    boring: [],
+    depressing: [],
+    eatingdrinking: [],
+    nature: [],
+    community: [],
+    walking: [],
+    sightseeing: [],
+    perception: [],
+    functionality: [],
+    accessibility: [],
+    contact: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -176,32 +250,47 @@ export default function SurveyResultUpdateForm(props) {
       onSubmit={async (event) => {
         event.preventDefault();
         let modelFields = {
-          question1,
-          question2,
-          question3,
-          question4,
-          question5,
-          question6,
-          question7,
-          question8,
-          question9,
-          question10,
-          question11,
-          question12,
-          question13,
-          question14,
-          question15,
-          question16,
-          question17,
-          question18,
-          question19,
-          question20,
-          question21,
-          question22,
-          question23,
-          question24,
-          question25,
-          question26,
+          comfort1,
+          comfort2,
+          comfort3,
+          comfort4,
+          comfort5,
+          comfort6,
+          comfort7,
+          comfort8,
+          comfort9,
+          comfort10,
+          comfort11,
+          comfort12,
+          temp,
+          intensity,
+          heatsources,
+          humidity,
+          velocity,
+          traffic,
+          greenery,
+          shading,
+          material,
+          imageability,
+          enclosure,
+          humanscale,
+          transparency,
+          complexity,
+          safe,
+          lively,
+          beautiful,
+          wealthy,
+          boring,
+          depressing,
+          eatingdrinking,
+          nature,
+          community,
+          walking,
+          sightseeing,
+          perception,
+          functionality,
+          accessibility,
+          contact,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -249,1278 +338,2628 @@ export default function SurveyResultUpdateForm(props) {
       {...rest}
     >
       <TextField
-        label="Question1"
+        label="Comfort1"
         isRequired={false}
         isReadOnly={false}
-        value={question1}
+        value={comfort1}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              question1: value,
-              question2,
-              question3,
-              question4,
-              question5,
-              question6,
-              question7,
-              question8,
-              question9,
-              question10,
-              question11,
-              question12,
-              question13,
-              question14,
-              question15,
-              question16,
-              question17,
-              question18,
-              question19,
-              question20,
-              question21,
-              question22,
-              question23,
-              question24,
-              question25,
-              question26,
+              comfort1: value,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
             };
             const result = onChange(modelFields);
-            value = result?.question1 ?? value;
+            value = result?.comfort1 ?? value;
           }
-          if (errors.question1?.hasError) {
-            runValidationTasks("question1", value);
+          if (errors.comfort1?.hasError) {
+            runValidationTasks("comfort1", value);
           }
-          setQuestion1(value);
+          setComfort1(value);
         }}
-        onBlur={() => runValidationTasks("question1", question1)}
-        errorMessage={errors.question1?.errorMessage}
-        hasError={errors.question1?.hasError}
-        {...getOverrideProps(overrides, "question1")}
+        onBlur={() => runValidationTasks("comfort1", comfort1)}
+        errorMessage={errors.comfort1?.errorMessage}
+        hasError={errors.comfort1?.hasError}
+        {...getOverrideProps(overrides, "comfort1")}
       ></TextField>
       <TextField
-        label="Question2"
+        label="Comfort2"
         isRequired={false}
         isReadOnly={false}
-        value={question2}
+        value={comfort2}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              question1,
-              question2: value,
-              question3,
-              question4,
-              question5,
-              question6,
-              question7,
-              question8,
-              question9,
-              question10,
-              question11,
-              question12,
-              question13,
-              question14,
-              question15,
-              question16,
-              question17,
-              question18,
-              question19,
-              question20,
-              question21,
-              question22,
-              question23,
-              question24,
-              question25,
-              question26,
+              comfort1,
+              comfort2: value,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
             };
             const result = onChange(modelFields);
-            value = result?.question2 ?? value;
+            value = result?.comfort2 ?? value;
           }
-          if (errors.question2?.hasError) {
-            runValidationTasks("question2", value);
+          if (errors.comfort2?.hasError) {
+            runValidationTasks("comfort2", value);
           }
-          setQuestion2(value);
+          setComfort2(value);
         }}
-        onBlur={() => runValidationTasks("question2", question2)}
-        errorMessage={errors.question2?.errorMessage}
-        hasError={errors.question2?.hasError}
-        {...getOverrideProps(overrides, "question2")}
+        onBlur={() => runValidationTasks("comfort2", comfort2)}
+        errorMessage={errors.comfort2?.errorMessage}
+        hasError={errors.comfort2?.hasError}
+        {...getOverrideProps(overrides, "comfort2")}
       ></TextField>
       <TextField
-        label="Question3"
+        label="Comfort3"
         isRequired={false}
         isReadOnly={false}
-        value={question3}
+        value={comfort3}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              question1,
-              question2,
-              question3: value,
-              question4,
-              question5,
-              question6,
-              question7,
-              question8,
-              question9,
-              question10,
-              question11,
-              question12,
-              question13,
-              question14,
-              question15,
-              question16,
-              question17,
-              question18,
-              question19,
-              question20,
-              question21,
-              question22,
-              question23,
-              question24,
-              question25,
-              question26,
+              comfort1,
+              comfort2,
+              comfort3: value,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
             };
             const result = onChange(modelFields);
-            value = result?.question3 ?? value;
+            value = result?.comfort3 ?? value;
           }
-          if (errors.question3?.hasError) {
-            runValidationTasks("question3", value);
+          if (errors.comfort3?.hasError) {
+            runValidationTasks("comfort3", value);
           }
-          setQuestion3(value);
+          setComfort3(value);
         }}
-        onBlur={() => runValidationTasks("question3", question3)}
-        errorMessage={errors.question3?.errorMessage}
-        hasError={errors.question3?.hasError}
-        {...getOverrideProps(overrides, "question3")}
+        onBlur={() => runValidationTasks("comfort3", comfort3)}
+        errorMessage={errors.comfort3?.errorMessage}
+        hasError={errors.comfort3?.hasError}
+        {...getOverrideProps(overrides, "comfort3")}
       ></TextField>
       <TextField
-        label="Question4"
+        label="Comfort4"
         isRequired={false}
         isReadOnly={false}
-        value={question4}
+        value={comfort4}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              question1,
-              question2,
-              question3,
-              question4: value,
-              question5,
-              question6,
-              question7,
-              question8,
-              question9,
-              question10,
-              question11,
-              question12,
-              question13,
-              question14,
-              question15,
-              question16,
-              question17,
-              question18,
-              question19,
-              question20,
-              question21,
-              question22,
-              question23,
-              question24,
-              question25,
-              question26,
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4: value,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
             };
             const result = onChange(modelFields);
-            value = result?.question4 ?? value;
+            value = result?.comfort4 ?? value;
           }
-          if (errors.question4?.hasError) {
-            runValidationTasks("question4", value);
+          if (errors.comfort4?.hasError) {
+            runValidationTasks("comfort4", value);
           }
-          setQuestion4(value);
+          setComfort4(value);
         }}
-        onBlur={() => runValidationTasks("question4", question4)}
-        errorMessage={errors.question4?.errorMessage}
-        hasError={errors.question4?.hasError}
-        {...getOverrideProps(overrides, "question4")}
+        onBlur={() => runValidationTasks("comfort4", comfort4)}
+        errorMessage={errors.comfort4?.errorMessage}
+        hasError={errors.comfort4?.hasError}
+        {...getOverrideProps(overrides, "comfort4")}
       ></TextField>
       <TextField
-        label="Question5"
+        label="Comfort5"
         isRequired={false}
         isReadOnly={false}
-        value={question5}
+        value={comfort5}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              question1,
-              question2,
-              question3,
-              question4,
-              question5: value,
-              question6,
-              question7,
-              question8,
-              question9,
-              question10,
-              question11,
-              question12,
-              question13,
-              question14,
-              question15,
-              question16,
-              question17,
-              question18,
-              question19,
-              question20,
-              question21,
-              question22,
-              question23,
-              question24,
-              question25,
-              question26,
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5: value,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
             };
             const result = onChange(modelFields);
-            value = result?.question5 ?? value;
+            value = result?.comfort5 ?? value;
           }
-          if (errors.question5?.hasError) {
-            runValidationTasks("question5", value);
+          if (errors.comfort5?.hasError) {
+            runValidationTasks("comfort5", value);
           }
-          setQuestion5(value);
+          setComfort5(value);
         }}
-        onBlur={() => runValidationTasks("question5", question5)}
-        errorMessage={errors.question5?.errorMessage}
-        hasError={errors.question5?.hasError}
-        {...getOverrideProps(overrides, "question5")}
+        onBlur={() => runValidationTasks("comfort5", comfort5)}
+        errorMessage={errors.comfort5?.errorMessage}
+        hasError={errors.comfort5?.hasError}
+        {...getOverrideProps(overrides, "comfort5")}
       ></TextField>
       <TextField
-        label="Question6"
+        label="Comfort6"
         isRequired={false}
         isReadOnly={false}
-        value={question6}
+        value={comfort6}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              question1,
-              question2,
-              question3,
-              question4,
-              question5,
-              question6: value,
-              question7,
-              question8,
-              question9,
-              question10,
-              question11,
-              question12,
-              question13,
-              question14,
-              question15,
-              question16,
-              question17,
-              question18,
-              question19,
-              question20,
-              question21,
-              question22,
-              question23,
-              question24,
-              question25,
-              question26,
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6: value,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
             };
             const result = onChange(modelFields);
-            value = result?.question6 ?? value;
+            value = result?.comfort6 ?? value;
           }
-          if (errors.question6?.hasError) {
-            runValidationTasks("question6", value);
+          if (errors.comfort6?.hasError) {
+            runValidationTasks("comfort6", value);
           }
-          setQuestion6(value);
+          setComfort6(value);
         }}
-        onBlur={() => runValidationTasks("question6", question6)}
-        errorMessage={errors.question6?.errorMessage}
-        hasError={errors.question6?.hasError}
-        {...getOverrideProps(overrides, "question6")}
+        onBlur={() => runValidationTasks("comfort6", comfort6)}
+        errorMessage={errors.comfort6?.errorMessage}
+        hasError={errors.comfort6?.hasError}
+        {...getOverrideProps(overrides, "comfort6")}
       ></TextField>
       <TextField
-        label="Question7"
+        label="Comfort7"
         isRequired={false}
         isReadOnly={false}
-        value={question7}
+        value={comfort7}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              question1,
-              question2,
-              question3,
-              question4,
-              question5,
-              question6,
-              question7: value,
-              question8,
-              question9,
-              question10,
-              question11,
-              question12,
-              question13,
-              question14,
-              question15,
-              question16,
-              question17,
-              question18,
-              question19,
-              question20,
-              question21,
-              question22,
-              question23,
-              question24,
-              question25,
-              question26,
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7: value,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
             };
             const result = onChange(modelFields);
-            value = result?.question7 ?? value;
+            value = result?.comfort7 ?? value;
           }
-          if (errors.question7?.hasError) {
-            runValidationTasks("question7", value);
+          if (errors.comfort7?.hasError) {
+            runValidationTasks("comfort7", value);
           }
-          setQuestion7(value);
+          setComfort7(value);
         }}
-        onBlur={() => runValidationTasks("question7", question7)}
-        errorMessage={errors.question7?.errorMessage}
-        hasError={errors.question7?.hasError}
-        {...getOverrideProps(overrides, "question7")}
+        onBlur={() => runValidationTasks("comfort7", comfort7)}
+        errorMessage={errors.comfort7?.errorMessage}
+        hasError={errors.comfort7?.hasError}
+        {...getOverrideProps(overrides, "comfort7")}
       ></TextField>
       <TextField
-        label="Question8"
+        label="Comfort8"
         isRequired={false}
         isReadOnly={false}
-        value={question8}
+        value={comfort8}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              question1,
-              question2,
-              question3,
-              question4,
-              question5,
-              question6,
-              question7,
-              question8: value,
-              question9,
-              question10,
-              question11,
-              question12,
-              question13,
-              question14,
-              question15,
-              question16,
-              question17,
-              question18,
-              question19,
-              question20,
-              question21,
-              question22,
-              question23,
-              question24,
-              question25,
-              question26,
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8: value,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
             };
             const result = onChange(modelFields);
-            value = result?.question8 ?? value;
+            value = result?.comfort8 ?? value;
           }
-          if (errors.question8?.hasError) {
-            runValidationTasks("question8", value);
+          if (errors.comfort8?.hasError) {
+            runValidationTasks("comfort8", value);
           }
-          setQuestion8(value);
+          setComfort8(value);
         }}
-        onBlur={() => runValidationTasks("question8", question8)}
-        errorMessage={errors.question8?.errorMessage}
-        hasError={errors.question8?.hasError}
-        {...getOverrideProps(overrides, "question8")}
+        onBlur={() => runValidationTasks("comfort8", comfort8)}
+        errorMessage={errors.comfort8?.errorMessage}
+        hasError={errors.comfort8?.hasError}
+        {...getOverrideProps(overrides, "comfort8")}
       ></TextField>
       <TextField
-        label="Question9"
+        label="Comfort9"
         isRequired={false}
         isReadOnly={false}
-        value={question9}
+        value={comfort9}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              question1,
-              question2,
-              question3,
-              question4,
-              question5,
-              question6,
-              question7,
-              question8,
-              question9: value,
-              question10,
-              question11,
-              question12,
-              question13,
-              question14,
-              question15,
-              question16,
-              question17,
-              question18,
-              question19,
-              question20,
-              question21,
-              question22,
-              question23,
-              question24,
-              question25,
-              question26,
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9: value,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
             };
             const result = onChange(modelFields);
-            value = result?.question9 ?? value;
+            value = result?.comfort9 ?? value;
           }
-          if (errors.question9?.hasError) {
-            runValidationTasks("question9", value);
+          if (errors.comfort9?.hasError) {
+            runValidationTasks("comfort9", value);
           }
-          setQuestion9(value);
+          setComfort9(value);
         }}
-        onBlur={() => runValidationTasks("question9", question9)}
-        errorMessage={errors.question9?.errorMessage}
-        hasError={errors.question9?.hasError}
-        {...getOverrideProps(overrides, "question9")}
+        onBlur={() => runValidationTasks("comfort9", comfort9)}
+        errorMessage={errors.comfort9?.errorMessage}
+        hasError={errors.comfort9?.hasError}
+        {...getOverrideProps(overrides, "comfort9")}
       ></TextField>
       <TextField
-        label="Question10"
+        label="Comfort10"
         isRequired={false}
         isReadOnly={false}
-        value={question10}
+        value={comfort10}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              question1,
-              question2,
-              question3,
-              question4,
-              question5,
-              question6,
-              question7,
-              question8,
-              question9,
-              question10: value,
-              question11,
-              question12,
-              question13,
-              question14,
-              question15,
-              question16,
-              question17,
-              question18,
-              question19,
-              question20,
-              question21,
-              question22,
-              question23,
-              question24,
-              question25,
-              question26,
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10: value,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
             };
             const result = onChange(modelFields);
-            value = result?.question10 ?? value;
+            value = result?.comfort10 ?? value;
           }
-          if (errors.question10?.hasError) {
-            runValidationTasks("question10", value);
+          if (errors.comfort10?.hasError) {
+            runValidationTasks("comfort10", value);
           }
-          setQuestion10(value);
+          setComfort10(value);
         }}
-        onBlur={() => runValidationTasks("question10", question10)}
-        errorMessage={errors.question10?.errorMessage}
-        hasError={errors.question10?.hasError}
-        {...getOverrideProps(overrides, "question10")}
+        onBlur={() => runValidationTasks("comfort10", comfort10)}
+        errorMessage={errors.comfort10?.errorMessage}
+        hasError={errors.comfort10?.hasError}
+        {...getOverrideProps(overrides, "comfort10")}
       ></TextField>
       <TextField
-        label="Question11"
+        label="Comfort11"
         isRequired={false}
         isReadOnly={false}
-        value={question11}
+        value={comfort11}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              question1,
-              question2,
-              question3,
-              question4,
-              question5,
-              question6,
-              question7,
-              question8,
-              question9,
-              question10,
-              question11: value,
-              question12,
-              question13,
-              question14,
-              question15,
-              question16,
-              question17,
-              question18,
-              question19,
-              question20,
-              question21,
-              question22,
-              question23,
-              question24,
-              question25,
-              question26,
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11: value,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
             };
             const result = onChange(modelFields);
-            value = result?.question11 ?? value;
+            value = result?.comfort11 ?? value;
           }
-          if (errors.question11?.hasError) {
-            runValidationTasks("question11", value);
+          if (errors.comfort11?.hasError) {
+            runValidationTasks("comfort11", value);
           }
-          setQuestion11(value);
+          setComfort11(value);
         }}
-        onBlur={() => runValidationTasks("question11", question11)}
-        errorMessage={errors.question11?.errorMessage}
-        hasError={errors.question11?.hasError}
-        {...getOverrideProps(overrides, "question11")}
+        onBlur={() => runValidationTasks("comfort11", comfort11)}
+        errorMessage={errors.comfort11?.errorMessage}
+        hasError={errors.comfort11?.hasError}
+        {...getOverrideProps(overrides, "comfort11")}
       ></TextField>
       <TextField
-        label="Question12"
+        label="Comfort12"
         isRequired={false}
         isReadOnly={false}
-        value={question12}
+        value={comfort12}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              question1,
-              question2,
-              question3,
-              question4,
-              question5,
-              question6,
-              question7,
-              question8,
-              question9,
-              question10,
-              question11,
-              question12: value,
-              question13,
-              question14,
-              question15,
-              question16,
-              question17,
-              question18,
-              question19,
-              question20,
-              question21,
-              question22,
-              question23,
-              question24,
-              question25,
-              question26,
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12: value,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
             };
             const result = onChange(modelFields);
-            value = result?.question12 ?? value;
+            value = result?.comfort12 ?? value;
           }
-          if (errors.question12?.hasError) {
-            runValidationTasks("question12", value);
+          if (errors.comfort12?.hasError) {
+            runValidationTasks("comfort12", value);
           }
-          setQuestion12(value);
+          setComfort12(value);
         }}
-        onBlur={() => runValidationTasks("question12", question12)}
-        errorMessage={errors.question12?.errorMessage}
-        hasError={errors.question12?.hasError}
-        {...getOverrideProps(overrides, "question12")}
+        onBlur={() => runValidationTasks("comfort12", comfort12)}
+        errorMessage={errors.comfort12?.errorMessage}
+        hasError={errors.comfort12?.hasError}
+        {...getOverrideProps(overrides, "comfort12")}
       ></TextField>
       <TextField
-        label="Question13"
+        label="Temp"
         isRequired={false}
         isReadOnly={false}
-        value={question13}
+        value={temp}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              question1,
-              question2,
-              question3,
-              question4,
-              question5,
-              question6,
-              question7,
-              question8,
-              question9,
-              question10,
-              question11,
-              question12,
-              question13: value,
-              question14,
-              question15,
-              question16,
-              question17,
-              question18,
-              question19,
-              question20,
-              question21,
-              question22,
-              question23,
-              question24,
-              question25,
-              question26,
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp: value,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
             };
             const result = onChange(modelFields);
-            value = result?.question13 ?? value;
+            value = result?.temp ?? value;
           }
-          if (errors.question13?.hasError) {
-            runValidationTasks("question13", value);
+          if (errors.temp?.hasError) {
+            runValidationTasks("temp", value);
           }
-          setQuestion13(value);
+          setTemp(value);
         }}
-        onBlur={() => runValidationTasks("question13", question13)}
-        errorMessage={errors.question13?.errorMessage}
-        hasError={errors.question13?.hasError}
-        {...getOverrideProps(overrides, "question13")}
+        onBlur={() => runValidationTasks("temp", temp)}
+        errorMessage={errors.temp?.errorMessage}
+        hasError={errors.temp?.hasError}
+        {...getOverrideProps(overrides, "temp")}
       ></TextField>
       <TextField
-        label="Question14"
+        label="Intensity"
         isRequired={false}
         isReadOnly={false}
-        value={question14}
+        value={intensity}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              question1,
-              question2,
-              question3,
-              question4,
-              question5,
-              question6,
-              question7,
-              question8,
-              question9,
-              question10,
-              question11,
-              question12,
-              question13,
-              question14: value,
-              question15,
-              question16,
-              question17,
-              question18,
-              question19,
-              question20,
-              question21,
-              question22,
-              question23,
-              question24,
-              question25,
-              question26,
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity: value,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
             };
             const result = onChange(modelFields);
-            value = result?.question14 ?? value;
+            value = result?.intensity ?? value;
           }
-          if (errors.question14?.hasError) {
-            runValidationTasks("question14", value);
+          if (errors.intensity?.hasError) {
+            runValidationTasks("intensity", value);
           }
-          setQuestion14(value);
+          setIntensity(value);
         }}
-        onBlur={() => runValidationTasks("question14", question14)}
-        errorMessage={errors.question14?.errorMessage}
-        hasError={errors.question14?.hasError}
-        {...getOverrideProps(overrides, "question14")}
+        onBlur={() => runValidationTasks("intensity", intensity)}
+        errorMessage={errors.intensity?.errorMessage}
+        hasError={errors.intensity?.hasError}
+        {...getOverrideProps(overrides, "intensity")}
       ></TextField>
       <TextField
-        label="Question15"
+        label="Heatsources"
         isRequired={false}
         isReadOnly={false}
-        value={question15}
+        value={heatsources}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              question1,
-              question2,
-              question3,
-              question4,
-              question5,
-              question6,
-              question7,
-              question8,
-              question9,
-              question10,
-              question11,
-              question12,
-              question13,
-              question14,
-              question15: value,
-              question16,
-              question17,
-              question18,
-              question19,
-              question20,
-              question21,
-              question22,
-              question23,
-              question24,
-              question25,
-              question26,
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources: value,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
             };
             const result = onChange(modelFields);
-            value = result?.question15 ?? value;
+            value = result?.heatsources ?? value;
           }
-          if (errors.question15?.hasError) {
-            runValidationTasks("question15", value);
+          if (errors.heatsources?.hasError) {
+            runValidationTasks("heatsources", value);
           }
-          setQuestion15(value);
+          setHeatsources(value);
         }}
-        onBlur={() => runValidationTasks("question15", question15)}
-        errorMessage={errors.question15?.errorMessage}
-        hasError={errors.question15?.hasError}
-        {...getOverrideProps(overrides, "question15")}
+        onBlur={() => runValidationTasks("heatsources", heatsources)}
+        errorMessage={errors.heatsources?.errorMessage}
+        hasError={errors.heatsources?.hasError}
+        {...getOverrideProps(overrides, "heatsources")}
       ></TextField>
       <TextField
-        label="Question16"
+        label="Humidity"
         isRequired={false}
         isReadOnly={false}
-        value={question16}
+        value={humidity}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              question1,
-              question2,
-              question3,
-              question4,
-              question5,
-              question6,
-              question7,
-              question8,
-              question9,
-              question10,
-              question11,
-              question12,
-              question13,
-              question14,
-              question15,
-              question16: value,
-              question17,
-              question18,
-              question19,
-              question20,
-              question21,
-              question22,
-              question23,
-              question24,
-              question25,
-              question26,
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity: value,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
             };
             const result = onChange(modelFields);
-            value = result?.question16 ?? value;
+            value = result?.humidity ?? value;
           }
-          if (errors.question16?.hasError) {
-            runValidationTasks("question16", value);
+          if (errors.humidity?.hasError) {
+            runValidationTasks("humidity", value);
           }
-          setQuestion16(value);
+          setHumidity(value);
         }}
-        onBlur={() => runValidationTasks("question16", question16)}
-        errorMessage={errors.question16?.errorMessage}
-        hasError={errors.question16?.hasError}
-        {...getOverrideProps(overrides, "question16")}
+        onBlur={() => runValidationTasks("humidity", humidity)}
+        errorMessage={errors.humidity?.errorMessage}
+        hasError={errors.humidity?.hasError}
+        {...getOverrideProps(overrides, "humidity")}
       ></TextField>
       <TextField
-        label="Question17"
+        label="Velocity"
         isRequired={false}
         isReadOnly={false}
-        value={question17}
+        value={velocity}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              question1,
-              question2,
-              question3,
-              question4,
-              question5,
-              question6,
-              question7,
-              question8,
-              question9,
-              question10,
-              question11,
-              question12,
-              question13,
-              question14,
-              question15,
-              question16,
-              question17: value,
-              question18,
-              question19,
-              question20,
-              question21,
-              question22,
-              question23,
-              question24,
-              question25,
-              question26,
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity: value,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
             };
             const result = onChange(modelFields);
-            value = result?.question17 ?? value;
+            value = result?.velocity ?? value;
           }
-          if (errors.question17?.hasError) {
-            runValidationTasks("question17", value);
+          if (errors.velocity?.hasError) {
+            runValidationTasks("velocity", value);
           }
-          setQuestion17(value);
+          setVelocity(value);
         }}
-        onBlur={() => runValidationTasks("question17", question17)}
-        errorMessage={errors.question17?.errorMessage}
-        hasError={errors.question17?.hasError}
-        {...getOverrideProps(overrides, "question17")}
+        onBlur={() => runValidationTasks("velocity", velocity)}
+        errorMessage={errors.velocity?.errorMessage}
+        hasError={errors.velocity?.hasError}
+        {...getOverrideProps(overrides, "velocity")}
       ></TextField>
       <TextField
-        label="Question18"
+        label="Traffic"
         isRequired={false}
         isReadOnly={false}
-        value={question18}
+        value={traffic}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              question1,
-              question2,
-              question3,
-              question4,
-              question5,
-              question6,
-              question7,
-              question8,
-              question9,
-              question10,
-              question11,
-              question12,
-              question13,
-              question14,
-              question15,
-              question16,
-              question17,
-              question18: value,
-              question19,
-              question20,
-              question21,
-              question22,
-              question23,
-              question24,
-              question25,
-              question26,
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic: value,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
             };
             const result = onChange(modelFields);
-            value = result?.question18 ?? value;
+            value = result?.traffic ?? value;
           }
-          if (errors.question18?.hasError) {
-            runValidationTasks("question18", value);
+          if (errors.traffic?.hasError) {
+            runValidationTasks("traffic", value);
           }
-          setQuestion18(value);
+          setTraffic(value);
         }}
-        onBlur={() => runValidationTasks("question18", question18)}
-        errorMessage={errors.question18?.errorMessage}
-        hasError={errors.question18?.hasError}
-        {...getOverrideProps(overrides, "question18")}
+        onBlur={() => runValidationTasks("traffic", traffic)}
+        errorMessage={errors.traffic?.errorMessage}
+        hasError={errors.traffic?.hasError}
+        {...getOverrideProps(overrides, "traffic")}
       ></TextField>
       <TextField
-        label="Question19"
+        label="Greenery"
         isRequired={false}
         isReadOnly={false}
-        value={question19}
+        value={greenery}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              question1,
-              question2,
-              question3,
-              question4,
-              question5,
-              question6,
-              question7,
-              question8,
-              question9,
-              question10,
-              question11,
-              question12,
-              question13,
-              question14,
-              question15,
-              question16,
-              question17,
-              question18,
-              question19: value,
-              question20,
-              question21,
-              question22,
-              question23,
-              question24,
-              question25,
-              question26,
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery: value,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
             };
             const result = onChange(modelFields);
-            value = result?.question19 ?? value;
+            value = result?.greenery ?? value;
           }
-          if (errors.question19?.hasError) {
-            runValidationTasks("question19", value);
+          if (errors.greenery?.hasError) {
+            runValidationTasks("greenery", value);
           }
-          setQuestion19(value);
+          setGreenery(value);
         }}
-        onBlur={() => runValidationTasks("question19", question19)}
-        errorMessage={errors.question19?.errorMessage}
-        hasError={errors.question19?.hasError}
-        {...getOverrideProps(overrides, "question19")}
+        onBlur={() => runValidationTasks("greenery", greenery)}
+        errorMessage={errors.greenery?.errorMessage}
+        hasError={errors.greenery?.hasError}
+        {...getOverrideProps(overrides, "greenery")}
       ></TextField>
       <TextField
-        label="Question20"
+        label="Shading"
         isRequired={false}
         isReadOnly={false}
-        value={question20}
+        value={shading}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              question1,
-              question2,
-              question3,
-              question4,
-              question5,
-              question6,
-              question7,
-              question8,
-              question9,
-              question10,
-              question11,
-              question12,
-              question13,
-              question14,
-              question15,
-              question16,
-              question17,
-              question18,
-              question19,
-              question20: value,
-              question21,
-              question22,
-              question23,
-              question24,
-              question25,
-              question26,
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading: value,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
             };
             const result = onChange(modelFields);
-            value = result?.question20 ?? value;
+            value = result?.shading ?? value;
           }
-          if (errors.question20?.hasError) {
-            runValidationTasks("question20", value);
+          if (errors.shading?.hasError) {
+            runValidationTasks("shading", value);
           }
-          setQuestion20(value);
+          setShading(value);
         }}
-        onBlur={() => runValidationTasks("question20", question20)}
-        errorMessage={errors.question20?.errorMessage}
-        hasError={errors.question20?.hasError}
-        {...getOverrideProps(overrides, "question20")}
+        onBlur={() => runValidationTasks("shading", shading)}
+        errorMessage={errors.shading?.errorMessage}
+        hasError={errors.shading?.hasError}
+        {...getOverrideProps(overrides, "shading")}
       ></TextField>
       <TextField
-        label="Question21"
+        label="Material"
         isRequired={false}
         isReadOnly={false}
-        value={question21}
+        value={material}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              question1,
-              question2,
-              question3,
-              question4,
-              question5,
-              question6,
-              question7,
-              question8,
-              question9,
-              question10,
-              question11,
-              question12,
-              question13,
-              question14,
-              question15,
-              question16,
-              question17,
-              question18,
-              question19,
-              question20,
-              question21: value,
-              question22,
-              question23,
-              question24,
-              question25,
-              question26,
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material: value,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
             };
             const result = onChange(modelFields);
-            value = result?.question21 ?? value;
+            value = result?.material ?? value;
           }
-          if (errors.question21?.hasError) {
-            runValidationTasks("question21", value);
+          if (errors.material?.hasError) {
+            runValidationTasks("material", value);
           }
-          setQuestion21(value);
+          setMaterial(value);
         }}
-        onBlur={() => runValidationTasks("question21", question21)}
-        errorMessage={errors.question21?.errorMessage}
-        hasError={errors.question21?.hasError}
-        {...getOverrideProps(overrides, "question21")}
+        onBlur={() => runValidationTasks("material", material)}
+        errorMessage={errors.material?.errorMessage}
+        hasError={errors.material?.hasError}
+        {...getOverrideProps(overrides, "material")}
       ></TextField>
       <TextField
-        label="Question22"
+        label="Imageability"
         isRequired={false}
         isReadOnly={false}
-        value={question22}
+        value={imageability}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              question1,
-              question2,
-              question3,
-              question4,
-              question5,
-              question6,
-              question7,
-              question8,
-              question9,
-              question10,
-              question11,
-              question12,
-              question13,
-              question14,
-              question15,
-              question16,
-              question17,
-              question18,
-              question19,
-              question20,
-              question21,
-              question22: value,
-              question23,
-              question24,
-              question25,
-              question26,
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability: value,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
             };
             const result = onChange(modelFields);
-            value = result?.question22 ?? value;
+            value = result?.imageability ?? value;
           }
-          if (errors.question22?.hasError) {
-            runValidationTasks("question22", value);
+          if (errors.imageability?.hasError) {
+            runValidationTasks("imageability", value);
           }
-          setQuestion22(value);
+          setImageability(value);
         }}
-        onBlur={() => runValidationTasks("question22", question22)}
-        errorMessage={errors.question22?.errorMessage}
-        hasError={errors.question22?.hasError}
-        {...getOverrideProps(overrides, "question22")}
+        onBlur={() => runValidationTasks("imageability", imageability)}
+        errorMessage={errors.imageability?.errorMessage}
+        hasError={errors.imageability?.hasError}
+        {...getOverrideProps(overrides, "imageability")}
       ></TextField>
       <TextField
-        label="Question23"
+        label="Enclosure"
         isRequired={false}
         isReadOnly={false}
-        value={question23}
+        value={enclosure}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              question1,
-              question2,
-              question3,
-              question4,
-              question5,
-              question6,
-              question7,
-              question8,
-              question9,
-              question10,
-              question11,
-              question12,
-              question13,
-              question14,
-              question15,
-              question16,
-              question17,
-              question18,
-              question19,
-              question20,
-              question21,
-              question22,
-              question23: value,
-              question24,
-              question25,
-              question26,
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure: value,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
             };
             const result = onChange(modelFields);
-            value = result?.question23 ?? value;
+            value = result?.enclosure ?? value;
           }
-          if (errors.question23?.hasError) {
-            runValidationTasks("question23", value);
+          if (errors.enclosure?.hasError) {
+            runValidationTasks("enclosure", value);
           }
-          setQuestion23(value);
+          setEnclosure(value);
         }}
-        onBlur={() => runValidationTasks("question23", question23)}
-        errorMessage={errors.question23?.errorMessage}
-        hasError={errors.question23?.hasError}
-        {...getOverrideProps(overrides, "question23")}
+        onBlur={() => runValidationTasks("enclosure", enclosure)}
+        errorMessage={errors.enclosure?.errorMessage}
+        hasError={errors.enclosure?.hasError}
+        {...getOverrideProps(overrides, "enclosure")}
       ></TextField>
       <TextField
-        label="Question24"
+        label="Humanscale"
         isRequired={false}
         isReadOnly={false}
-        value={question24}
+        value={humanscale}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              question1,
-              question2,
-              question3,
-              question4,
-              question5,
-              question6,
-              question7,
-              question8,
-              question9,
-              question10,
-              question11,
-              question12,
-              question13,
-              question14,
-              question15,
-              question16,
-              question17,
-              question18,
-              question19,
-              question20,
-              question21,
-              question22,
-              question23,
-              question24: value,
-              question25,
-              question26,
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale: value,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
             };
             const result = onChange(modelFields);
-            value = result?.question24 ?? value;
+            value = result?.humanscale ?? value;
           }
-          if (errors.question24?.hasError) {
-            runValidationTasks("question24", value);
+          if (errors.humanscale?.hasError) {
+            runValidationTasks("humanscale", value);
           }
-          setQuestion24(value);
+          setHumanscale(value);
         }}
-        onBlur={() => runValidationTasks("question24", question24)}
-        errorMessage={errors.question24?.errorMessage}
-        hasError={errors.question24?.hasError}
-        {...getOverrideProps(overrides, "question24")}
+        onBlur={() => runValidationTasks("humanscale", humanscale)}
+        errorMessage={errors.humanscale?.errorMessage}
+        hasError={errors.humanscale?.hasError}
+        {...getOverrideProps(overrides, "humanscale")}
       ></TextField>
       <TextField
-        label="Question25"
+        label="Transparency"
         isRequired={false}
         isReadOnly={false}
-        value={question25}
+        value={transparency}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              question1,
-              question2,
-              question3,
-              question4,
-              question5,
-              question6,
-              question7,
-              question8,
-              question9,
-              question10,
-              question11,
-              question12,
-              question13,
-              question14,
-              question15,
-              question16,
-              question17,
-              question18,
-              question19,
-              question20,
-              question21,
-              question22,
-              question23,
-              question24,
-              question25: value,
-              question26,
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency: value,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
             };
             const result = onChange(modelFields);
-            value = result?.question25 ?? value;
+            value = result?.transparency ?? value;
           }
-          if (errors.question25?.hasError) {
-            runValidationTasks("question25", value);
+          if (errors.transparency?.hasError) {
+            runValidationTasks("transparency", value);
           }
-          setQuestion25(value);
+          setTransparency(value);
         }}
-        onBlur={() => runValidationTasks("question25", question25)}
-        errorMessage={errors.question25?.errorMessage}
-        hasError={errors.question25?.hasError}
-        {...getOverrideProps(overrides, "question25")}
+        onBlur={() => runValidationTasks("transparency", transparency)}
+        errorMessage={errors.transparency?.errorMessage}
+        hasError={errors.transparency?.hasError}
+        {...getOverrideProps(overrides, "transparency")}
       ></TextField>
       <TextField
-        label="Question26"
+        label="Complexity"
         isRequired={false}
         isReadOnly={false}
-        value={question26}
+        value={complexity}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              question1,
-              question2,
-              question3,
-              question4,
-              question5,
-              question6,
-              question7,
-              question8,
-              question9,
-              question10,
-              question11,
-              question12,
-              question13,
-              question14,
-              question15,
-              question16,
-              question17,
-              question18,
-              question19,
-              question20,
-              question21,
-              question22,
-              question23,
-              question24,
-              question25,
-              question26: value,
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity: value,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
             };
             const result = onChange(modelFields);
-            value = result?.question26 ?? value;
+            value = result?.complexity ?? value;
           }
-          if (errors.question26?.hasError) {
-            runValidationTasks("question26", value);
+          if (errors.complexity?.hasError) {
+            runValidationTasks("complexity", value);
           }
-          setQuestion26(value);
+          setComplexity(value);
         }}
-        onBlur={() => runValidationTasks("question26", question26)}
-        errorMessage={errors.question26?.errorMessage}
-        hasError={errors.question26?.hasError}
-        {...getOverrideProps(overrides, "question26")}
+        onBlur={() => runValidationTasks("complexity", complexity)}
+        errorMessage={errors.complexity?.errorMessage}
+        hasError={errors.complexity?.hasError}
+        {...getOverrideProps(overrides, "complexity")}
+      ></TextField>
+      <TextField
+        label="Safe"
+        isRequired={false}
+        isReadOnly={false}
+        value={safe}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe: value,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
+            };
+            const result = onChange(modelFields);
+            value = result?.safe ?? value;
+          }
+          if (errors.safe?.hasError) {
+            runValidationTasks("safe", value);
+          }
+          setSafe(value);
+        }}
+        onBlur={() => runValidationTasks("safe", safe)}
+        errorMessage={errors.safe?.errorMessage}
+        hasError={errors.safe?.hasError}
+        {...getOverrideProps(overrides, "safe")}
+      ></TextField>
+      <TextField
+        label="Lively"
+        isRequired={false}
+        isReadOnly={false}
+        value={lively}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively: value,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
+            };
+            const result = onChange(modelFields);
+            value = result?.lively ?? value;
+          }
+          if (errors.lively?.hasError) {
+            runValidationTasks("lively", value);
+          }
+          setLively(value);
+        }}
+        onBlur={() => runValidationTasks("lively", lively)}
+        errorMessage={errors.lively?.errorMessage}
+        hasError={errors.lively?.hasError}
+        {...getOverrideProps(overrides, "lively")}
+      ></TextField>
+      <TextField
+        label="Beautiful"
+        isRequired={false}
+        isReadOnly={false}
+        value={beautiful}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful: value,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
+            };
+            const result = onChange(modelFields);
+            value = result?.beautiful ?? value;
+          }
+          if (errors.beautiful?.hasError) {
+            runValidationTasks("beautiful", value);
+          }
+          setBeautiful(value);
+        }}
+        onBlur={() => runValidationTasks("beautiful", beautiful)}
+        errorMessage={errors.beautiful?.errorMessage}
+        hasError={errors.beautiful?.hasError}
+        {...getOverrideProps(overrides, "beautiful")}
+      ></TextField>
+      <TextField
+        label="Wealthy"
+        isRequired={false}
+        isReadOnly={false}
+        value={wealthy}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy: value,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
+            };
+            const result = onChange(modelFields);
+            value = result?.wealthy ?? value;
+          }
+          if (errors.wealthy?.hasError) {
+            runValidationTasks("wealthy", value);
+          }
+          setWealthy(value);
+        }}
+        onBlur={() => runValidationTasks("wealthy", wealthy)}
+        errorMessage={errors.wealthy?.errorMessage}
+        hasError={errors.wealthy?.hasError}
+        {...getOverrideProps(overrides, "wealthy")}
+      ></TextField>
+      <TextField
+        label="Boring"
+        isRequired={false}
+        isReadOnly={false}
+        value={boring}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring: value,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
+            };
+            const result = onChange(modelFields);
+            value = result?.boring ?? value;
+          }
+          if (errors.boring?.hasError) {
+            runValidationTasks("boring", value);
+          }
+          setBoring(value);
+        }}
+        onBlur={() => runValidationTasks("boring", boring)}
+        errorMessage={errors.boring?.errorMessage}
+        hasError={errors.boring?.hasError}
+        {...getOverrideProps(overrides, "boring")}
+      ></TextField>
+      <TextField
+        label="Depressing"
+        isRequired={false}
+        isReadOnly={false}
+        value={depressing}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing: value,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
+            };
+            const result = onChange(modelFields);
+            value = result?.depressing ?? value;
+          }
+          if (errors.depressing?.hasError) {
+            runValidationTasks("depressing", value);
+          }
+          setDepressing(value);
+        }}
+        onBlur={() => runValidationTasks("depressing", depressing)}
+        errorMessage={errors.depressing?.errorMessage}
+        hasError={errors.depressing?.hasError}
+        {...getOverrideProps(overrides, "depressing")}
+      ></TextField>
+      <TextField
+        label="Eatingdrinking"
+        isRequired={false}
+        isReadOnly={false}
+        value={eatingdrinking}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking: value,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
+            };
+            const result = onChange(modelFields);
+            value = result?.eatingdrinking ?? value;
+          }
+          if (errors.eatingdrinking?.hasError) {
+            runValidationTasks("eatingdrinking", value);
+          }
+          setEatingdrinking(value);
+        }}
+        onBlur={() => runValidationTasks("eatingdrinking", eatingdrinking)}
+        errorMessage={errors.eatingdrinking?.errorMessage}
+        hasError={errors.eatingdrinking?.hasError}
+        {...getOverrideProps(overrides, "eatingdrinking")}
+      ></TextField>
+      <TextField
+        label="Nature"
+        isRequired={false}
+        isReadOnly={false}
+        value={nature}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature: value,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
+            };
+            const result = onChange(modelFields);
+            value = result?.nature ?? value;
+          }
+          if (errors.nature?.hasError) {
+            runValidationTasks("nature", value);
+          }
+          setNature(value);
+        }}
+        onBlur={() => runValidationTasks("nature", nature)}
+        errorMessage={errors.nature?.errorMessage}
+        hasError={errors.nature?.hasError}
+        {...getOverrideProps(overrides, "nature")}
+      ></TextField>
+      <TextField
+        label="Community"
+        isRequired={false}
+        isReadOnly={false}
+        value={community}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community: value,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
+            };
+            const result = onChange(modelFields);
+            value = result?.community ?? value;
+          }
+          if (errors.community?.hasError) {
+            runValidationTasks("community", value);
+          }
+          setCommunity(value);
+        }}
+        onBlur={() => runValidationTasks("community", community)}
+        errorMessage={errors.community?.errorMessage}
+        hasError={errors.community?.hasError}
+        {...getOverrideProps(overrides, "community")}
+      ></TextField>
+      <TextField
+        label="Walking"
+        isRequired={false}
+        isReadOnly={false}
+        value={walking}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking: value,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact,
+            };
+            const result = onChange(modelFields);
+            value = result?.walking ?? value;
+          }
+          if (errors.walking?.hasError) {
+            runValidationTasks("walking", value);
+          }
+          setWalking(value);
+        }}
+        onBlur={() => runValidationTasks("walking", walking)}
+        errorMessage={errors.walking?.errorMessage}
+        hasError={errors.walking?.hasError}
+        {...getOverrideProps(overrides, "walking")}
+      ></TextField>
+      <TextField
+        label="Sightseeing"
+        isRequired={false}
+        isReadOnly={false}
+        value={sightseeing}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing: value,
+              perception,
+              functionality,
+              accessibility,
+              contact,
+            };
+            const result = onChange(modelFields);
+            value = result?.sightseeing ?? value;
+          }
+          if (errors.sightseeing?.hasError) {
+            runValidationTasks("sightseeing", value);
+          }
+          setSightseeing(value);
+        }}
+        onBlur={() => runValidationTasks("sightseeing", sightseeing)}
+        errorMessage={errors.sightseeing?.errorMessage}
+        hasError={errors.sightseeing?.hasError}
+        {...getOverrideProps(overrides, "sightseeing")}
+      ></TextField>
+      <TextField
+        label="Perception"
+        isRequired={false}
+        isReadOnly={false}
+        value={perception}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception: value,
+              functionality,
+              accessibility,
+              contact,
+            };
+            const result = onChange(modelFields);
+            value = result?.perception ?? value;
+          }
+          if (errors.perception?.hasError) {
+            runValidationTasks("perception", value);
+          }
+          setPerception(value);
+        }}
+        onBlur={() => runValidationTasks("perception", perception)}
+        errorMessage={errors.perception?.errorMessage}
+        hasError={errors.perception?.hasError}
+        {...getOverrideProps(overrides, "perception")}
+      ></TextField>
+      <TextField
+        label="Functionality"
+        isRequired={false}
+        isReadOnly={false}
+        value={functionality}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality: value,
+              accessibility,
+              contact,
+            };
+            const result = onChange(modelFields);
+            value = result?.functionality ?? value;
+          }
+          if (errors.functionality?.hasError) {
+            runValidationTasks("functionality", value);
+          }
+          setFunctionality(value);
+        }}
+        onBlur={() => runValidationTasks("functionality", functionality)}
+        errorMessage={errors.functionality?.errorMessage}
+        hasError={errors.functionality?.hasError}
+        {...getOverrideProps(overrides, "functionality")}
+      ></TextField>
+      <TextField
+        label="Accessibility"
+        isRequired={false}
+        isReadOnly={false}
+        value={accessibility}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility: value,
+              contact,
+            };
+            const result = onChange(modelFields);
+            value = result?.accessibility ?? value;
+          }
+          if (errors.accessibility?.hasError) {
+            runValidationTasks("accessibility", value);
+          }
+          setAccessibility(value);
+        }}
+        onBlur={() => runValidationTasks("accessibility", accessibility)}
+        errorMessage={errors.accessibility?.errorMessage}
+        hasError={errors.accessibility?.hasError}
+        {...getOverrideProps(overrides, "accessibility")}
+      ></TextField>
+      <TextField
+        label="Contact"
+        isRequired={false}
+        isReadOnly={false}
+        value={contact}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              comfort1,
+              comfort2,
+              comfort3,
+              comfort4,
+              comfort5,
+              comfort6,
+              comfort7,
+              comfort8,
+              comfort9,
+              comfort10,
+              comfort11,
+              comfort12,
+              temp,
+              intensity,
+              heatsources,
+              humidity,
+              velocity,
+              traffic,
+              greenery,
+              shading,
+              material,
+              imageability,
+              enclosure,
+              humanscale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eatingdrinking,
+              nature,
+              community,
+              walking,
+              sightseeing,
+              perception,
+              functionality,
+              accessibility,
+              contact: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.contact ?? value;
+          }
+          if (errors.contact?.hasError) {
+            runValidationTasks("contact", value);
+          }
+          setContact(value);
+        }}
+        onBlur={() => runValidationTasks("contact", contact)}
+        errorMessage={errors.contact?.errorMessage}
+        hasError={errors.contact?.hasError}
+        {...getOverrideProps(overrides, "contact")}
       ></TextField>
       <Flex
         justifyContent="space-between"

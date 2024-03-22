@@ -10,183 +10,288 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "question1": {
-                    "name": "question1",
+                "comfort1": {
+                    "name": "comfort1",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "question2": {
-                    "name": "question2",
+                "comfort2": {
+                    "name": "comfort2",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "question3": {
-                    "name": "question3",
+                "comfort3": {
+                    "name": "comfort3",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "question4": {
-                    "name": "question4",
+                "comfort4": {
+                    "name": "comfort4",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "question5": {
-                    "name": "question5",
+                "comfort5": {
+                    "name": "comfort5",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "question6": {
-                    "name": "question6",
+                "comfort6": {
+                    "name": "comfort6",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "question7": {
-                    "name": "question7",
+                "comfort7": {
+                    "name": "comfort7",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "question8": {
-                    "name": "question8",
+                "comfort8": {
+                    "name": "comfort8",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "question9": {
-                    "name": "question9",
+                "comfort9": {
+                    "name": "comfort9",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "question10": {
-                    "name": "question10",
+                "comfort10": {
+                    "name": "comfort10",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "question11": {
-                    "name": "question11",
+                "comfort11": {
+                    "name": "comfort11",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "question12": {
-                    "name": "question12",
+                "comfort12": {
+                    "name": "comfort12",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "question13": {
-                    "name": "question13",
+                "temp": {
+                    "name": "temp",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "question14": {
-                    "name": "question14",
+                "intensity": {
+                    "name": "intensity",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "question15": {
-                    "name": "question15",
+                "heatsources": {
+                    "name": "heatsources",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "question16": {
-                    "name": "question16",
+                "humidity": {
+                    "name": "humidity",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "question17": {
-                    "name": "question17",
+                "velocity": {
+                    "name": "velocity",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "question18": {
-                    "name": "question18",
+                "traffic": {
+                    "name": "traffic",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "question19": {
-                    "name": "question19",
+                "greenery": {
+                    "name": "greenery",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "question20": {
-                    "name": "question20",
+                "shading": {
+                    "name": "shading",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "question21": {
-                    "name": "question21",
+                "material": {
+                    "name": "material",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "question22": {
-                    "name": "question22",
+                "imageability": {
+                    "name": "imageability",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "question23": {
-                    "name": "question23",
+                "enclosure": {
+                    "name": "enclosure",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "question24": {
-                    "name": "question24",
+                "humanscale": {
+                    "name": "humanscale",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "question25": {
-                    "name": "question25",
+                "transparency": {
+                    "name": "transparency",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "question26": {
-                    "name": "question26",
+                "complexity": {
+                    "name": "complexity",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "safe": {
+                    "name": "safe",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "lively": {
+                    "name": "lively",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "beautiful": {
+                    "name": "beautiful",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "wealthy": {
+                    "name": "wealthy",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "boring": {
+                    "name": "boring",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "depressing": {
+                    "name": "depressing",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "eatingdrinking": {
+                    "name": "eatingdrinking",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "nature": {
+                    "name": "nature",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "community": {
+                    "name": "community",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "walking": {
+                    "name": "walking",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "sightseeing": {
+                    "name": "sightseeing",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "perception": {
+                    "name": "perception",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "functionality": {
+                    "name": "functionality",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "accessibility": {
+                    "name": "accessibility",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "contact": {
+                    "name": "contact",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -238,5 +343,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.4",
-    "version": "09208caa1280d4d2d6913bc41ef19c4a"
+    "version": "2de30a3acb22a44a2a0bff6b066b47f2"
 };
