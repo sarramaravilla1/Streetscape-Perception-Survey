@@ -535,7 +535,7 @@ function getRandomImages(questionName) {
 
 const surveyJson = {
   "title": "Urban Streetscape Perception Survey",
-  "description": "Hello! Welcome to the survey! This is the Urban Analytics Lab at the National University of Singapore. We are currently conducting an online urban streetscape perception survey that will take approximately 15 minutes to complete and consists of around 50 street view image selection questions. Throughout the survey, participants' main task is to select the most suitable street view image among every four images based on question descriptions and personal impressions of the streetscapes in those images. All adults over 18 living in Singapore are welcome to take the online survey. As a token of appreciation, participants who successfully complete the online survey will receive a compensation fee of SGD 5 dollars. ",
+  "description": "Hello! Here at the Urban Analytics Lab at the National University of Singapore, we are currently conducting an online perception survey that will take approximately 15 minutes to complete and consists of around 50 questions regarding photos taken at the street-level. Such a survey will help us understand what drives people’s perception and how to design spaces that are visually appealing. Throughout the survey, participants’ main task is to select the most suitable street view image among multiple images based on certain dimensions and personal impressions. As a token of appreciation, participants who successfully complete the full survey will receive a compensation fee of SGD 5. ",
   "logo": "https://api.surveyjs.io/private/Surveys/files?name=8fb3943d-2606-4486-88ad-a41ad27f4570",
   "logoPosition": "right",
   "pages": [
