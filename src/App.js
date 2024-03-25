@@ -543,230 +543,293 @@ const surveyJson = {
     "name": "page1",
     "elements": [
      {
+      "type": "expression",
+      "name": "text1",
+      "title": "Among the provided street view images, which place do you perceive to be the most comfortable? (6 sets in total)",
+      "description": "choose most comfortable one"
+     },
+     {
       "type": "imagepicker",
-      "name": "comfort1",
-      "title": "Among the provided street view images, which place do you perceive to be the most comfortable?",
-      "choices": getRandomImages("comfort1"),
+      "name": "comfort-1",
+      "description": "choose most comfortable one",
+      "choices": getRandomImages("comfort-1"),
       "imageFit": "cover"
      },
      {
       "type": "imagepicker",
-      "name": "comfort2",
-      "title": "Among the provided street view images, which place do you perceive to be the most comfortable?",
-      "choices": getRandomImages("comfort2")
+      "name": "comfort-2",
+      "description": "choose most comfortable one",
+      "choices": getRandomImages("comfort-2")
      },
      {
       "type": "imagepicker",
-      "name": "comfort3",
-      "title": "Among the provided street view images, which place do you perceive to be the most comfortable?",
-      "choices": getRandomImages("comfort3")
+      "name": "comfort-3",
+      "description": "choose most comfortable one",
+      "choices": getRandomImages("comfort-3")
      },
      {
       "type": "imagepicker",
-      "name": "comfort4",
-      "title": "Among the provided street view images, which place do you perceive to be the most comfortable?",
-      "choices": getRandomImages("comfort4")
+      "name": "comfort-4",
+      "description": "choose most comfortable one",
+      "choices": getRandomImages("comfort-4")
      },
      {
       "type": "imagepicker",
-      "name": "comfort5",
-      "title": "Among the provided street view images, which place do you perceive to be the most comfortable?",
-      "choices": getRandomImages("comfort5")
+      "name": "comfort-5",
+      "description": "choose most comfortable one",
+      "choices": getRandomImages("comfort-5")
      },
      {
       "type": "imagepicker",
-      "name": "comfort6",
-      "title": "Among the provided street view images, which place do you perceive to be the most comfortable?",
-      "choices": getRandomImages("comfort6")
+      "name": "comfort-6",
+      "description": "choose most comfortable one",
+      "choices": getRandomImages("comfort-6")
      }
     ],
     "title": "Part 1: Streetscape Comfort Perception",
     "description": "Please choose the image which you find to have the most comfortable streetscape, there are six sets of images in this section."
    },
    {
-    "name": "page3",
+    "name": "page2",
     "elements": [
      {
-      "type": "imagepicker",
-      "name": "comfort7",
-      "title": "Among the provided street view images, which place do you perceive to have the best thermal comfort (heat comfort) ?",
-      "choices": getRandomImages("comfort7")
+      "type": "expression",
+      "name": "text2",
+      "title": "Among the provided street view images, which place do you perceive to have the best thermal comfort (heat comfort)?",
+      "description": "choose most thermal-comfortable (heat-comfortable) one"
      },
      {
       "type": "imagepicker",
-      "name": "comfort8",
-      "title": "Among the provided street view images, which place do you perceive to have the best thermal comfort (heat comfort) ?",
-      "choices": getRandomImages("comfort8")
+      "name": "thermal-comfort-1",
+      "description": "choose most thermal-comfortable (heat-comfortable) one",
+      "choices": getRandomImages("thermal-comfort-1")
      },
      {
       "type": "imagepicker",
-      "name": "comfort9",
-      "title": "Among the provided street view images, which place do you perceive to have the best thermal comfort (heat comfort) ?",
-      "choices": getRandomImages("comfort9")
+      "name": "thermal-comfort-2",
+      "description": "choose most thermal-comfortable (heat-comfortable) one",
+      "choices": getRandomImages("thermal-comfort-2")
      },
      {
       "type": "imagepicker",
-      "name": "comfort10",
-      "title": "Among the provided street view images, which place do you perceive to have the best thermal comfort (heat comfort) ?",
-      "choices": getRandomImages("comfort10")
+      "name": "thermal-comfort-3",
+      "description": "choose most thermal-comfortable (heat-comfortable) one",
+      "choices": getRandomImages("thermal-comfort-3")
      },
      {
       "type": "imagepicker",
-      "name": "comfort11",
-      "title": "Among the provided street view images, which place do you perceive to have the best thermal comfort (heat comfort) ?",
-      "choices": getRandomImages("comfort11")
+      "name": "thermal-comfort-4",
+      "description": "choose most thermal-comfortable (heat-comfortable) one",
+      "choices": getRandomImages("thermal-comfort-4")
      },
      {
       "type": "imagepicker",
-      "name": "comfort12",
-      "title": "Among the provided street view images, which place do you perceive to have the best thermal comfort (heat comfort) ?",
-      "choices": getRandomImages("comfort12")
+      "name": "thermal-comfort-5",
+      "description": "choose most thermal-comfortable (heat-comfortable) one",
+      "choices": getRandomImages("thermal-comfort-5")
+     },
+     {
+      "type": "imagepicker",
+      "name": "thermal-comfort-6",
+      "description": "choose most thermal-comfortable (heat-comfortable) one",
+      "choices": getRandomImages("thermal-comfort-6")
      }
     ],
     "title": "Part 2: Streetscape Thermal Comfort (Heat Comfort) Perception",
     "description": "Please choose the image in which you think to have the best thermal comfort (heat comfort), there are six sets of images in this section."
    },
    {
-    "name": "page4",
+    "name": "page3",
     "elements": [
      {
-      "type": "imagepicker",
-      "name": "temp",
-      "title": "Among the provided street view images, which place do you perceive to exhibit the highest outdoor temperature ?",
-      "choices": getRandomImages("temp")
+      "type": "expression",
+      "name": "text3",
+      "title": "Among the provided street view images, which place do you perceive to exhibit the following environmental parameters most?",
+      "description": "choose one based on mentioned environmental parameters"
      },
      {
       "type": "imagepicker",
-      "name": "intensity",
-      "title": "Among the provided street view images, which place do you perceive to exhibit the highest sunlight intensity?",
-      "choices": getRandomImages("intensity")
+      "name": "temperature",
+      "description": "choose the one with highest temperature",
+      "choices": getRandomImages("temperature")
      },
      {
       "type": "imagepicker",
-      "name": "heatsources",
-      "title": "Among the provided street view images, which place do you perceive to have more artificial heat sources (building, etc.)?",
-      "choices": getRandomImages("heatsources")
+      "name": "sunlight-intensity",
+      "description": "choose the one with highest sunlight intensity",
+      "choices": getRandomImages("sunlight-intensity")
+     },
+     {
+      "type": "imagepicker",
+      "name": "heat-sources",
+      "description": "choose the one with most artificial heat sources (building, car...)",
+      "choices": getRandomImages("heat-sources")
      },
      {
       "type": "imagepicker",
       "name": "humidity",
-      "title": "Among the provided street view images, which place do you perceive to showcase higher humidity?",
+      "description": "choose the one with highest humidity",
       "choices": getRandomImages("humidity")
      },
      {
       "type": "imagepicker",
-      "name": "velocity",
-      "title": "Among the provided street view images, which place do you perceive to showcase  higher wind velocity?",
-      "choices": getRandomImages("velocity")
+      "name": "wind-velocity",
+      "description": "choose the one with highest wind velocity",
+      "choices": getRandomImages("wind-velocity")
      },
      {
       "type": "imagepicker",
-      "name": "traffic",
-      "title": "Among the provided street view images, which place do you perceive to have higher traffic flow?",
-      "choices": getRandomImages("traffic")
+      "name": "traffic-flow",
+      "description": "choose the one with highest traffic flow (car, people, bike...)",
+      "choices": getRandomImages("traffic-flow")
      },
      {
       "type": "imagepicker",
       "name": "greenery",
-      "title": "Among the provided street view images, which place do you perceive to have the highest abundance of greenery?",
+      "description": "choose the one with most greenery",
       "choices": getRandomImages("greenery")
      },
      {
       "type": "imagepicker",
       "name": "shading",
-      "title": "Among the provided street view images, which place do you perceive to have the highest extent of shading areas?",
+      "description": "choose the one with largest shading area",
       "choices": getRandomImages("shading")
      },
      {
       "type": "imagepicker",
       "name": "material",
-      "title": "Among the provided street view images, which place do you perceive to exhibit the most comfortable construction material?",
+      "description": "choose the one with most comfortable construction material (plant, wall, fence, window...)",
       "choices": getRandomImages("material")
      }
     ],
-    "title": "Part 3: Streetscape Environment Perception"
+    "title": "Part 3: Streetscape Environment Perception",
+    "description": "Please choose the image in which you think to exhibit the following environmental parameters most, there are nine parameters in this section."
    },
    {
-    "name": "page2",
+    "name": "page4",
     "elements": [
+     {
+      "type": "expression",
+      "name": "text4",
+      "title": "Among the provided street view images, which place do you perceive to showcase the following design qualities most?",
+      "description": "choose one based on mentioned design quality features"
+     },
      {
       "type": "imagepicker",
       "name": "imageability",
-      "title": "Among the provided street view images, which place do you perceive to impress you more?",
+      "description": "choose the most impressive one",
       "choices": getRandomImages("imageability")
      },
      {
       "type": "imagepicker",
       "name": "enclosure",
-      "title": "Among the provided street view images, which place do you perceive to be more enclosed ?",
+      "description": "choose the most enclosed one",
       "choices": getRandomImages("enclosure")
      },
      {
       "type": "imagepicker",
-      "name": "humanscale",
-      "title": "Among the provided street view images, which place do you perceive to be more human-friendly?",
-      "choices": getRandomImages("humanscale")
+      "name": "human-scale",
+      "description": "choose the most human-friendly one",
+      "choices": getRandomImages("human-scale")
      },
      {
       "type": "imagepicker",
       "name": "transparency",
-      "title": "Among the provided street view images, which place do you perceive to showcase higher transparency?",
+      "description": "choose the most transparent one",
       "choices": getRandomImages("transparency")
      },
      {
       "type": "imagepicker",
       "name": "complexity",
-      "title": "Among the provided street view images, which place do you perceive to showcase higher complexity?",
+      "description": "choose the most complex one",
       "choices": getRandomImages("complexity")
      }
     ],
-    "title": "Part 4: Streetscape Design Perception"
+    "title": "Part 4: Streetscape Design Perception",
+    "description": "Please choose the image in which you think to showcase the following design qualities most, there are five design quality features in this section."
    },
    {
     "name": "page5",
     "elements": [
+      {
+      "type": "expression",
+      "name": "text5",
+      "title": "Among the provided street view images, which place do you perceive to have following emotions most?",
+      "description": "choose one based on mentioned emotional types"
+     },
      {
       "type": "imagepicker",
       "name": "safe",
-      "title": "Among the provided street view images, which place do you perceive to be safer?",
+      "description": "choose the most safe one",
       "choices": getRandomImages("safe")
      },
      {
       "type": "imagepicker",
       "name": "lively",
-      "title": "Among the provided street view images, which place do you perceive to be livelier?",
+      "description": "choose the most lively one",
       "choices": getRandomImages("lively")
      },
      {
       "type": "imagepicker",
       "name": "beautiful",
-      "title": "Among the provided street view images, which place do you perceive to be more beautiful?",
+      "description": "choose the most beautiful one",
       "choices": getRandomImages("beautiful")
      },
      {
       "type": "imagepicker",
       "name": "wealthy",
-      "title": "Among the provided street view images, which place do you perceive to be more wealthier?",
+      "description": "choose the most wealthy one",
       "choices": getRandomImages("wealthy")
      },
      {
       "type": "imagepicker",
       "name": "boring",
-      "title": "Among the provided street view images, which place do you perceive to be more boring?",
+      "description": "choose the most boring one",
       "choices": getRandomImages("boring")
      },
      {
       "type": "imagepicker",
       "name": "depressing",
-      "title": "Among the provided street view images, which place do you perceive to be more depressing?",
+      "description": "choose the most depressing one",
       "choices": getRandomImages("depressing")
      }
     ],
-    "title": "Part 5: Streetscape Emotion Perception"
+    "title": "Part 5: Streetscape Emotion Perception",
+    "description": "Please choose the image in which you think to make people have following emotions most?, there are six emotional types in this section."
    },
    {
     "name": "page6",
     "elements": [
+     {
+      "type": "expression",
+      "name": "text6",
+      "title": "If you are looking for a place to have following activities, what spatial feature holds the highest importance to you?",
+      "description": "Spatial feasures are explained below"
+     },
+     {
+      "type": "expression",
+      "name": "text6-1",
+      "title": "Feature 1: Streetscape Perception - Whether the surrounding urban environment offers a comfortable experience.",
+      "description": "(comfort, greenery, safety, etc)"
+     },
+     {
+      "type": "expression",
+      "name": "text6-2",
+      "title": "Feature 2: Functionality - Whether the surrounding urban function quality and density can meet requirements.",
+      "description": "(function quality, density)"
+     },
+     {
+      "type": "expression",
+      "name": "text6-3",
+      "title": "Feature 3: Accessibility - Whether the location is easily accessible by walking or public transportation.",
+      "description": "(distance, public traffic service)"
+     },
+     {
+      "type": "expression",
+      "name": "text6-4",
+      "title": "Feature 4: Contact Density - Whether the location is lively or quiet based on population density.",
+      "description": "(vibrant / peaceful)"
+     },
      {
       "type": "image",
       "name": "image1",
@@ -777,28 +840,27 @@ const surveyJson = {
      },
      {
       "type": "ranking",
-      "name": "eatingdrinking",
-      "title": "If you are looking for a place to enjoy food and drinks outdoors, what spatial feature holds the highest importance to you? (Drag to rank in descending order of importance) ",
-      "description": "\n",
-      "setValueIf": "{eatingdrinking} allof ['Item 1']",
+      "name": "eating-drinking",
+      "description": "Drag to rank in descending order of spatial feature importance for eating / drinking behaviour",
+      "setValueIf": "{eeating-drinking} allof ['Item 1']",
       "isRequired": true,
       "choices": [
-       {
+      {
         "value": "perception",
-        "text": "Streetscape Perception (comfort, environment, emotion, etc)"
-       },
-       {
+        "text": "Streetscape Perception (comfort, greenery, safety, etc)"
+        },
+        {
         "value": "function",
-        "text": "Functionality (quality, density)"
-       },
-       {
+        "text": "Functionality (function quality, density)"
+        },
+        {
         "value": "accessibility",
-        "text": "Accessibility (global, local, transportation service)"
-       },
-       {
+        "text": "Accessibility (distance, public traffic service)"
+        },
+        {
         "value": "contact",
         "text": "Contact Density (vibrant / peaceful)"
-       }
+        }
       ]
      },
      {
@@ -811,28 +873,27 @@ const surveyJson = {
      },
      {
       "type": "ranking",
-      "name": "nature",
-      "title": "If you are seeking a place for nature exploration, what spatial feature holds the highest importance to you? (Drag to rank in descending order of importance) ",
-      "description": "\n",
-      "setValueIf": "{nature} allof ['Item 1']",
+      "name": "nature-exploration",
+      "description": "Drag to rank in descending order of spatial feature importance for nature exploration behaviour",
+      "setValueIf": "{nature-exploration} allof ['Item 1']",
       "isRequired": true,
       "choices": [
-       {
+      {
         "value": "perception",
-        "text": "Streetscape Perception (comfort, environment, emotion, etc)"
-       },
-       {
+        "text": "Streetscape Perception (comfort, greenery, safety, etc)"
+        },
+        {
         "value": "function",
-        "text": "Functionality (quality, density)"
-       },
-       {
+        "text": "Functionality (function quality, density)"
+        },
+        {
         "value": "accessibility",
-        "text": "Accessibility (global, local, transportation service)"
-       },
-       {
+        "text": "Accessibility (distance, public traffic service)"
+        },
+        {
         "value": "contact",
         "text": "Contact Density (vibrant / peaceful)"
-       }
+        }
       ]
      },
      {
@@ -845,23 +906,22 @@ const surveyJson = {
      },
      {
       "type": "ranking",
-      "name": "community",
-      "title": "If you are seeking a place for community gathering, what spatial feature holds the highest importance to you? (Drag to rank in descending order of importance) ",
-      "description": "\n",
-      "setValueIf": "{community} allof ['Item 1']",
+      "name": "community-gathering",
+      "description": "Drag to rank in descending order of spatial feature importance for community gathering behaviour",
+      "setValueIf": "{community-gathering} allof ['Item 1']",
       "isRequired": true,
       "choices": [
        {
         "value": "perception",
-        "text": "Streetscape Perception (comfort, environment, emotion, etc)"
+        "text": "Streetscape Perception (comfort, greenery, safety, etc)"
        },
        {
         "value": "function",
-        "text": "Functionality (quality, density)"
+        "text": "Functionality (function quality, density)"
        },
        {
         "value": "accessibility",
-        "text": "Accessibility (global, local, transportation service)"
+        "text": "Accessibility (distance, public traffic service)"
        },
        {
         "value": "contact",
@@ -879,28 +939,27 @@ const surveyJson = {
      },
      {
       "type": "ranking",
-      "name": "walking",
-      "title": "If you are seeking a place for city walking / exercising what spatial feature holds the highest importance to you? (Drag to rank in descending order of importance) ",
-      "description": "\n",
-      "setValueIf": "{walking} allof ['Item 1']",
+      "name": "citywalking-exercising",
+      "description": "Drag to rank in descending order of spatial feature importance for citywalking / exercising behaviour",
+      "setValueIf": "{citywalking-exercising} allof ['Item 1']",
       "isRequired": true,
       "choices": [
-       {
+      {
         "value": "perception",
-        "text": "Streetscape Perception (comfort, environment, emotion, etc)"
-       },
-       {
+        "text": "Streetscape Perception (comfort, greenery, safety, etc)"
+        },
+        {
         "value": "function",
-        "text": "Functionality (quality, density)"
-       },
-       {
+        "text": "Functionality (function quality, density)"
+        },
+        {
         "value": "accessibility",
-        "text": "Accessibility (global, local, transportation service)"
-       },
-       {
+        "text": "Accessibility (distance, public traffic service)"
+        },
+        {
         "value": "contact",
         "text": "Contact Density (vibrant / peaceful)"
-       }
+        }
       ]
      },
      {
@@ -913,28 +972,27 @@ const surveyJson = {
      },
      {
       "type": "ranking",
-      "name": "sightseeing",
-      "title": "If you are seeking a place for urban sightseeing, what spatial feature holds the highest importance to you? (Drag to rank in descending order of importance) ",
-      "description": "\n",
-      "setValueIf": "{sightseeing} allof ['Item 1']",
+      "name": "urban-sightseeing",
+      "description": "Drag to rank in descending order of spatial feature importance for urban sightseeing behaviour",
+      "setValueIf": "{urban-sightseeing} allof ['Item 1']",
       "isRequired": true,
       "choices": [
-       {
+      {
         "value": "perception",
-        "text": "Streetscape Perception (comfort, environment, emotion, etc)"
-       },
-       {
+        "text": "Streetscape Perception (comfort, greenery, safety, etc)"
+        },
+        {
         "value": "function",
-        "text": "Functionality (quality, density)"
-       },
-       {
+        "text": "Functionality (function quality, density)"
+        },
+        {
         "value": "accessibility",
-        "text": "Accessibility (global, local, transportation service)"
-       },
-       {
+        "text": "Accessibility (distance, public traffic service)"
+        },
+        {
         "value": "contact",
         "text": "Contact Density (vibrant / peaceful)"
-       }
+        }
       ]
      }
     ],
@@ -945,11 +1003,17 @@ const surveyJson = {
     "name": "page7",
     "elements": [
      {
+      "type": "expression",
+      "name": "text7",
+      "title": "Considering the four spatial features, rank the activities based on how important you believe those spatial features are for each activity.",
+      "description": "(Drag to rank in descending order of importance)"
+     },
+     {
       "type": "ranking",
-      "name": "perception",
-      "title": "Considering the spatial feature of Streetscape Perception, rank the activities based on how important you believe the experience brought by the streetscape are for each activity. ",
-      "description": "(Drag to rank in descending order of importance of Streetscape Perception on bahaviours) \n",
-      "setValueIf": "{perception} allof ['Item 1']",
+      "name": "streetscape-perception",
+      "title": "Streetscape Perception (comfort, greenery, safety, etc): Rank the most related activity",
+      "description": "(Drag to rank in descending order of importance of Streetscape Perception on activities)",
+      "setValueIf": "{streetscape-perception} allof ['Item 1']",
       "isRequired": true,
       "choices": [
        {
@@ -977,8 +1041,8 @@ const surveyJson = {
      {
       "type": "ranking",
       "name": "functionality",
-      "title": "Considering the spatial feature of Functionality, rank the  based on how important you believe the quality and density of urban functions are for each activity. ",
-      "description": "(Drag to rank in descending order of importance of Functionality on behaviours) \n",
+      "title": "Functionality (function quality, density): Rank the most related activity",
+      "description": "(Drag to rank in descending order of importance of Functionality on activities)",
       "setValueIf": "{functionality} allof ['Item 1']",
       "isRequired": true,
       "choices": [
@@ -1007,8 +1071,8 @@ const surveyJson = {
      {
       "type": "ranking",
       "name": "accessibility",
-      "title": "Considering the spatial feature of Accessibility, rank the  based on how important you believe the accessibility of a location are for each activity. ",
-      "description": "(Drag to rank in descending order of importance of Accessibility on behaviours) \n",
+      "title": "Accessibility (distance, public traffic service): Rank the most related activity",
+      "description": "(Drag to rank in descending order of importance of Accessibility on activities)",
       "setValueIf": "{accessibility} allof ['Item 1']",
       "isRequired": true,
       "choices": [
@@ -1036,10 +1100,10 @@ const surveyJson = {
      },
      {
       "type": "ranking",
-      "name": "contact",
-      "title": "Considering the spatial feature of Contact Density, rank the activities based on how important you believe the contact density (vibrant / peaceful) at a location are for each activity. ",
-      "description": "(Drag to rank in descending order of importance of Contact Density on behaviours) \n",
-      "setValueIf": "{contact} allof ['Item 1']",
+      "name": "contact-density",
+      "title": "Contact Density (vibrant / peaceful): Rank the most related activity",
+      "description": "(Drag to rank in descending order of importance of Contact Density on activities)",
+      "setValueIf": "{contact-density} allof ['Item 1']",
       "isRequired": true,
       "choices": [
         {
@@ -1066,9 +1130,10 @@ const surveyJson = {
      }
     ],
     "title": "Part 7: Social Activity Preference for Spatial Feature",
-    "description": "For following questions, please rank the following five behaviours in descending order of importance of spatial features on behaviours, when specific spatial feature is considered.\n\n1) Eating / Drinking\n2) Nature Exploration\n3) Community Gathering\n4) City Walking / Exercising\n5) Urban Sightseeing\n\nSpecific considered spatial feature:\n\n1) Streetscape Perception (comfort, environment, emotion, etc)\n2) Functionality (quality, density)\n3) Accessibility (global, local, transportation service)\n4) Contact Density (vibrant / peaceful)\n\n"
+    "description": "For following questions, please rank the following five social activities in descending order of importance of spatial features on acitivities, when specific spatial feature is considered."
    }
   ],
+  "showQuestionNumbers": "off",
   "showProgressBar": "aboveheader",
   "progressBarType": "questions",
   "autoGrowComment": true,
