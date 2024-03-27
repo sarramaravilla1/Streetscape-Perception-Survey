@@ -188,30 +188,30 @@ export default function SurveyResultCreateForm(props) {
     ...rest
   } = props;
   const initialValues = {
-    comfort1: "",
-    comfort2: "",
-    comfort3: "",
-    comfort4: "",
-    comfort5: "",
-    comfort6: "",
-    comfort7: "",
-    comfort8: "",
-    comfort9: "",
-    comfort10: "",
-    comfort11: "",
-    comfort12: "",
-    temp: "",
-    intensity: "",
-    heatsources: "",
+    comfort_1: "",
+    comfort_2: "",
+    comfort_3: "",
+    comfort_4: "",
+    comfort_5: "",
+    comfort_6: "",
+    thermal_comfort_1: "",
+    thermal_comfort_2: "",
+    thermal_comfort_3: "",
+    thermal_comfort_4: "",
+    thermal_comfort_5: "",
+    thermal_comfort_6: "",
+    temperature: "",
+    sun_intensity: "",
+    heat_sources: "",
     humidity: "",
-    velocity: "",
-    traffic: "",
+    wind_velocity: "",
+    traffic_flow: "",
     greenery: "",
-    shading: "",
-    material: "",
+    shading_area: "",
+    construction_material: "",
     imageability: "",
     enclosure: "",
-    humanscale: "",
+    human_scale: "",
     transparency: "",
     complexity: "",
     safe: "",
@@ -220,44 +220,72 @@ export default function SurveyResultCreateForm(props) {
     wealthy: "",
     boring: "",
     depressing: "",
-    eatingdrinking: [],
-    nature: [],
-    community: [],
-    walking: [],
-    sightseeing: [],
-    perception: [],
+    eating_drinking: [],
+    nature_exploration: [],
+    community_gathering: [],
+    citywalking: [],
+    urban_sightseeing: [],
+    streetscape_perception: [],
     functionality: [],
     accessibility: [],
-    contact: [],
+    contact_density: [],
+    email: "",
+    nus_id: "",
   };
-  const [comfort1, setComfort1] = React.useState(initialValues.comfort1);
-  const [comfort2, setComfort2] = React.useState(initialValues.comfort2);
-  const [comfort3, setComfort3] = React.useState(initialValues.comfort3);
-  const [comfort4, setComfort4] = React.useState(initialValues.comfort4);
-  const [comfort5, setComfort5] = React.useState(initialValues.comfort5);
-  const [comfort6, setComfort6] = React.useState(initialValues.comfort6);
-  const [comfort7, setComfort7] = React.useState(initialValues.comfort7);
-  const [comfort8, setComfort8] = React.useState(initialValues.comfort8);
-  const [comfort9, setComfort9] = React.useState(initialValues.comfort9);
-  const [comfort10, setComfort10] = React.useState(initialValues.comfort10);
-  const [comfort11, setComfort11] = React.useState(initialValues.comfort11);
-  const [comfort12, setComfort12] = React.useState(initialValues.comfort12);
-  const [temp, setTemp] = React.useState(initialValues.temp);
-  const [intensity, setIntensity] = React.useState(initialValues.intensity);
-  const [heatsources, setHeatsources] = React.useState(
-    initialValues.heatsources
+  const [comfort_1, setComfort_1] = React.useState(initialValues.comfort_1);
+  const [comfort_2, setComfort_2] = React.useState(initialValues.comfort_2);
+  const [comfort_3, setComfort_3] = React.useState(initialValues.comfort_3);
+  const [comfort_4, setComfort_4] = React.useState(initialValues.comfort_4);
+  const [comfort_5, setComfort_5] = React.useState(initialValues.comfort_5);
+  const [comfort_6, setComfort_6] = React.useState(initialValues.comfort_6);
+  const [thermal_comfort_1, setThermal_comfort_1] = React.useState(
+    initialValues.thermal_comfort_1
+  );
+  const [thermal_comfort_2, setThermal_comfort_2] = React.useState(
+    initialValues.thermal_comfort_2
+  );
+  const [thermal_comfort_3, setThermal_comfort_3] = React.useState(
+    initialValues.thermal_comfort_3
+  );
+  const [thermal_comfort_4, setThermal_comfort_4] = React.useState(
+    initialValues.thermal_comfort_4
+  );
+  const [thermal_comfort_5, setThermal_comfort_5] = React.useState(
+    initialValues.thermal_comfort_5
+  );
+  const [thermal_comfort_6, setThermal_comfort_6] = React.useState(
+    initialValues.thermal_comfort_6
+  );
+  const [temperature, setTemperature] = React.useState(
+    initialValues.temperature
+  );
+  const [sun_intensity, setSun_intensity] = React.useState(
+    initialValues.sun_intensity
+  );
+  const [heat_sources, setHeat_sources] = React.useState(
+    initialValues.heat_sources
   );
   const [humidity, setHumidity] = React.useState(initialValues.humidity);
-  const [velocity, setVelocity] = React.useState(initialValues.velocity);
-  const [traffic, setTraffic] = React.useState(initialValues.traffic);
+  const [wind_velocity, setWind_velocity] = React.useState(
+    initialValues.wind_velocity
+  );
+  const [traffic_flow, setTraffic_flow] = React.useState(
+    initialValues.traffic_flow
+  );
   const [greenery, setGreenery] = React.useState(initialValues.greenery);
-  const [shading, setShading] = React.useState(initialValues.shading);
-  const [material, setMaterial] = React.useState(initialValues.material);
+  const [shading_area, setShading_area] = React.useState(
+    initialValues.shading_area
+  );
+  const [construction_material, setConstruction_material] = React.useState(
+    initialValues.construction_material
+  );
   const [imageability, setImageability] = React.useState(
     initialValues.imageability
   );
   const [enclosure, setEnclosure] = React.useState(initialValues.enclosure);
-  const [humanscale, setHumanscale] = React.useState(initialValues.humanscale);
+  const [human_scale, setHuman_scale] = React.useState(
+    initialValues.human_scale
+  );
   const [transparency, setTransparency] = React.useState(
     initialValues.transparency
   );
@@ -268,49 +296,61 @@ export default function SurveyResultCreateForm(props) {
   const [wealthy, setWealthy] = React.useState(initialValues.wealthy);
   const [boring, setBoring] = React.useState(initialValues.boring);
   const [depressing, setDepressing] = React.useState(initialValues.depressing);
-  const [eatingdrinking, setEatingdrinking] = React.useState(
-    initialValues.eatingdrinking
+  const [eating_drinking, setEating_drinking] = React.useState(
+    initialValues.eating_drinking
   );
-  const [nature, setNature] = React.useState(initialValues.nature);
-  const [community, setCommunity] = React.useState(initialValues.community);
-  const [walking, setWalking] = React.useState(initialValues.walking);
-  const [sightseeing, setSightseeing] = React.useState(
-    initialValues.sightseeing
+  const [nature_exploration, setNature_exploration] = React.useState(
+    initialValues.nature_exploration
   );
-  const [perception, setPerception] = React.useState(initialValues.perception);
+  const [community_gathering, setCommunity_gathering] = React.useState(
+    initialValues.community_gathering
+  );
+  const [citywalking, setCitywalking] = React.useState(
+    initialValues.citywalking
+  );
+  const [urban_sightseeing, setUrban_sightseeing] = React.useState(
+    initialValues.urban_sightseeing
+  );
+  const [streetscape_perception, setStreetscape_perception] = React.useState(
+    initialValues.streetscape_perception
+  );
   const [functionality, setFunctionality] = React.useState(
     initialValues.functionality
   );
   const [accessibility, setAccessibility] = React.useState(
     initialValues.accessibility
   );
-  const [contact, setContact] = React.useState(initialValues.contact);
+  const [contact_density, setContact_density] = React.useState(
+    initialValues.contact_density
+  );
+  const [email, setEmail] = React.useState(initialValues.email);
+  const [nus_id, setNus_id] = React.useState(initialValues.nus_id);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
-    setComfort1(initialValues.comfort1);
-    setComfort2(initialValues.comfort2);
-    setComfort3(initialValues.comfort3);
-    setComfort4(initialValues.comfort4);
-    setComfort5(initialValues.comfort5);
-    setComfort6(initialValues.comfort6);
-    setComfort7(initialValues.comfort7);
-    setComfort8(initialValues.comfort8);
-    setComfort9(initialValues.comfort9);
-    setComfort10(initialValues.comfort10);
-    setComfort11(initialValues.comfort11);
-    setComfort12(initialValues.comfort12);
-    setTemp(initialValues.temp);
-    setIntensity(initialValues.intensity);
-    setHeatsources(initialValues.heatsources);
+    setComfort_1(initialValues.comfort_1);
+    setComfort_2(initialValues.comfort_2);
+    setComfort_3(initialValues.comfort_3);
+    setComfort_4(initialValues.comfort_4);
+    setComfort_5(initialValues.comfort_5);
+    setComfort_6(initialValues.comfort_6);
+    setThermal_comfort_1(initialValues.thermal_comfort_1);
+    setThermal_comfort_2(initialValues.thermal_comfort_2);
+    setThermal_comfort_3(initialValues.thermal_comfort_3);
+    setThermal_comfort_4(initialValues.thermal_comfort_4);
+    setThermal_comfort_5(initialValues.thermal_comfort_5);
+    setThermal_comfort_6(initialValues.thermal_comfort_6);
+    setTemperature(initialValues.temperature);
+    setSun_intensity(initialValues.sun_intensity);
+    setHeat_sources(initialValues.heat_sources);
     setHumidity(initialValues.humidity);
-    setVelocity(initialValues.velocity);
-    setTraffic(initialValues.traffic);
+    setWind_velocity(initialValues.wind_velocity);
+    setTraffic_flow(initialValues.traffic_flow);
     setGreenery(initialValues.greenery);
-    setShading(initialValues.shading);
-    setMaterial(initialValues.material);
+    setShading_area(initialValues.shading_area);
+    setConstruction_material(initialValues.construction_material);
     setImageability(initialValues.imageability);
     setEnclosure(initialValues.enclosure);
-    setHumanscale(initialValues.humanscale);
+    setHuman_scale(initialValues.human_scale);
     setTransparency(initialValues.transparency);
     setComplexity(initialValues.complexity);
     setSafe(initialValues.safe);
@@ -319,74 +359,82 @@ export default function SurveyResultCreateForm(props) {
     setWealthy(initialValues.wealthy);
     setBoring(initialValues.boring);
     setDepressing(initialValues.depressing);
-    setEatingdrinking(initialValues.eatingdrinking);
-    setCurrentEatingdrinkingValue("");
-    setNature(initialValues.nature);
-    setCurrentNatureValue("");
-    setCommunity(initialValues.community);
-    setCurrentCommunityValue("");
-    setWalking(initialValues.walking);
-    setCurrentWalkingValue("");
-    setSightseeing(initialValues.sightseeing);
-    setCurrentSightseeingValue("");
-    setPerception(initialValues.perception);
-    setCurrentPerceptionValue("");
+    setEating_drinking(initialValues.eating_drinking);
+    setCurrentEating_drinkingValue("");
+    setNature_exploration(initialValues.nature_exploration);
+    setCurrentNature_explorationValue("");
+    setCommunity_gathering(initialValues.community_gathering);
+    setCurrentCommunity_gatheringValue("");
+    setCitywalking(initialValues.citywalking);
+    setCurrentCitywalkingValue("");
+    setUrban_sightseeing(initialValues.urban_sightseeing);
+    setCurrentUrban_sightseeingValue("");
+    setStreetscape_perception(initialValues.streetscape_perception);
+    setCurrentStreetscape_perceptionValue("");
     setFunctionality(initialValues.functionality);
     setCurrentFunctionalityValue("");
     setAccessibility(initialValues.accessibility);
     setCurrentAccessibilityValue("");
-    setContact(initialValues.contact);
-    setCurrentContactValue("");
+    setContact_density(initialValues.contact_density);
+    setCurrentContact_densityValue("");
+    setEmail(initialValues.email);
+    setNus_id(initialValues.nus_id);
     setErrors({});
   };
-  const [currentEatingdrinkingValue, setCurrentEatingdrinkingValue] =
+  const [currentEating_drinkingValue, setCurrentEating_drinkingValue] =
     React.useState("");
-  const eatingdrinkingRef = React.createRef();
-  const [currentNatureValue, setCurrentNatureValue] = React.useState("");
-  const natureRef = React.createRef();
-  const [currentCommunityValue, setCurrentCommunityValue] = React.useState("");
-  const communityRef = React.createRef();
-  const [currentWalkingValue, setCurrentWalkingValue] = React.useState("");
-  const walkingRef = React.createRef();
-  const [currentSightseeingValue, setCurrentSightseeingValue] =
+  const eating_drinkingRef = React.createRef();
+  const [currentNature_explorationValue, setCurrentNature_explorationValue] =
     React.useState("");
-  const sightseeingRef = React.createRef();
-  const [currentPerceptionValue, setCurrentPerceptionValue] =
+  const nature_explorationRef = React.createRef();
+  const [currentCommunity_gatheringValue, setCurrentCommunity_gatheringValue] =
     React.useState("");
-  const perceptionRef = React.createRef();
+  const community_gatheringRef = React.createRef();
+  const [currentCitywalkingValue, setCurrentCitywalkingValue] =
+    React.useState("");
+  const citywalkingRef = React.createRef();
+  const [currentUrban_sightseeingValue, setCurrentUrban_sightseeingValue] =
+    React.useState("");
+  const urban_sightseeingRef = React.createRef();
+  const [
+    currentStreetscape_perceptionValue,
+    setCurrentStreetscape_perceptionValue,
+  ] = React.useState("");
+  const streetscape_perceptionRef = React.createRef();
   const [currentFunctionalityValue, setCurrentFunctionalityValue] =
     React.useState("");
   const functionalityRef = React.createRef();
   const [currentAccessibilityValue, setCurrentAccessibilityValue] =
     React.useState("");
   const accessibilityRef = React.createRef();
-  const [currentContactValue, setCurrentContactValue] = React.useState("");
-  const contactRef = React.createRef();
+  const [currentContact_densityValue, setCurrentContact_densityValue] =
+    React.useState("");
+  const contact_densityRef = React.createRef();
   const validations = {
-    comfort1: [],
-    comfort2: [],
-    comfort3: [],
-    comfort4: [],
-    comfort5: [],
-    comfort6: [],
-    comfort7: [],
-    comfort8: [],
-    comfort9: [],
-    comfort10: [],
-    comfort11: [],
-    comfort12: [],
-    temp: [],
-    intensity: [],
-    heatsources: [],
+    comfort_1: [],
+    comfort_2: [],
+    comfort_3: [],
+    comfort_4: [],
+    comfort_5: [],
+    comfort_6: [],
+    thermal_comfort_1: [],
+    thermal_comfort_2: [],
+    thermal_comfort_3: [],
+    thermal_comfort_4: [],
+    thermal_comfort_5: [],
+    thermal_comfort_6: [],
+    temperature: [],
+    sun_intensity: [],
+    heat_sources: [],
     humidity: [],
-    velocity: [],
-    traffic: [],
+    wind_velocity: [],
+    traffic_flow: [],
     greenery: [],
-    shading: [],
-    material: [],
+    shading_area: [],
+    construction_material: [],
     imageability: [],
     enclosure: [],
-    humanscale: [],
+    human_scale: [],
     transparency: [],
     complexity: [],
     safe: [],
@@ -395,15 +443,17 @@ export default function SurveyResultCreateForm(props) {
     wealthy: [],
     boring: [],
     depressing: [],
-    eatingdrinking: [],
-    nature: [],
-    community: [],
-    walking: [],
-    sightseeing: [],
-    perception: [],
+    eating_drinking: [],
+    nature_exploration: [],
+    community_gathering: [],
+    citywalking: [],
+    urban_sightseeing: [],
+    streetscape_perception: [],
     functionality: [],
     accessibility: [],
-    contact: [],
+    contact_density: [],
+    email: [],
+    nus_id: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -431,30 +481,30 @@ export default function SurveyResultCreateForm(props) {
       onSubmit={async (event) => {
         event.preventDefault();
         let modelFields = {
-          comfort1,
-          comfort2,
-          comfort3,
-          comfort4,
-          comfort5,
-          comfort6,
-          comfort7,
-          comfort8,
-          comfort9,
-          comfort10,
-          comfort11,
-          comfort12,
-          temp,
-          intensity,
-          heatsources,
+          comfort_1,
+          comfort_2,
+          comfort_3,
+          comfort_4,
+          comfort_5,
+          comfort_6,
+          thermal_comfort_1,
+          thermal_comfort_2,
+          thermal_comfort_3,
+          thermal_comfort_4,
+          thermal_comfort_5,
+          thermal_comfort_6,
+          temperature,
+          sun_intensity,
+          heat_sources,
           humidity,
-          velocity,
-          traffic,
+          wind_velocity,
+          traffic_flow,
           greenery,
-          shading,
-          material,
+          shading_area,
+          construction_material,
           imageability,
           enclosure,
-          humanscale,
+          human_scale,
           transparency,
           complexity,
           safe,
@@ -463,15 +513,17 @@ export default function SurveyResultCreateForm(props) {
           wealthy,
           boring,
           depressing,
-          eatingdrinking,
-          nature,
-          community,
-          walking,
-          sightseeing,
-          perception,
+          eating_drinking,
+          nature_exploration,
+          community_gathering,
+          citywalking,
+          urban_sightseeing,
+          streetscape_perception,
           functionality,
           accessibility,
-          contact,
+          contact_density,
+          email,
+          nus_id,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -518,38 +570,38 @@ export default function SurveyResultCreateForm(props) {
       {...rest}
     >
       <TextField
-        label="Comfort1"
+        label="Comfort 1"
         isRequired={false}
         isReadOnly={false}
-        value={comfort1}
+        value={comfort_1}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1: value,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1: value,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -558,62 +610,64 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
-            value = result?.comfort1 ?? value;
+            value = result?.comfort_1 ?? value;
           }
-          if (errors.comfort1?.hasError) {
-            runValidationTasks("comfort1", value);
+          if (errors.comfort_1?.hasError) {
+            runValidationTasks("comfort_1", value);
           }
-          setComfort1(value);
+          setComfort_1(value);
         }}
-        onBlur={() => runValidationTasks("comfort1", comfort1)}
-        errorMessage={errors.comfort1?.errorMessage}
-        hasError={errors.comfort1?.hasError}
-        {...getOverrideProps(overrides, "comfort1")}
+        onBlur={() => runValidationTasks("comfort_1", comfort_1)}
+        errorMessage={errors.comfort_1?.errorMessage}
+        hasError={errors.comfort_1?.hasError}
+        {...getOverrideProps(overrides, "comfort_1")}
       ></TextField>
       <TextField
-        label="Comfort2"
+        label="Comfort 2"
         isRequired={false}
         isReadOnly={false}
-        value={comfort2}
+        value={comfort_2}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2: value,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2: value,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -622,62 +676,64 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
-            value = result?.comfort2 ?? value;
+            value = result?.comfort_2 ?? value;
           }
-          if (errors.comfort2?.hasError) {
-            runValidationTasks("comfort2", value);
+          if (errors.comfort_2?.hasError) {
+            runValidationTasks("comfort_2", value);
           }
-          setComfort2(value);
+          setComfort_2(value);
         }}
-        onBlur={() => runValidationTasks("comfort2", comfort2)}
-        errorMessage={errors.comfort2?.errorMessage}
-        hasError={errors.comfort2?.hasError}
-        {...getOverrideProps(overrides, "comfort2")}
+        onBlur={() => runValidationTasks("comfort_2", comfort_2)}
+        errorMessage={errors.comfort_2?.errorMessage}
+        hasError={errors.comfort_2?.hasError}
+        {...getOverrideProps(overrides, "comfort_2")}
       ></TextField>
       <TextField
-        label="Comfort3"
+        label="Comfort 3"
         isRequired={false}
         isReadOnly={false}
-        value={comfort3}
+        value={comfort_3}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3: value,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3: value,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -686,62 +742,64 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
-            value = result?.comfort3 ?? value;
+            value = result?.comfort_3 ?? value;
           }
-          if (errors.comfort3?.hasError) {
-            runValidationTasks("comfort3", value);
+          if (errors.comfort_3?.hasError) {
+            runValidationTasks("comfort_3", value);
           }
-          setComfort3(value);
+          setComfort_3(value);
         }}
-        onBlur={() => runValidationTasks("comfort3", comfort3)}
-        errorMessage={errors.comfort3?.errorMessage}
-        hasError={errors.comfort3?.hasError}
-        {...getOverrideProps(overrides, "comfort3")}
+        onBlur={() => runValidationTasks("comfort_3", comfort_3)}
+        errorMessage={errors.comfort_3?.errorMessage}
+        hasError={errors.comfort_3?.hasError}
+        {...getOverrideProps(overrides, "comfort_3")}
       ></TextField>
       <TextField
-        label="Comfort4"
+        label="Comfort 4"
         isRequired={false}
         isReadOnly={false}
-        value={comfort4}
+        value={comfort_4}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4: value,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4: value,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -750,62 +808,64 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
-            value = result?.comfort4 ?? value;
+            value = result?.comfort_4 ?? value;
           }
-          if (errors.comfort4?.hasError) {
-            runValidationTasks("comfort4", value);
+          if (errors.comfort_4?.hasError) {
+            runValidationTasks("comfort_4", value);
           }
-          setComfort4(value);
+          setComfort_4(value);
         }}
-        onBlur={() => runValidationTasks("comfort4", comfort4)}
-        errorMessage={errors.comfort4?.errorMessage}
-        hasError={errors.comfort4?.hasError}
-        {...getOverrideProps(overrides, "comfort4")}
+        onBlur={() => runValidationTasks("comfort_4", comfort_4)}
+        errorMessage={errors.comfort_4?.errorMessage}
+        hasError={errors.comfort_4?.hasError}
+        {...getOverrideProps(overrides, "comfort_4")}
       ></TextField>
       <TextField
-        label="Comfort5"
+        label="Comfort 5"
         isRequired={false}
         isReadOnly={false}
-        value={comfort5}
+        value={comfort_5}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5: value,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5: value,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -814,62 +874,64 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
-            value = result?.comfort5 ?? value;
+            value = result?.comfort_5 ?? value;
           }
-          if (errors.comfort5?.hasError) {
-            runValidationTasks("comfort5", value);
+          if (errors.comfort_5?.hasError) {
+            runValidationTasks("comfort_5", value);
           }
-          setComfort5(value);
+          setComfort_5(value);
         }}
-        onBlur={() => runValidationTasks("comfort5", comfort5)}
-        errorMessage={errors.comfort5?.errorMessage}
-        hasError={errors.comfort5?.hasError}
-        {...getOverrideProps(overrides, "comfort5")}
+        onBlur={() => runValidationTasks("comfort_5", comfort_5)}
+        errorMessage={errors.comfort_5?.errorMessage}
+        hasError={errors.comfort_5?.hasError}
+        {...getOverrideProps(overrides, "comfort_5")}
       ></TextField>
       <TextField
-        label="Comfort6"
+        label="Comfort 6"
         isRequired={false}
         isReadOnly={false}
-        value={comfort6}
+        value={comfort_6}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6: value,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6: value,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -878,62 +940,64 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
-            value = result?.comfort6 ?? value;
+            value = result?.comfort_6 ?? value;
           }
-          if (errors.comfort6?.hasError) {
-            runValidationTasks("comfort6", value);
+          if (errors.comfort_6?.hasError) {
+            runValidationTasks("comfort_6", value);
           }
-          setComfort6(value);
+          setComfort_6(value);
         }}
-        onBlur={() => runValidationTasks("comfort6", comfort6)}
-        errorMessage={errors.comfort6?.errorMessage}
-        hasError={errors.comfort6?.hasError}
-        {...getOverrideProps(overrides, "comfort6")}
+        onBlur={() => runValidationTasks("comfort_6", comfort_6)}
+        errorMessage={errors.comfort_6?.errorMessage}
+        hasError={errors.comfort_6?.hasError}
+        {...getOverrideProps(overrides, "comfort_6")}
       ></TextField>
       <TextField
-        label="Comfort7"
+        label="Thermal comfort 1"
         isRequired={false}
         isReadOnly={false}
-        value={comfort7}
+        value={thermal_comfort_1}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7: value,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1: value,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -942,62 +1006,66 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
-            value = result?.comfort7 ?? value;
+            value = result?.thermal_comfort_1 ?? value;
           }
-          if (errors.comfort7?.hasError) {
-            runValidationTasks("comfort7", value);
+          if (errors.thermal_comfort_1?.hasError) {
+            runValidationTasks("thermal_comfort_1", value);
           }
-          setComfort7(value);
+          setThermal_comfort_1(value);
         }}
-        onBlur={() => runValidationTasks("comfort7", comfort7)}
-        errorMessage={errors.comfort7?.errorMessage}
-        hasError={errors.comfort7?.hasError}
-        {...getOverrideProps(overrides, "comfort7")}
+        onBlur={() =>
+          runValidationTasks("thermal_comfort_1", thermal_comfort_1)
+        }
+        errorMessage={errors.thermal_comfort_1?.errorMessage}
+        hasError={errors.thermal_comfort_1?.hasError}
+        {...getOverrideProps(overrides, "thermal_comfort_1")}
       ></TextField>
       <TextField
-        label="Comfort8"
+        label="Thermal comfort 2"
         isRequired={false}
         isReadOnly={false}
-        value={comfort8}
+        value={thermal_comfort_2}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8: value,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2: value,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -1006,62 +1074,66 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
-            value = result?.comfort8 ?? value;
+            value = result?.thermal_comfort_2 ?? value;
           }
-          if (errors.comfort8?.hasError) {
-            runValidationTasks("comfort8", value);
+          if (errors.thermal_comfort_2?.hasError) {
+            runValidationTasks("thermal_comfort_2", value);
           }
-          setComfort8(value);
+          setThermal_comfort_2(value);
         }}
-        onBlur={() => runValidationTasks("comfort8", comfort8)}
-        errorMessage={errors.comfort8?.errorMessage}
-        hasError={errors.comfort8?.hasError}
-        {...getOverrideProps(overrides, "comfort8")}
+        onBlur={() =>
+          runValidationTasks("thermal_comfort_2", thermal_comfort_2)
+        }
+        errorMessage={errors.thermal_comfort_2?.errorMessage}
+        hasError={errors.thermal_comfort_2?.hasError}
+        {...getOverrideProps(overrides, "thermal_comfort_2")}
       ></TextField>
       <TextField
-        label="Comfort9"
+        label="Thermal comfort 3"
         isRequired={false}
         isReadOnly={false}
-        value={comfort9}
+        value={thermal_comfort_3}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9: value,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3: value,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -1070,62 +1142,66 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
-            value = result?.comfort9 ?? value;
+            value = result?.thermal_comfort_3 ?? value;
           }
-          if (errors.comfort9?.hasError) {
-            runValidationTasks("comfort9", value);
+          if (errors.thermal_comfort_3?.hasError) {
+            runValidationTasks("thermal_comfort_3", value);
           }
-          setComfort9(value);
+          setThermal_comfort_3(value);
         }}
-        onBlur={() => runValidationTasks("comfort9", comfort9)}
-        errorMessage={errors.comfort9?.errorMessage}
-        hasError={errors.comfort9?.hasError}
-        {...getOverrideProps(overrides, "comfort9")}
+        onBlur={() =>
+          runValidationTasks("thermal_comfort_3", thermal_comfort_3)
+        }
+        errorMessage={errors.thermal_comfort_3?.errorMessage}
+        hasError={errors.thermal_comfort_3?.hasError}
+        {...getOverrideProps(overrides, "thermal_comfort_3")}
       ></TextField>
       <TextField
-        label="Comfort10"
+        label="Thermal comfort 4"
         isRequired={false}
         isReadOnly={false}
-        value={comfort10}
+        value={thermal_comfort_4}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10: value,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4: value,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -1134,62 +1210,66 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
-            value = result?.comfort10 ?? value;
+            value = result?.thermal_comfort_4 ?? value;
           }
-          if (errors.comfort10?.hasError) {
-            runValidationTasks("comfort10", value);
+          if (errors.thermal_comfort_4?.hasError) {
+            runValidationTasks("thermal_comfort_4", value);
           }
-          setComfort10(value);
+          setThermal_comfort_4(value);
         }}
-        onBlur={() => runValidationTasks("comfort10", comfort10)}
-        errorMessage={errors.comfort10?.errorMessage}
-        hasError={errors.comfort10?.hasError}
-        {...getOverrideProps(overrides, "comfort10")}
+        onBlur={() =>
+          runValidationTasks("thermal_comfort_4", thermal_comfort_4)
+        }
+        errorMessage={errors.thermal_comfort_4?.errorMessage}
+        hasError={errors.thermal_comfort_4?.hasError}
+        {...getOverrideProps(overrides, "thermal_comfort_4")}
       ></TextField>
       <TextField
-        label="Comfort11"
+        label="Thermal comfort 5"
         isRequired={false}
         isReadOnly={false}
-        value={comfort11}
+        value={thermal_comfort_5}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11: value,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5: value,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -1198,62 +1278,66 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
-            value = result?.comfort11 ?? value;
+            value = result?.thermal_comfort_5 ?? value;
           }
-          if (errors.comfort11?.hasError) {
-            runValidationTasks("comfort11", value);
+          if (errors.thermal_comfort_5?.hasError) {
+            runValidationTasks("thermal_comfort_5", value);
           }
-          setComfort11(value);
+          setThermal_comfort_5(value);
         }}
-        onBlur={() => runValidationTasks("comfort11", comfort11)}
-        errorMessage={errors.comfort11?.errorMessage}
-        hasError={errors.comfort11?.hasError}
-        {...getOverrideProps(overrides, "comfort11")}
+        onBlur={() =>
+          runValidationTasks("thermal_comfort_5", thermal_comfort_5)
+        }
+        errorMessage={errors.thermal_comfort_5?.errorMessage}
+        hasError={errors.thermal_comfort_5?.hasError}
+        {...getOverrideProps(overrides, "thermal_comfort_5")}
       ></TextField>
       <TextField
-        label="Comfort12"
+        label="Thermal comfort 6"
         isRequired={false}
         isReadOnly={false}
-        value={comfort12}
+        value={thermal_comfort_6}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12: value,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6: value,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -1262,62 +1346,66 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
-            value = result?.comfort12 ?? value;
+            value = result?.thermal_comfort_6 ?? value;
           }
-          if (errors.comfort12?.hasError) {
-            runValidationTasks("comfort12", value);
+          if (errors.thermal_comfort_6?.hasError) {
+            runValidationTasks("thermal_comfort_6", value);
           }
-          setComfort12(value);
+          setThermal_comfort_6(value);
         }}
-        onBlur={() => runValidationTasks("comfort12", comfort12)}
-        errorMessage={errors.comfort12?.errorMessage}
-        hasError={errors.comfort12?.hasError}
-        {...getOverrideProps(overrides, "comfort12")}
+        onBlur={() =>
+          runValidationTasks("thermal_comfort_6", thermal_comfort_6)
+        }
+        errorMessage={errors.thermal_comfort_6?.errorMessage}
+        hasError={errors.thermal_comfort_6?.hasError}
+        {...getOverrideProps(overrides, "thermal_comfort_6")}
       ></TextField>
       <TextField
-        label="Temp"
+        label="Temperature"
         isRequired={false}
         isReadOnly={false}
-        value={temp}
+        value={temperature}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp: value,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature: value,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -1326,62 +1414,64 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
-            value = result?.temp ?? value;
+            value = result?.temperature ?? value;
           }
-          if (errors.temp?.hasError) {
-            runValidationTasks("temp", value);
+          if (errors.temperature?.hasError) {
+            runValidationTasks("temperature", value);
           }
-          setTemp(value);
+          setTemperature(value);
         }}
-        onBlur={() => runValidationTasks("temp", temp)}
-        errorMessage={errors.temp?.errorMessage}
-        hasError={errors.temp?.hasError}
-        {...getOverrideProps(overrides, "temp")}
+        onBlur={() => runValidationTasks("temperature", temperature)}
+        errorMessage={errors.temperature?.errorMessage}
+        hasError={errors.temperature?.hasError}
+        {...getOverrideProps(overrides, "temperature")}
       ></TextField>
       <TextField
-        label="Intensity"
+        label="Sun intensity"
         isRequired={false}
         isReadOnly={false}
-        value={intensity}
+        value={sun_intensity}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity: value,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity: value,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -1390,62 +1480,64 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
-            value = result?.intensity ?? value;
+            value = result?.sun_intensity ?? value;
           }
-          if (errors.intensity?.hasError) {
-            runValidationTasks("intensity", value);
+          if (errors.sun_intensity?.hasError) {
+            runValidationTasks("sun_intensity", value);
           }
-          setIntensity(value);
+          setSun_intensity(value);
         }}
-        onBlur={() => runValidationTasks("intensity", intensity)}
-        errorMessage={errors.intensity?.errorMessage}
-        hasError={errors.intensity?.hasError}
-        {...getOverrideProps(overrides, "intensity")}
+        onBlur={() => runValidationTasks("sun_intensity", sun_intensity)}
+        errorMessage={errors.sun_intensity?.errorMessage}
+        hasError={errors.sun_intensity?.hasError}
+        {...getOverrideProps(overrides, "sun_intensity")}
       ></TextField>
       <TextField
-        label="Heatsources"
+        label="Heat sources"
         isRequired={false}
         isReadOnly={false}
-        value={heatsources}
+        value={heat_sources}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources: value,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources: value,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -1454,28 +1546,30 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
-            value = result?.heatsources ?? value;
+            value = result?.heat_sources ?? value;
           }
-          if (errors.heatsources?.hasError) {
-            runValidationTasks("heatsources", value);
+          if (errors.heat_sources?.hasError) {
+            runValidationTasks("heat_sources", value);
           }
-          setHeatsources(value);
+          setHeat_sources(value);
         }}
-        onBlur={() => runValidationTasks("heatsources", heatsources)}
-        errorMessage={errors.heatsources?.errorMessage}
-        hasError={errors.heatsources?.hasError}
-        {...getOverrideProps(overrides, "heatsources")}
+        onBlur={() => runValidationTasks("heat_sources", heat_sources)}
+        errorMessage={errors.heat_sources?.errorMessage}
+        hasError={errors.heat_sources?.hasError}
+        {...getOverrideProps(overrides, "heat_sources")}
       ></TextField>
       <TextField
         label="Humidity"
@@ -1486,30 +1580,30 @@ export default function SurveyResultCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity: value,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -1518,15 +1612,17 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
             value = result?.humidity ?? value;
@@ -1542,38 +1638,38 @@ export default function SurveyResultCreateForm(props) {
         {...getOverrideProps(overrides, "humidity")}
       ></TextField>
       <TextField
-        label="Velocity"
+        label="Wind velocity"
         isRequired={false}
         isReadOnly={false}
-        value={velocity}
+        value={wind_velocity}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity: value,
-              traffic,
+              wind_velocity: value,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -1582,62 +1678,64 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
-            value = result?.velocity ?? value;
+            value = result?.wind_velocity ?? value;
           }
-          if (errors.velocity?.hasError) {
-            runValidationTasks("velocity", value);
+          if (errors.wind_velocity?.hasError) {
+            runValidationTasks("wind_velocity", value);
           }
-          setVelocity(value);
+          setWind_velocity(value);
         }}
-        onBlur={() => runValidationTasks("velocity", velocity)}
-        errorMessage={errors.velocity?.errorMessage}
-        hasError={errors.velocity?.hasError}
-        {...getOverrideProps(overrides, "velocity")}
+        onBlur={() => runValidationTasks("wind_velocity", wind_velocity)}
+        errorMessage={errors.wind_velocity?.errorMessage}
+        hasError={errors.wind_velocity?.hasError}
+        {...getOverrideProps(overrides, "wind_velocity")}
       ></TextField>
       <TextField
-        label="Traffic"
+        label="Traffic flow"
         isRequired={false}
         isReadOnly={false}
-        value={traffic}
+        value={traffic_flow}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic: value,
+              wind_velocity,
+              traffic_flow: value,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -1646,28 +1744,30 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
-            value = result?.traffic ?? value;
+            value = result?.traffic_flow ?? value;
           }
-          if (errors.traffic?.hasError) {
-            runValidationTasks("traffic", value);
+          if (errors.traffic_flow?.hasError) {
+            runValidationTasks("traffic_flow", value);
           }
-          setTraffic(value);
+          setTraffic_flow(value);
         }}
-        onBlur={() => runValidationTasks("traffic", traffic)}
-        errorMessage={errors.traffic?.errorMessage}
-        hasError={errors.traffic?.hasError}
-        {...getOverrideProps(overrides, "traffic")}
+        onBlur={() => runValidationTasks("traffic_flow", traffic_flow)}
+        errorMessage={errors.traffic_flow?.errorMessage}
+        hasError={errors.traffic_flow?.hasError}
+        {...getOverrideProps(overrides, "traffic_flow")}
       ></TextField>
       <TextField
         label="Greenery"
@@ -1678,30 +1778,30 @@ export default function SurveyResultCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery: value,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -1710,15 +1810,17 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
             value = result?.greenery ?? value;
@@ -1734,38 +1836,38 @@ export default function SurveyResultCreateForm(props) {
         {...getOverrideProps(overrides, "greenery")}
       ></TextField>
       <TextField
-        label="Shading"
+        label="Shading area"
         isRequired={false}
         isReadOnly={false}
-        value={shading}
+        value={shading_area}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading: value,
-              material,
+              shading_area: value,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -1774,62 +1876,64 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
-            value = result?.shading ?? value;
+            value = result?.shading_area ?? value;
           }
-          if (errors.shading?.hasError) {
-            runValidationTasks("shading", value);
+          if (errors.shading_area?.hasError) {
+            runValidationTasks("shading_area", value);
           }
-          setShading(value);
+          setShading_area(value);
         }}
-        onBlur={() => runValidationTasks("shading", shading)}
-        errorMessage={errors.shading?.errorMessage}
-        hasError={errors.shading?.hasError}
-        {...getOverrideProps(overrides, "shading")}
+        onBlur={() => runValidationTasks("shading_area", shading_area)}
+        errorMessage={errors.shading_area?.errorMessage}
+        hasError={errors.shading_area?.hasError}
+        {...getOverrideProps(overrides, "shading_area")}
       ></TextField>
       <TextField
-        label="Material"
+        label="Construction material"
         isRequired={false}
         isReadOnly={false}
-        value={material}
+        value={construction_material}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material: value,
+              shading_area,
+              construction_material: value,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -1838,28 +1942,32 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
-            value = result?.material ?? value;
+            value = result?.construction_material ?? value;
           }
-          if (errors.material?.hasError) {
-            runValidationTasks("material", value);
+          if (errors.construction_material?.hasError) {
+            runValidationTasks("construction_material", value);
           }
-          setMaterial(value);
+          setConstruction_material(value);
         }}
-        onBlur={() => runValidationTasks("material", material)}
-        errorMessage={errors.material?.errorMessage}
-        hasError={errors.material?.hasError}
-        {...getOverrideProps(overrides, "material")}
+        onBlur={() =>
+          runValidationTasks("construction_material", construction_material)
+        }
+        errorMessage={errors.construction_material?.errorMessage}
+        hasError={errors.construction_material?.hasError}
+        {...getOverrideProps(overrides, "construction_material")}
       ></TextField>
       <TextField
         label="Imageability"
@@ -1870,30 +1978,30 @@ export default function SurveyResultCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability: value,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -1902,15 +2010,17 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
             value = result?.imageability ?? value;
@@ -1934,30 +2044,30 @@ export default function SurveyResultCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure: value,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -1966,15 +2076,17 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
             value = result?.enclosure ?? value;
@@ -1990,38 +2102,38 @@ export default function SurveyResultCreateForm(props) {
         {...getOverrideProps(overrides, "enclosure")}
       ></TextField>
       <TextField
-        label="Humanscale"
+        label="Human scale"
         isRequired={false}
         isReadOnly={false}
-        value={humanscale}
+        value={human_scale}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale: value,
+              human_scale: value,
               transparency,
               complexity,
               safe,
@@ -2030,28 +2142,30 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
-            value = result?.humanscale ?? value;
+            value = result?.human_scale ?? value;
           }
-          if (errors.humanscale?.hasError) {
-            runValidationTasks("humanscale", value);
+          if (errors.human_scale?.hasError) {
+            runValidationTasks("human_scale", value);
           }
-          setHumanscale(value);
+          setHuman_scale(value);
         }}
-        onBlur={() => runValidationTasks("humanscale", humanscale)}
-        errorMessage={errors.humanscale?.errorMessage}
-        hasError={errors.humanscale?.hasError}
-        {...getOverrideProps(overrides, "humanscale")}
+        onBlur={() => runValidationTasks("human_scale", human_scale)}
+        errorMessage={errors.human_scale?.errorMessage}
+        hasError={errors.human_scale?.hasError}
+        {...getOverrideProps(overrides, "human_scale")}
       ></TextField>
       <TextField
         label="Transparency"
@@ -2062,30 +2176,30 @@ export default function SurveyResultCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency: value,
               complexity,
               safe,
@@ -2094,15 +2208,17 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
             value = result?.transparency ?? value;
@@ -2126,30 +2242,30 @@ export default function SurveyResultCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity: value,
               safe,
@@ -2158,15 +2274,17 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
             value = result?.complexity ?? value;
@@ -2190,30 +2308,30 @@ export default function SurveyResultCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe: value,
@@ -2222,15 +2340,17 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
             value = result?.safe ?? value;
@@ -2254,30 +2374,30 @@ export default function SurveyResultCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -2286,15 +2406,17 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
             value = result?.lively ?? value;
@@ -2318,30 +2440,30 @@ export default function SurveyResultCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -2350,15 +2472,17 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
             value = result?.beautiful ?? value;
@@ -2382,30 +2506,30 @@ export default function SurveyResultCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -2414,15 +2538,17 @@ export default function SurveyResultCreateForm(props) {
               wealthy: value,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
             value = result?.wealthy ?? value;
@@ -2446,30 +2572,30 @@ export default function SurveyResultCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -2478,15 +2604,17 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring: value,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
             value = result?.boring ?? value;
@@ -2510,30 +2638,30 @@ export default function SurveyResultCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -2542,15 +2670,17 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing: value,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
             value = result?.depressing ?? value;
@@ -2570,30 +2700,30 @@ export default function SurveyResultCreateForm(props) {
           let values = items;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -2602,54 +2732,59 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking: values,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking: values,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
-            values = result?.eatingdrinking ?? values;
+            values = result?.eating_drinking ?? values;
           }
-          setEatingdrinking(values);
-          setCurrentEatingdrinkingValue("");
+          setEating_drinking(values);
+          setCurrentEating_drinkingValue("");
         }}
-        currentFieldValue={currentEatingdrinkingValue}
-        label={"Eatingdrinking"}
-        items={eatingdrinking}
-        hasError={errors?.eatingdrinking?.hasError}
+        currentFieldValue={currentEating_drinkingValue}
+        label={"Eating drinking"}
+        items={eating_drinking}
+        hasError={errors?.eating_drinking?.hasError}
         runValidationTasks={async () =>
-          await runValidationTasks("eatingdrinking", currentEatingdrinkingValue)
+          await runValidationTasks(
+            "eating_drinking",
+            currentEating_drinkingValue
+          )
         }
-        errorMessage={errors?.eatingdrinking?.errorMessage}
-        setFieldValue={setCurrentEatingdrinkingValue}
-        inputFieldRef={eatingdrinkingRef}
+        errorMessage={errors?.eating_drinking?.errorMessage}
+        setFieldValue={setCurrentEating_drinkingValue}
+        inputFieldRef={eating_drinkingRef}
         defaultFieldValue={""}
       >
         <TextField
-          label="Eatingdrinking"
+          label="Eating drinking"
           isRequired={false}
           isReadOnly={false}
-          value={currentEatingdrinkingValue}
+          value={currentEating_drinkingValue}
           onChange={(e) => {
             let { value } = e.target;
-            if (errors.eatingdrinking?.hasError) {
-              runValidationTasks("eatingdrinking", value);
+            if (errors.eating_drinking?.hasError) {
+              runValidationTasks("eating_drinking", value);
             }
-            setCurrentEatingdrinkingValue(value);
+            setCurrentEating_drinkingValue(value);
           }}
           onBlur={() =>
-            runValidationTasks("eatingdrinking", currentEatingdrinkingValue)
+            runValidationTasks("eating_drinking", currentEating_drinkingValue)
           }
-          errorMessage={errors.eatingdrinking?.errorMessage}
-          hasError={errors.eatingdrinking?.hasError}
-          ref={eatingdrinkingRef}
+          errorMessage={errors.eating_drinking?.errorMessage}
+          hasError={errors.eating_drinking?.hasError}
+          ref={eating_drinkingRef}
           labelHidden={true}
-          {...getOverrideProps(overrides, "eatingdrinking")}
+          {...getOverrideProps(overrides, "eating_drinking")}
         ></TextField>
       </ArrayField>
       <ArrayField
@@ -2657,30 +2792,30 @@ export default function SurveyResultCreateForm(props) {
           let values = items;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -2689,309 +2824,62 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature: values,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration: values,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
-            values = result?.nature ?? values;
+            values = result?.nature_exploration ?? values;
           }
-          setNature(values);
-          setCurrentNatureValue("");
+          setNature_exploration(values);
+          setCurrentNature_explorationValue("");
         }}
-        currentFieldValue={currentNatureValue}
-        label={"Nature"}
-        items={nature}
-        hasError={errors?.nature?.hasError}
+        currentFieldValue={currentNature_explorationValue}
+        label={"Nature exploration"}
+        items={nature_exploration}
+        hasError={errors?.nature_exploration?.hasError}
         runValidationTasks={async () =>
-          await runValidationTasks("nature", currentNatureValue)
+          await runValidationTasks(
+            "nature_exploration",
+            currentNature_explorationValue
+          )
         }
-        errorMessage={errors?.nature?.errorMessage}
-        setFieldValue={setCurrentNatureValue}
-        inputFieldRef={natureRef}
+        errorMessage={errors?.nature_exploration?.errorMessage}
+        setFieldValue={setCurrentNature_explorationValue}
+        inputFieldRef={nature_explorationRef}
         defaultFieldValue={""}
       >
         <TextField
-          label="Nature"
+          label="Nature exploration"
           isRequired={false}
           isReadOnly={false}
-          value={currentNatureValue}
+          value={currentNature_explorationValue}
           onChange={(e) => {
             let { value } = e.target;
-            if (errors.nature?.hasError) {
-              runValidationTasks("nature", value);
+            if (errors.nature_exploration?.hasError) {
+              runValidationTasks("nature_exploration", value);
             }
-            setCurrentNatureValue(value);
-          }}
-          onBlur={() => runValidationTasks("nature", currentNatureValue)}
-          errorMessage={errors.nature?.errorMessage}
-          hasError={errors.nature?.hasError}
-          ref={natureRef}
-          labelHidden={true}
-          {...getOverrideProps(overrides, "nature")}
-        ></TextField>
-      </ArrayField>
-      <ArrayField
-        onChange={async (items) => {
-          let values = items;
-          if (onChange) {
-            const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
-              humidity,
-              velocity,
-              traffic,
-              greenery,
-              shading,
-              material,
-              imageability,
-              enclosure,
-              humanscale,
-              transparency,
-              complexity,
-              safe,
-              lively,
-              beautiful,
-              wealthy,
-              boring,
-              depressing,
-              eatingdrinking,
-              nature,
-              community: values,
-              walking,
-              sightseeing,
-              perception,
-              functionality,
-              accessibility,
-              contact,
-            };
-            const result = onChange(modelFields);
-            values = result?.community ?? values;
-          }
-          setCommunity(values);
-          setCurrentCommunityValue("");
-        }}
-        currentFieldValue={currentCommunityValue}
-        label={"Community"}
-        items={community}
-        hasError={errors?.community?.hasError}
-        runValidationTasks={async () =>
-          await runValidationTasks("community", currentCommunityValue)
-        }
-        errorMessage={errors?.community?.errorMessage}
-        setFieldValue={setCurrentCommunityValue}
-        inputFieldRef={communityRef}
-        defaultFieldValue={""}
-      >
-        <TextField
-          label="Community"
-          isRequired={false}
-          isReadOnly={false}
-          value={currentCommunityValue}
-          onChange={(e) => {
-            let { value } = e.target;
-            if (errors.community?.hasError) {
-              runValidationTasks("community", value);
-            }
-            setCurrentCommunityValue(value);
-          }}
-          onBlur={() => runValidationTasks("community", currentCommunityValue)}
-          errorMessage={errors.community?.errorMessage}
-          hasError={errors.community?.hasError}
-          ref={communityRef}
-          labelHidden={true}
-          {...getOverrideProps(overrides, "community")}
-        ></TextField>
-      </ArrayField>
-      <ArrayField
-        onChange={async (items) => {
-          let values = items;
-          if (onChange) {
-            const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
-              humidity,
-              velocity,
-              traffic,
-              greenery,
-              shading,
-              material,
-              imageability,
-              enclosure,
-              humanscale,
-              transparency,
-              complexity,
-              safe,
-              lively,
-              beautiful,
-              wealthy,
-              boring,
-              depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking: values,
-              sightseeing,
-              perception,
-              functionality,
-              accessibility,
-              contact,
-            };
-            const result = onChange(modelFields);
-            values = result?.walking ?? values;
-          }
-          setWalking(values);
-          setCurrentWalkingValue("");
-        }}
-        currentFieldValue={currentWalkingValue}
-        label={"Walking"}
-        items={walking}
-        hasError={errors?.walking?.hasError}
-        runValidationTasks={async () =>
-          await runValidationTasks("walking", currentWalkingValue)
-        }
-        errorMessage={errors?.walking?.errorMessage}
-        setFieldValue={setCurrentWalkingValue}
-        inputFieldRef={walkingRef}
-        defaultFieldValue={""}
-      >
-        <TextField
-          label="Walking"
-          isRequired={false}
-          isReadOnly={false}
-          value={currentWalkingValue}
-          onChange={(e) => {
-            let { value } = e.target;
-            if (errors.walking?.hasError) {
-              runValidationTasks("walking", value);
-            }
-            setCurrentWalkingValue(value);
-          }}
-          onBlur={() => runValidationTasks("walking", currentWalkingValue)}
-          errorMessage={errors.walking?.errorMessage}
-          hasError={errors.walking?.hasError}
-          ref={walkingRef}
-          labelHidden={true}
-          {...getOverrideProps(overrides, "walking")}
-        ></TextField>
-      </ArrayField>
-      <ArrayField
-        onChange={async (items) => {
-          let values = items;
-          if (onChange) {
-            const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
-              humidity,
-              velocity,
-              traffic,
-              greenery,
-              shading,
-              material,
-              imageability,
-              enclosure,
-              humanscale,
-              transparency,
-              complexity,
-              safe,
-              lively,
-              beautiful,
-              wealthy,
-              boring,
-              depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing: values,
-              perception,
-              functionality,
-              accessibility,
-              contact,
-            };
-            const result = onChange(modelFields);
-            values = result?.sightseeing ?? values;
-          }
-          setSightseeing(values);
-          setCurrentSightseeingValue("");
-        }}
-        currentFieldValue={currentSightseeingValue}
-        label={"Sightseeing"}
-        items={sightseeing}
-        hasError={errors?.sightseeing?.hasError}
-        runValidationTasks={async () =>
-          await runValidationTasks("sightseeing", currentSightseeingValue)
-        }
-        errorMessage={errors?.sightseeing?.errorMessage}
-        setFieldValue={setCurrentSightseeingValue}
-        inputFieldRef={sightseeingRef}
-        defaultFieldValue={""}
-      >
-        <TextField
-          label="Sightseeing"
-          isRequired={false}
-          isReadOnly={false}
-          value={currentSightseeingValue}
-          onChange={(e) => {
-            let { value } = e.target;
-            if (errors.sightseeing?.hasError) {
-              runValidationTasks("sightseeing", value);
-            }
-            setCurrentSightseeingValue(value);
+            setCurrentNature_explorationValue(value);
           }}
           onBlur={() =>
-            runValidationTasks("sightseeing", currentSightseeingValue)
+            runValidationTasks(
+              "nature_exploration",
+              currentNature_explorationValue
+            )
           }
-          errorMessage={errors.sightseeing?.errorMessage}
-          hasError={errors.sightseeing?.hasError}
-          ref={sightseeingRef}
+          errorMessage={errors.nature_exploration?.errorMessage}
+          hasError={errors.nature_exploration?.hasError}
+          ref={nature_explorationRef}
           labelHidden={true}
-          {...getOverrideProps(overrides, "sightseeing")}
+          {...getOverrideProps(overrides, "nature_exploration")}
         ></TextField>
       </ArrayField>
       <ArrayField
@@ -2999,30 +2887,30 @@ export default function SurveyResultCreateForm(props) {
           let values = items;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -3031,54 +2919,62 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception: values,
+              eating_drinking,
+              nature_exploration,
+              community_gathering: values,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
-            values = result?.perception ?? values;
+            values = result?.community_gathering ?? values;
           }
-          setPerception(values);
-          setCurrentPerceptionValue("");
+          setCommunity_gathering(values);
+          setCurrentCommunity_gatheringValue("");
         }}
-        currentFieldValue={currentPerceptionValue}
-        label={"Perception"}
-        items={perception}
-        hasError={errors?.perception?.hasError}
+        currentFieldValue={currentCommunity_gatheringValue}
+        label={"Community gathering"}
+        items={community_gathering}
+        hasError={errors?.community_gathering?.hasError}
         runValidationTasks={async () =>
-          await runValidationTasks("perception", currentPerceptionValue)
+          await runValidationTasks(
+            "community_gathering",
+            currentCommunity_gatheringValue
+          )
         }
-        errorMessage={errors?.perception?.errorMessage}
-        setFieldValue={setCurrentPerceptionValue}
-        inputFieldRef={perceptionRef}
+        errorMessage={errors?.community_gathering?.errorMessage}
+        setFieldValue={setCurrentCommunity_gatheringValue}
+        inputFieldRef={community_gatheringRef}
         defaultFieldValue={""}
       >
         <TextField
-          label="Perception"
+          label="Community gathering"
           isRequired={false}
           isReadOnly={false}
-          value={currentPerceptionValue}
+          value={currentCommunity_gatheringValue}
           onChange={(e) => {
             let { value } = e.target;
-            if (errors.perception?.hasError) {
-              runValidationTasks("perception", value);
+            if (errors.community_gathering?.hasError) {
+              runValidationTasks("community_gathering", value);
             }
-            setCurrentPerceptionValue(value);
+            setCurrentCommunity_gatheringValue(value);
           }}
           onBlur={() =>
-            runValidationTasks("perception", currentPerceptionValue)
+            runValidationTasks(
+              "community_gathering",
+              currentCommunity_gatheringValue
+            )
           }
-          errorMessage={errors.perception?.errorMessage}
-          hasError={errors.perception?.hasError}
-          ref={perceptionRef}
+          errorMessage={errors.community_gathering?.errorMessage}
+          hasError={errors.community_gathering?.hasError}
+          ref={community_gatheringRef}
           labelHidden={true}
-          {...getOverrideProps(overrides, "perception")}
+          {...getOverrideProps(overrides, "community_gathering")}
         ></TextField>
       </ArrayField>
       <ArrayField
@@ -3086,30 +2982,30 @@ export default function SurveyResultCreateForm(props) {
           let values = items;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -3118,15 +3014,296 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking: values,
+              urban_sightseeing,
+              streetscape_perception,
+              functionality,
+              accessibility,
+              contact_density,
+              email,
+              nus_id,
+            };
+            const result = onChange(modelFields);
+            values = result?.citywalking ?? values;
+          }
+          setCitywalking(values);
+          setCurrentCitywalkingValue("");
+        }}
+        currentFieldValue={currentCitywalkingValue}
+        label={"Citywalking"}
+        items={citywalking}
+        hasError={errors?.citywalking?.hasError}
+        runValidationTasks={async () =>
+          await runValidationTasks("citywalking", currentCitywalkingValue)
+        }
+        errorMessage={errors?.citywalking?.errorMessage}
+        setFieldValue={setCurrentCitywalkingValue}
+        inputFieldRef={citywalkingRef}
+        defaultFieldValue={""}
+      >
+        <TextField
+          label="Citywalking"
+          isRequired={false}
+          isReadOnly={false}
+          value={currentCitywalkingValue}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (errors.citywalking?.hasError) {
+              runValidationTasks("citywalking", value);
+            }
+            setCurrentCitywalkingValue(value);
+          }}
+          onBlur={() =>
+            runValidationTasks("citywalking", currentCitywalkingValue)
+          }
+          errorMessage={errors.citywalking?.errorMessage}
+          hasError={errors.citywalking?.hasError}
+          ref={citywalkingRef}
+          labelHidden={true}
+          {...getOverrideProps(overrides, "citywalking")}
+        ></TextField>
+      </ArrayField>
+      <ArrayField
+        onChange={async (items) => {
+          let values = items;
+          if (onChange) {
+            const modelFields = {
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
+              humidity,
+              wind_velocity,
+              traffic_flow,
+              greenery,
+              shading_area,
+              construction_material,
+              imageability,
+              enclosure,
+              human_scale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing: values,
+              streetscape_perception,
+              functionality,
+              accessibility,
+              contact_density,
+              email,
+              nus_id,
+            };
+            const result = onChange(modelFields);
+            values = result?.urban_sightseeing ?? values;
+          }
+          setUrban_sightseeing(values);
+          setCurrentUrban_sightseeingValue("");
+        }}
+        currentFieldValue={currentUrban_sightseeingValue}
+        label={"Urban sightseeing"}
+        items={urban_sightseeing}
+        hasError={errors?.urban_sightseeing?.hasError}
+        runValidationTasks={async () =>
+          await runValidationTasks(
+            "urban_sightseeing",
+            currentUrban_sightseeingValue
+          )
+        }
+        errorMessage={errors?.urban_sightseeing?.errorMessage}
+        setFieldValue={setCurrentUrban_sightseeingValue}
+        inputFieldRef={urban_sightseeingRef}
+        defaultFieldValue={""}
+      >
+        <TextField
+          label="Urban sightseeing"
+          isRequired={false}
+          isReadOnly={false}
+          value={currentUrban_sightseeingValue}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (errors.urban_sightseeing?.hasError) {
+              runValidationTasks("urban_sightseeing", value);
+            }
+            setCurrentUrban_sightseeingValue(value);
+          }}
+          onBlur={() =>
+            runValidationTasks(
+              "urban_sightseeing",
+              currentUrban_sightseeingValue
+            )
+          }
+          errorMessage={errors.urban_sightseeing?.errorMessage}
+          hasError={errors.urban_sightseeing?.hasError}
+          ref={urban_sightseeingRef}
+          labelHidden={true}
+          {...getOverrideProps(overrides, "urban_sightseeing")}
+        ></TextField>
+      </ArrayField>
+      <ArrayField
+        onChange={async (items) => {
+          let values = items;
+          if (onChange) {
+            const modelFields = {
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
+              humidity,
+              wind_velocity,
+              traffic_flow,
+              greenery,
+              shading_area,
+              construction_material,
+              imageability,
+              enclosure,
+              human_scale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception: values,
+              functionality,
+              accessibility,
+              contact_density,
+              email,
+              nus_id,
+            };
+            const result = onChange(modelFields);
+            values = result?.streetscape_perception ?? values;
+          }
+          setStreetscape_perception(values);
+          setCurrentStreetscape_perceptionValue("");
+        }}
+        currentFieldValue={currentStreetscape_perceptionValue}
+        label={"Streetscape perception"}
+        items={streetscape_perception}
+        hasError={errors?.streetscape_perception?.hasError}
+        runValidationTasks={async () =>
+          await runValidationTasks(
+            "streetscape_perception",
+            currentStreetscape_perceptionValue
+          )
+        }
+        errorMessage={errors?.streetscape_perception?.errorMessage}
+        setFieldValue={setCurrentStreetscape_perceptionValue}
+        inputFieldRef={streetscape_perceptionRef}
+        defaultFieldValue={""}
+      >
+        <TextField
+          label="Streetscape perception"
+          isRequired={false}
+          isReadOnly={false}
+          value={currentStreetscape_perceptionValue}
+          onChange={(e) => {
+            let { value } = e.target;
+            if (errors.streetscape_perception?.hasError) {
+              runValidationTasks("streetscape_perception", value);
+            }
+            setCurrentStreetscape_perceptionValue(value);
+          }}
+          onBlur={() =>
+            runValidationTasks(
+              "streetscape_perception",
+              currentStreetscape_perceptionValue
+            )
+          }
+          errorMessage={errors.streetscape_perception?.errorMessage}
+          hasError={errors.streetscape_perception?.hasError}
+          ref={streetscape_perceptionRef}
+          labelHidden={true}
+          {...getOverrideProps(overrides, "streetscape_perception")}
+        ></TextField>
+      </ArrayField>
+      <ArrayField
+        onChange={async (items) => {
+          let values = items;
+          if (onChange) {
+            const modelFields = {
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
+              humidity,
+              wind_velocity,
+              traffic_flow,
+              greenery,
+              shading_area,
+              construction_material,
+              imageability,
+              enclosure,
+              human_scale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality: values,
               accessibility,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
             values = result?.functionality ?? values;
@@ -3173,30 +3350,30 @@ export default function SurveyResultCreateForm(props) {
           let values = items;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -3205,15 +3382,17 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility: values,
-              contact,
+              contact_density,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
             values = result?.accessibility ?? values;
@@ -3260,30 +3439,30 @@ export default function SurveyResultCreateForm(props) {
           let values = items;
           if (onChange) {
             const modelFields = {
-              comfort1,
-              comfort2,
-              comfort3,
-              comfort4,
-              comfort5,
-              comfort6,
-              comfort7,
-              comfort8,
-              comfort9,
-              comfort10,
-              comfort11,
-              comfort12,
-              temp,
-              intensity,
-              heatsources,
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
               humidity,
-              velocity,
-              traffic,
+              wind_velocity,
+              traffic_flow,
               greenery,
-              shading,
-              material,
+              shading_area,
+              construction_material,
               imageability,
               enclosure,
-              humanscale,
+              human_scale,
               transparency,
               complexity,
               safe,
@@ -3292,54 +3471,193 @@ export default function SurveyResultCreateForm(props) {
               wealthy,
               boring,
               depressing,
-              eatingdrinking,
-              nature,
-              community,
-              walking,
-              sightseeing,
-              perception,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
               functionality,
               accessibility,
-              contact: values,
+              contact_density: values,
+              email,
+              nus_id,
             };
             const result = onChange(modelFields);
-            values = result?.contact ?? values;
+            values = result?.contact_density ?? values;
           }
-          setContact(values);
-          setCurrentContactValue("");
+          setContact_density(values);
+          setCurrentContact_densityValue("");
         }}
-        currentFieldValue={currentContactValue}
-        label={"Contact"}
-        items={contact}
-        hasError={errors?.contact?.hasError}
+        currentFieldValue={currentContact_densityValue}
+        label={"Contact density"}
+        items={contact_density}
+        hasError={errors?.contact_density?.hasError}
         runValidationTasks={async () =>
-          await runValidationTasks("contact", currentContactValue)
+          await runValidationTasks(
+            "contact_density",
+            currentContact_densityValue
+          )
         }
-        errorMessage={errors?.contact?.errorMessage}
-        setFieldValue={setCurrentContactValue}
-        inputFieldRef={contactRef}
+        errorMessage={errors?.contact_density?.errorMessage}
+        setFieldValue={setCurrentContact_densityValue}
+        inputFieldRef={contact_densityRef}
         defaultFieldValue={""}
       >
         <TextField
-          label="Contact"
+          label="Contact density"
           isRequired={false}
           isReadOnly={false}
-          value={currentContactValue}
+          value={currentContact_densityValue}
           onChange={(e) => {
             let { value } = e.target;
-            if (errors.contact?.hasError) {
-              runValidationTasks("contact", value);
+            if (errors.contact_density?.hasError) {
+              runValidationTasks("contact_density", value);
             }
-            setCurrentContactValue(value);
+            setCurrentContact_densityValue(value);
           }}
-          onBlur={() => runValidationTasks("contact", currentContactValue)}
-          errorMessage={errors.contact?.errorMessage}
-          hasError={errors.contact?.hasError}
-          ref={contactRef}
+          onBlur={() =>
+            runValidationTasks("contact_density", currentContact_densityValue)
+          }
+          errorMessage={errors.contact_density?.errorMessage}
+          hasError={errors.contact_density?.hasError}
+          ref={contact_densityRef}
           labelHidden={true}
-          {...getOverrideProps(overrides, "contact")}
+          {...getOverrideProps(overrides, "contact_density")}
         ></TextField>
       </ArrayField>
+      <TextField
+        label="Email"
+        isRequired={false}
+        isReadOnly={false}
+        value={email}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
+              humidity,
+              wind_velocity,
+              traffic_flow,
+              greenery,
+              shading_area,
+              construction_material,
+              imageability,
+              enclosure,
+              human_scale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
+              functionality,
+              accessibility,
+              contact_density,
+              email: value,
+              nus_id,
+            };
+            const result = onChange(modelFields);
+            value = result?.email ?? value;
+          }
+          if (errors.email?.hasError) {
+            runValidationTasks("email", value);
+          }
+          setEmail(value);
+        }}
+        onBlur={() => runValidationTasks("email", email)}
+        errorMessage={errors.email?.errorMessage}
+        hasError={errors.email?.hasError}
+        {...getOverrideProps(overrides, "email")}
+      ></TextField>
+      <TextField
+        label="Nus id"
+        isRequired={false}
+        isReadOnly={false}
+        value={nus_id}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              comfort_1,
+              comfort_2,
+              comfort_3,
+              comfort_4,
+              comfort_5,
+              comfort_6,
+              thermal_comfort_1,
+              thermal_comfort_2,
+              thermal_comfort_3,
+              thermal_comfort_4,
+              thermal_comfort_5,
+              thermal_comfort_6,
+              temperature,
+              sun_intensity,
+              heat_sources,
+              humidity,
+              wind_velocity,
+              traffic_flow,
+              greenery,
+              shading_area,
+              construction_material,
+              imageability,
+              enclosure,
+              human_scale,
+              transparency,
+              complexity,
+              safe,
+              lively,
+              beautiful,
+              wealthy,
+              boring,
+              depressing,
+              eating_drinking,
+              nature_exploration,
+              community_gathering,
+              citywalking,
+              urban_sightseeing,
+              streetscape_perception,
+              functionality,
+              accessibility,
+              contact_density,
+              email,
+              nus_id: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.nus_id ?? value;
+          }
+          if (errors.nus_id?.hasError) {
+            runValidationTasks("nus_id", value);
+          }
+          setNus_id(value);
+        }}
+        onBlur={() => runValidationTasks("nus_id", nus_id)}
+        errorMessage={errors.nus_id?.errorMessage}
+        hasError={errors.nus_id?.hasError}
+        {...getOverrideProps(overrides, "nus_id")}
+      ></TextField>
       <Flex
         justifyContent="space-between"
         {...getOverrideProps(overrides, "CTAFlex")}

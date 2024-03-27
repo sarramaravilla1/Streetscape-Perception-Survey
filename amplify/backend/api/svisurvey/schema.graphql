@@ -1,29 +1,29 @@
 type SurveyResult @model @auth(rules: [{allow: public}]) {
   id: ID!
-  comfort1: String
-  comfort2: String
-  comfort3: String
-  comfort4: String
-  comfort5: String
-  comfort6: String
-  comfort7: String
-  comfort8: String
-  comfort9: String
-  comfort10: String
-  comfort11: String
-  comfort12: String
-  temp: String
-  intensity: String
-  heatsources: String
+  comfort_1: String
+  comfort_2: String
+  comfort_3: String
+  comfort_4: String
+  comfort_5: String
+  comfort_6: String
+  thermal_comfort_1: String
+  thermal_comfort_2: String
+  thermal_comfort_3: String
+  thermal_comfort_4: String
+  thermal_comfort_5: String
+  thermal_comfort_6: String
+  temperature: String
+  sun_intensity: String
+  heat_sources: String
   humidity: String
-  velocity: String
-  traffic: String
+  wind_velocity: String
+  traffic_flow: String
   greenery: String
-  shading: String
-  material: String
+  shading_area: String
+  construction_material: String
   imageability: String
   enclosure: String
-  humanscale: String
+  human_scale: String
   transparency: String
   complexity: String
   safe: String
@@ -32,14 +32,16 @@ type SurveyResult @model @auth(rules: [{allow: public}]) {
   wealthy: String
   boring: String
   depressing: String
-  eatingdrinking: [String]
-  nature: [String]
-  community: [String]
-  walking: [String]
-  sightseeing: [String]
-  perception: [String]
+  eating_drinking: [String]
+  nature_exploration: [String]
+  community_gathering: [String]
+  citywalking: [String]
+  urban_sightseeing: [String]
+  streetscape_perception: [String]
   functionality: [String]
   accessibility: [String]
-  contact: [String]
+  contact_density: [String]
+  email: String
+  nus_id: String
 }
  

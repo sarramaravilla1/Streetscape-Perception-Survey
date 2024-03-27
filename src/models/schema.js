@@ -10,106 +10,106 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "comfort1": {
-                    "name": "comfort1",
+                "comfort_1": {
+                    "name": "comfort_1",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "comfort2": {
-                    "name": "comfort2",
+                "comfort_2": {
+                    "name": "comfort_2",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "comfort3": {
-                    "name": "comfort3",
+                "comfort_3": {
+                    "name": "comfort_3",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "comfort4": {
-                    "name": "comfort4",
+                "comfort_4": {
+                    "name": "comfort_4",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "comfort5": {
-                    "name": "comfort5",
+                "comfort_5": {
+                    "name": "comfort_5",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "comfort6": {
-                    "name": "comfort6",
+                "comfort_6": {
+                    "name": "comfort_6",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "comfort7": {
-                    "name": "comfort7",
+                "thermal_comfort_1": {
+                    "name": "thermal_comfort_1",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "comfort8": {
-                    "name": "comfort8",
+                "thermal_comfort_2": {
+                    "name": "thermal_comfort_2",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "comfort9": {
-                    "name": "comfort9",
+                "thermal_comfort_3": {
+                    "name": "thermal_comfort_3",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "comfort10": {
-                    "name": "comfort10",
+                "thermal_comfort_4": {
+                    "name": "thermal_comfort_4",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "comfort11": {
-                    "name": "comfort11",
+                "thermal_comfort_5": {
+                    "name": "thermal_comfort_5",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "comfort12": {
-                    "name": "comfort12",
+                "thermal_comfort_6": {
+                    "name": "thermal_comfort_6",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "temp": {
-                    "name": "temp",
+                "temperature": {
+                    "name": "temperature",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "intensity": {
-                    "name": "intensity",
+                "sun_intensity": {
+                    "name": "sun_intensity",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "heatsources": {
-                    "name": "heatsources",
+                "heat_sources": {
+                    "name": "heat_sources",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -122,15 +122,15 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "velocity": {
-                    "name": "velocity",
+                "wind_velocity": {
+                    "name": "wind_velocity",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "traffic": {
-                    "name": "traffic",
+                "traffic_flow": {
+                    "name": "traffic_flow",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -143,15 +143,15 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "shading": {
-                    "name": "shading",
+                "shading_area": {
+                    "name": "shading_area",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
-                "material": {
-                    "name": "material",
+                "construction_material": {
+                    "name": "construction_material",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -171,8 +171,8 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "humanscale": {
-                    "name": "humanscale",
+                "human_scale": {
+                    "name": "human_scale",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -234,48 +234,48 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "eatingdrinking": {
-                    "name": "eatingdrinking",
+                "eating_drinking": {
+                    "name": "eating_drinking",
                     "isArray": true,
                     "type": "String",
                     "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true
                 },
-                "nature": {
-                    "name": "nature",
+                "nature_exploration": {
+                    "name": "nature_exploration",
                     "isArray": true,
                     "type": "String",
                     "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true
                 },
-                "community": {
-                    "name": "community",
+                "community_gathering": {
+                    "name": "community_gathering",
                     "isArray": true,
                     "type": "String",
                     "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true
                 },
-                "walking": {
-                    "name": "walking",
+                "citywalking": {
+                    "name": "citywalking",
                     "isArray": true,
                     "type": "String",
                     "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true
                 },
-                "sightseeing": {
-                    "name": "sightseeing",
+                "urban_sightseeing": {
+                    "name": "urban_sightseeing",
                     "isArray": true,
                     "type": "String",
                     "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true
                 },
-                "perception": {
-                    "name": "perception",
+                "streetscape_perception": {
+                    "name": "streetscape_perception",
                     "isArray": true,
                     "type": "String",
                     "isRequired": false,
@@ -298,13 +298,27 @@ export const schema = {
                     "attributes": [],
                     "isArrayNullable": true
                 },
-                "contact": {
-                    "name": "contact",
+                "contact_density": {
+                    "name": "contact_density",
                     "isArray": true,
                     "type": "String",
                     "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true
+                },
+                "email": {
+                    "name": "email",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "nus_id": {
+                    "name": "nus_id",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -352,5 +366,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.4",
-    "version": "f7c7aff591110bfdf32f5f9c66b57de2"
+    "version": "13f58f9da8129e4a6fd6cfe0269421d2"
 };
