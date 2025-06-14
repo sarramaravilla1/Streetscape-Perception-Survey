@@ -1,70 +1,311 @@
-# Getting Started with Create React App
+# Streetscape Perception Survey Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple and powerful platform for conducting streetscape perception surveys with image-based questions. Deploy in minutes with Supabase and Vercel.
 
-## Available Scripts
+## 🚀 Quick Deploy (5 minutes)
 
-In the project directory, you can run:
+### Step 1: Set up Supabase Database (2 minutes)
 
-### `npm start`
+1. **Create Account**: Go to [supabase.com](https://supabase.com) and create a free account
+2. **Create Project**: Click "New Project" and create a project
+3. **Setup Database**: Go to SQL Editor and run this script to create your database:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```sql
+-- Create survey responses table
+CREATE TABLE survey_responses (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  participant_id TEXT,
+  responses JSONB NOT NULL,
+  completed_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+-- Create images table for managing street view images
+CREATE TABLE street_images (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  filename TEXT NOT NULL,
+  url TEXT NOT NULL,
+  description TEXT,
+  category TEXT,
+  active BOOLEAN DEFAULT true
+);
 
-### `npm test`
+-- Enable Row Level Security
+ALTER TABLE survey_responses ENABLE ROW LEVEL SECURITY;
+ALTER TABLE street_images ENABLE ROW LEVEL SECURITY;
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-- Create policies for public access (adjust as needed)
+CREATE POLICY "Allow public insert" ON survey_responses FOR INSERT WITH CHECK (true);
+CREATE POLICY "Allow public select" ON street_images FOR SELECT USING (active = true);
+```
 
-### `npm run build`
+4. **Get API Keys**: Go to Settings → API Keys and Data API panels, and copy your:
+   - Project URL
+   - Anon public key
+   
+   **💾 Save these for later use - you'll need them in Step 3!**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Step 2: Upload Your Street Images (1 minute)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Create Storage**: In Supabase, go to Storage
+2. **Create Bucket**: Create a new bucket called `street-images`, and make it a public bucket.
+3. **Upload Images**: Upload your street view images to this bucket
+4. **Get Folder Base URL**: Your images folder base URL is: `https://your-project.supabase.co/storage/v1/object/public/street-images/`
+   
+   Individual images will be: `https://your-project.supabase.co/storage/v1/object/public/street-images/filename.jpg`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   **💾 Save this folder base URL - you'll need it in Step 3!**
 
-### `npm run eject`
+### Step 3: Configure Your Survey (1 minute)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. **Clone and Install**:
+```bash
+git clone https://github.com/yourusername/streetscape-perception-survey.git
+cd streetscape-perception-survey
+./deploy.sh
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Add Credentials**: The script will create `.env.local` - edit it with your Supabase credentials:
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. **Add Your Images**: Edit `src/config/streetImages.js` and replace with your image filenames:
+```javascript
+// Replace 'your-project' with your actual Supabase project reference
+const SUPABASE_STORAGE_URL = "https://your-project.supabase.co/storage/v1/object/public/street-images";
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+export const streetImages = [
+  `${SUPABASE_STORAGE_URL}/street_001.jpg`,
+  `${SUPABASE_STORAGE_URL}/street_002.jpg`,
+  `${SUPABASE_STORAGE_URL}/street_003.jpg`,
+  `${SUPABASE_STORAGE_URL}/street_004.jpg`,
+  // Add more images by just adding the filename...
+  `${SUPABASE_STORAGE_URL}/your_image_name.jpg`,
+];
+```
 
-## Learn More
+**💡 Tip**: Just change the base URL once and add your image filenames!
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**🚀 Quick way to get all filenames**: After uploading images to Supabase Storage, you can:
+- In Supabase Storage, select all your images and copy the filenames
+- Or use this command in your terminal to list all files: `ls your_images_folder/`
+- Or in Supabase Storage interface, you can see all filenames in the file list
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. **Customize Survey** (optional):
+   - Edit `src/config/surveyConfig.js` to change title, description, and lab information
+   - Edit `src/config/questions.js` to modify questions
 
-### Code Splitting
+### Step 4: Deploy to Vercel (1 minute)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. **Push to GitHub**: 
+```bash
+git add .
+git commit -m "Initial setup"
+git push origin main
+```
 
-### Analyzing the Bundle Size
+2. **Deploy**: Go to [vercel.com](https://vercel.com) and sign up
+3. **Import Project**: Click "New Project" and import your GitHub repository
+4. **Add Environment Variables**: Add your environment variables in Vercel:
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+5. **Deploy**: Click Deploy
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**🎉 Your survey will be live at `https://your-project.vercel.app`**
 
-### Making a Progressive Web App
+## 📊 View Survey Results
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. Go to your Supabase dashboard
+2. Navigate to Table Editor → survey_responses
+3. View all responses in real-time
+4. Export data as CSV for analysis
 
-### Advanced Configuration
+## 🎨 Customization Guide
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Survey Configuration
 
-### Deployment
+Edit `src/config/surveyConfig.js`:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```javascript
+export const surveyConfig = {
+  title: "Your Survey Title",
+  description: "Your survey description...",
+  logo: "https://your-supabase-url/storage/v1/object/public/street-images/lab-logo.jpg",
+  labDescription: "Your lab description...",
+  // ... other settings
+};
+```
 
-### `npm run build` fails to minify
+### Question Types Available
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. **Image Selection (Multiple Choice)**
+   - Participants choose one image from 4 random options
+   - Perfect for "most comfortable", "safest", etc.
+
+2. **Likert Scale Rating**
+   - Rate images on a 1-5 scale
+   - Good for intensity measurements
+
+3. **Ranking Questions**
+   - Drag and drop to rank options
+   - Useful for priority ordering
+
+4. **Multiple Choice & Checkboxes**
+   - Select one or multiple options
+   - Good for categorical data
+
+5. **Text Input**
+   - Open-ended responses
+   - Demographic information
+
+### Adding Your Images
+
+1. Upload images to Supabase Storage
+2. Edit `src/config/streetImages.js`:
+
+```javascript
+export const streetImages = [
+  {
+    id: "street_001",
+    url: "https://your-supabase-url/storage/v1/object/public/street-images/street_001.jpg",
+    description: "Urban street with mixed-use buildings",
+    category: "urban"
+  },
+  // Add more images...
+];
+```
+
+### Demographic Questions
+
+The survey includes optional demographic questions in `src/config/questions.js`:
+
+- Age group
+- Location (city, country)
+- Income level
+- Education level
+- Outdoor activity frequency
+
+All demographic questions are **optional** and can be skipped by participants.
+
+### Sample Survey Structure
+
+The default survey includes:
+
+1. **Background Information** (Optional)
+   - Demographic questions that can be skipped
+
+2. **Safety Perception**
+   - Choose the safest street from 4 random images
+
+3. **Comfort Rating**
+   - Rate comfort level on a 1-5 scale for a single image
+
+4. **Street Elements**
+   - Identify visible elements in a street image (checkboxes)
+
+5. **Feature Ranking**
+   - Rank street features by importance (drag & drop)
+
+6. **Open Feedback**
+   - Optional text input for additional thoughts
+
+## 🔧 Advanced Configuration
+
+### Custom Styling
+
+Edit `src/styles/globals.css` to match your brand:
+- Colors
+- Fonts
+- Layout spacing
+- Component styling
+
+### Question Logic
+
+Add conditional logic in `src/config/questions.js`:
+
+```javascript
+{
+  name: "follow_up",
+  title: "Follow-up question",
+  type: "text",
+  visibleIf: "{previous_question} = 'specific_answer'"
+}
+```
+
+### Data Export
+
+Access your data via Supabase API or dashboard:
+- Real-time responses
+- CSV export
+- JSON format
+- Direct database queries
+
+## 📱 Mobile Responsive
+
+The survey automatically adapts to:
+- Desktop computers
+- Tablets
+- Mobile phones
+- Different screen orientations
+
+## 🔒 Privacy & Security
+
+- No personal data stored by default
+- Supabase handles data security
+- GDPR compliant
+- Optional participant anonymization
+
+## 🆘 Troubleshooting
+
+### Images not loading?
+- Check Supabase storage bucket is public
+- Verify image URLs are correct
+- Ensure images are in supported formats (JPG, PNG, WebP)
+
+### Survey not saving responses?
+- Check Supabase connection
+- Verify environment variables in `.env.local`
+- Check browser console for errors
+
+### Deployment issues?
+- Ensure all environment variables are set in Vercel
+- Check build logs for errors
+- Verify GitHub repository is connected
+
+### Local development
+```bash
+npm install
+npm start
+```
+
+## 📈 Analytics
+
+Track survey performance:
+- Response rates
+- Completion times
+- Drop-off points
+- Device/browser statistics
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## 📄 License
+
+MIT License - feel free to use for research and commercial projects.
+
+## 📞 Support
+
+- GitHub Issues: Report bugs and request features
+- All configuration is in the `src/config/` folder
+- Check console logs for debugging information
+
+---
+
+**That's it! Your streetscape perception survey is ready to collect responses! 🎉** 

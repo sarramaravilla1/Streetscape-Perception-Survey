@@ -1,0 +1,218 @@
+import { getRandomImages } from './streetImages.js';
+
+// Demographic Questions (Optional - can be skipped)
+export const demographicQuestions = [
+  {
+    name: "age",
+    title: "What is your age group?",
+    type: "radiogroup",
+    choices: [
+      "Under 18",
+      "18-24", 
+      "25-34",
+      "35-44", 
+      "45-54",
+      "55-64",
+      "65 or older"
+    ],
+    isRequired: false
+  },
+  {
+    name: "location",
+    title: "Where are you from? (City, Country)",
+    type: "text",
+    isRequired: false
+  },
+  {
+    name: "income",
+    title: "What is your household income level?",
+    type: "radiogroup", 
+    choices: [
+      "Under $25,000",
+      "$25,000 - $50,000",
+      "$50,000 - $75,000", 
+      "$75,000 - $100,000",
+      "Over $100,000",
+      "Prefer not to say"
+    ],
+    isRequired: false
+  },
+  {
+    name: "education",
+    title: "What is your highest level of education?",
+    type: "radiogroup",
+    choices: [
+      "High school or less",
+      "Some college",
+      "Bachelor's degree", 
+      "Master's degree",
+      "Doctoral degree",
+      "Other"
+    ],
+    isRequired: false
+  },
+  {
+    name: "outdoor_activity",
+    title: "How often do you engage in outdoor activities?",
+    type: "radiogroup",
+    choices: [
+      "Daily",
+      "Several times a week",
+      "Once a week",
+      "Several times a month", 
+      "Rarely",
+      "Never"
+    ],
+    isRequired: false
+  }
+];
+
+// Main Survey Questions
+export const surveyPages = [
+  // Page 1: Demographic Questions
+  {
+    name: "demographics",
+    title: "Background Information (Optional)",
+    description: "Please tell us a bit about yourself. All questions are optional and can be skipped.",
+    elements: demographicQuestions
+  },
+  
+  // Page 2: Image Selection - Safety
+  {
+    name: "safety_perception", 
+    title: "Part 1: Safety Perception",
+    description: "Please choose the image which you find to be the safest streetscape.",
+    elements: [
+      {
+        type: "expression",
+        name: "safety_instruction",
+        title: "Among the provided street view images, which place do you perceive to be the safest?",
+        description: "Please select one image from each set."
+      },
+      {
+        type: "imagepicker",
+        name: "safety_1",
+        title: "Safety Perception",
+        description: "Choose the safest street environment",
+        isRequired: true,
+        choices: getRandomImages("safety_1"),
+        imageFit: "cover"
+      }
+    ]
+  },
+  
+  // Page 3: Likert Scale Rating
+  {
+    name: "comfort_rating",
+    title: "Part 2: Comfort Rating", 
+    description: "Please rate how comfortable you would feel in this street environment.",
+    elements: [
+      {
+        type: "image",
+        name: "comfort_image",
+        imageLink: getRandomImages("comfort_rating", 1)[0]?.imageLink,
+        imageFit: "cover",
+        imageHeight: "300px",
+        imageWidth: "100%"
+      },
+      {
+        type: "radiogroup",
+        name: "comfort_level",
+        title: "How comfortable would you feel walking in this street?",
+        isRequired: true,
+        choices: [
+          { value: 1, text: "Very Uncomfortable" },
+          { value: 2, text: "Uncomfortable" },
+          { value: 3, text: "Neutral" },
+          { value: 4, text: "Comfortable" },
+          { value: 5, text: "Very Comfortable" }
+        ]
+      }
+    ]
+  },
+  
+  // Page 4: Multiple Choice - Street Elements
+  {
+    name: "street_elements",
+    title: "Part 3: Street Elements",
+    description: "Identify the elements you notice in this street environment.",
+    elements: [
+      {
+        type: "image", 
+        name: "elements_image",
+        imageLink: getRandomImages("street_elements", 1)[0]?.imageLink,
+        imageFit: "cover",
+        imageHeight: "300px",
+        imageWidth: "100%"
+      },
+      {
+        type: "checkbox",
+        name: "visible_elements",
+        title: "Which elements do you notice in this street? (Select all that apply)",
+        isRequired: true,
+        choices: [
+          "Trees and vegetation",
+          "Street furniture (benches, lights)",
+          "Bicycle lanes", 
+          "Pedestrian crossings",
+          "Public art or decorations",
+          "Commercial buildings",
+          "Residential buildings",
+          "Parking spaces",
+          "Public transportation stops",
+          "Outdoor dining areas"
+        ]
+      }
+    ]
+  },
+  
+  // Page 5: Ranking Question
+  {
+    name: "feature_ranking",
+    title: "Part 4: Feature Importance Ranking",
+    description: "Rank the following street features in order of importance for creating a pleasant walking environment.",
+    elements: [
+      {
+        type: "ranking",
+        name: "street_features",
+        title: "Drag to rank these features from most important (top) to least important (bottom):",
+        isRequired: true,
+        choices: [
+          { value: "safety", text: "Safety and security" },
+          { value: "greenery", text: "Trees and greenery" },
+          { value: "walkability", text: "Wide sidewalks and walkability" },
+          { value: "aesthetics", text: "Visual appeal and aesthetics" },
+          { value: "amenities", text: "Street furniture and amenities" }
+        ]
+      }
+    ]
+  },
+  
+  // Page 6: Open Text Response
+  {
+    name: "open_feedback",
+    title: "Part 5: Your Thoughts",
+    description: "Share your thoughts about streetscape design.",
+    elements: [
+      {
+        type: "comment",
+        name: "general_feedback", 
+        title: "What makes a street environment appealing to you? (Optional)",
+        isRequired: false,
+        maxLength: 500
+      }
+    ]
+  }
+];
+
+// Export the complete survey structure
+export const surveyJson = {
+  title: "Urban Streetscape Perception Survey",
+  description: "This survey helps us understand how people perceive different street environments. Your responses will help improve urban design.",
+  pages: surveyPages,
+  showQuestionNumbers: "off",
+  showProgressBar: "aboveheader", 
+  progressBarType: "questions",
+  autoGrowComment: true,
+  showPreviewBeforeComplete: "showAllQuestions"
+}; 
