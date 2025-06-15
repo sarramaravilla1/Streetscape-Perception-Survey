@@ -1,19 +1,19 @@
 // Street view images configuration
 // 🔧 STEP 1: Replace 'your-project' with your actual Supabase project reference
-const SUPABASE_STORAGE_URL = "https://your-project.supabase.co/storage/v1/object/public/street-images";
+const SUPABASE_STORAGE_URL = "https://hsblghbczhayitazlhsh.supabase.co/storage/v1/object/public/street-images";
 
 // 🔧 STEP 2: Add your image filenames here (just the filename, not the full URL)
 const imageFilenames = [
-  "street_001.jpg",
-  "street_002.jpg", 
-  "street_003.jpg",
-  "street_004.jpg",
+  "10188_103.828278905746_1.44319655784859.jpg",
+  "10396_103.687376020797_1.32301216979197.jpg", 
+  "10480_103.758699183904_1.31736295161644.jpg",
+  "10588_103.97534255475_1.37690724605747.jpg",
   // Add more filenames here...
   // "your_image_name.jpg",
 ];
 
 // 🔧 STEP 3: Automatically generate full URLs (no need to edit this part)
-export const streetImages = imageFilenames.map(filename => `${SUPABASE_STORAGE_URL}/${filename}`);
+export const streetImages = imageFilenames.map(filename => `${SUPABASE_STORAGE_URL}//${filename}`);
 
 
 
