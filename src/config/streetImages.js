@@ -1,3 +1,11 @@
+// ========================================
+// 📚 CITATION
+// ========================================
+// This survey platform was initially developed for:
+// Yang, S., Chong, A., Liu, P., & Biljecki, F. (2025). 
+// Thermal comfort in sight: Thermal affordance and its visual assessment for sustainable streetscape design. 
+// Building and Environment, 112569. Elsevier.
+
 // ⚠️ CRITICAL: YOU MUST REPLACE THIS WITH YOUR OWN DATA!
 // The data below is just an EXAMPLE - replace with your own Supabase URL and image filenames
 

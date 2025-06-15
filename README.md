@@ -1,6 +1,10 @@
 # Streetscape Perception Survey Platform
 
+[![Paper](https://img.shields.io/badge/📄-Published_Paper-9cf)](https://www.sciencedirect.com/science/article/pii/S0360132325000514) [![Thermal Affordance](https://img.shields.io/badge/🔗-Thermal_Affordance_Study-blue)](https://github.com/Sijie-Yang/Thermal-Affordance)
+
 A simple and powerful platform for conducting streetscape perception surveys with image-based questions. Deploy in minutes with Supabase and Vercel.
+
+**This platform was initially developed for the [Thermal Affordance research](https://github.com/Sijie-Yang/Thermal-Affordance), which introduces a novel framework for assessing urban thermal comfort using street view imagery and human perception surveys.**
 
 ## 🚀 Quick Deploy (5 minutes)
 
@@ -127,6 +131,22 @@ git push origin main
 2. Navigate to Table Editor → survey_responses
 3. View all responses in real-time
 4. Export data as CSV for analysis
+
+## 📚 Citation
+
+This survey platform was initially developed for the following research:
+
+```bibtex
+@article{yang2025thermal,
+  title={Thermal comfort in sight: Thermal affordance and its visual assessment for sustainable streetscape design},
+  author={Yang, Sijie and Chong, Adrian and Liu, Pengyuan and Biljecki, Filip},
+  journal={Building and Environment},
+  pages={112569},
+  year={2025},
+  publisher={Elsevier}
+}
+```
+**If you use this platform in your research, please consider citing the above paper.**
 
 ## 🎨 Customization Guide
 
