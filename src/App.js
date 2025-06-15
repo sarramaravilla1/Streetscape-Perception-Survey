@@ -36,7 +36,7 @@ export default function App() {
       survey_metadata: {
         completion_time: new Date().toISOString(),
         user_agent: navigator.userAgent,
-        screen_resolution: `${screen.width}x${screen.height}`,
+        screen_resolution: `${window.screen.width}x${window.screen.height}`,
         survey_version: "1.0"
       }
     };
