@@ -10,14 +10,16 @@ if (!supabaseUrl || !supabaseAnonKey) {
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 // Function to save survey response
-export async function saveSurveyResponse(responses) {
+export async function saveSurveyResponse(completeData) {
   try {
     const { data, error } = await supabase
       .from('survey_responses')
       .insert([
         {
-          responses: responses,
-          participant_id: generateParticipantId()
+          participant_id: generateParticipantId(),
+          responses: completeData.responses,
+          displayed_images: completeData.displayed_images,
+          survey_metadata: completeData.survey_metadata
         }
       ])
     
