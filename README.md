@@ -42,8 +42,6 @@ CREATE POLICY "Allow public insert" ON survey_responses FOR INSERT WITH CHECK (t
 CREATE POLICY "Allow public select" ON street_images FOR SELECT USING (active = true);
 ```
 
-**📝 If you already have an existing database**: Run the `database_update.sql` script in your Supabase SQL Editor to add the new columns for storing displayed images and survey metadata.
-
 4. **Get API Keys**: Go to Settings → API Keys and Data API panels, and copy your:
    - Project URL
    - Anon public key
