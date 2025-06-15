@@ -1,4 +1,4 @@
-# Streetscape Perception Survey Platform
+# Streetscape Perception Survey Platform (SP-Survey)
 
 [![Paper](https://img.shields.io/badge/📄-Published_Paper-9cf)](https://www.sciencedirect.com/science/article/pii/S0360132325000514)
 [![Preprint](https://img.shields.io/badge/📥-Preprint_PDF-9cf)](https://arxiv.org/pdf/2410.11887)
