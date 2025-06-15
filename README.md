@@ -11,6 +11,8 @@
 
 A simple and powerful platform for conducting streetscape perception surveys with image-based questions. Deploy in minutes with Supabase and Vercel.
 
+**🌐 Live Demo: [https://streetscape-perception-survey.vercel.app/](https://streetscape-perception-survey.vercel.app/)**
+
 **This platform was initially developed for the [Thermal Affordance research](https://github.com/Sijie-Yang/Thermal-Affordance), which introduces a novel framework for assessing urban thermal comfort using street view imagery and human perception surveys.**
 
 ## 🚀 Quick Deploy (5 minutes)
