@@ -3,7 +3,7 @@ import { Model } from "survey-core";
 import { Survey } from "survey-react-ui";
 import "survey-core/defaultV2.min.css";
 import { saveSurveyResponse } from './lib/supabase';
-import { surveyJson } from './config/questions';
+import { surveyJson, displayedImages } from './config/questions';
 import { surveyConfig } from './config/surveyConfig';
 import { themeJson } from "./theme";
 
@@ -29,10 +29,22 @@ export default function App() {
   model.onComplete.add(async (survey, options) => {
     const responses = survey.data;
     
-    console.log("Survey completed with responses:", responses);
+    // Combine user responses with displayed images information
+    const completeData = {
+      responses: responses,
+      displayed_images: displayedImages,
+      survey_metadata: {
+        completion_time: new Date().toISOString(),
+        user_agent: navigator.userAgent,
+        screen_resolution: `${screen.width}x${screen.height}`,
+        survey_version: "1.0"
+      }
+    };
+    
+    console.log("Survey completed with complete data:", completeData);
     
     // Save to Supabase
-    const result = await saveSurveyResponse(responses);
+    const result = await saveSurveyResponse(completeData);
     
     if (result.success) {
       console.log("Survey response saved successfully!");

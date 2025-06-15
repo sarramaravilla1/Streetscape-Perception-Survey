@@ -1,5 +1,26 @@
 import { getRandomImages } from './streetImages.js';
 
+// Generate and store all displayed images for each question
+const generateQuestionImages = () => {
+  const questionImages = {
+    safety_perception: getRandomImages("safety_perception", 2),
+    attractiveness_perception: getRandomImages("attractiveness_perception", 2),
+    walkability_perception: getRandomImages("walkability_perception", 2),
+    liveliness_perception: getRandomImages("liveliness_perception", 4),
+    relaxation_perception: getRandomImages("relaxation_perception", 4),
+    cleanliness_perception: getRandomImages("cleanliness_perception", 4),
+    comfort_rating: getRandomImages("comfort_rating", 1),
+    street_elements: getRandomImages("street_elements", 1),
+    feature_ranking: getRandomImages("feature_ranking", 1),
+    open_feedback: getRandomImages("open_feedback", 1)
+  };
+  
+  return questionImages;
+};
+
+// Store all displayed images for this survey session
+export const displayedImages = generateQuestionImages();
+
 // Demographic Questions (Optional - can be skipped)
 export const demographicQuestions = [
   {
@@ -97,7 +118,7 @@ export const surveyPages = [
         title: "Safety Perception",
         description: "Which street environment do you perceive to be the SAFEST?",
         isRequired: true,
-        choices: getRandomImages("safety_perception", 2),
+        choices: displayedImages.safety_perception,
         imageFit: "cover",
         multiSelect: false
       },
@@ -109,7 +130,7 @@ export const surveyPages = [
         title: "Visual Attractiveness",
         description: "Which street environment do you find most VISUALLY ATTRACTIVE?",
         isRequired: true,
-        choices: getRandomImages("attractiveness_perception", 2),
+        choices: displayedImages.attractiveness_perception,
         imageFit: "cover",
         multiSelect: false
       },
@@ -121,7 +142,7 @@ export const surveyPages = [
         title: "Walkability",
         description: "Which street environment would be most COMFORTABLE for walking?",
         isRequired: true,
-        choices: getRandomImages("walkability_perception", 2),
+        choices: displayedImages.walkability_perception,
         imageFit: "cover",
         multiSelect: false
       },
@@ -133,7 +154,7 @@ export const surveyPages = [
         title: "Liveliness and Vitality",
         description: "Which street environment appears most LIVELY and full of activity?",
         isRequired: true,
-        choices: getRandomImages("liveliness_perception", 4),
+        choices: displayedImages.liveliness_perception,
         imageFit: "cover",
         multiSelect: false
       },
@@ -145,7 +166,7 @@ export const surveyPages = [
         title: "Relaxation and Tranquility", 
         description: "Which street environment seems most RELAXING and peaceful?",
         isRequired: true,
-        choices: getRandomImages("relaxation_perception", 4),
+        choices: displayedImages.relaxation_perception,
         imageFit: "cover",
         multiSelect: false
       },
@@ -157,7 +178,7 @@ export const surveyPages = [
         title: "Cleanliness and Maintenance", 
         description: "Which street environment appears most CLEAN and well-maintained?",
         isRequired: true,
-        choices: getRandomImages("cleanliness_perception", 4),
+        choices: displayedImages.cleanliness_perception,
         imageFit: "cover",
         multiSelect: false
       }
@@ -173,7 +194,7 @@ export const surveyPages = [
       {
         type: "image",
         name: "comfort_image",
-        imageLink: getRandomImages("comfort_rating", 1)[0]?.imageLink,
+        imageLink: displayedImages.comfort_rating[0]?.imageLink,
         imageFit: "cover",
         imageHeight: "300px",
         imageWidth: "100%"
@@ -203,7 +224,7 @@ export const surveyPages = [
       {
         type: "image", 
         name: "elements_image",
-        imageLink: getRandomImages("street_elements", 1)[0]?.imageLink,
+        imageLink: displayedImages.street_elements[0]?.imageLink,
         imageFit: "cover",
         imageHeight: "300px",
         imageWidth: "100%"
@@ -238,7 +259,7 @@ export const surveyPages = [
       {
         type: "image", 
         name: "ranking_image",
-        imageLink: getRandomImages("feature_ranking", 1)[0]?.imageLink,
+        imageLink: displayedImages.feature_ranking[0]?.imageLink,
         imageFit: "cover",
         imageHeight: "300px",
         imageWidth: "100%"
@@ -268,7 +289,7 @@ export const surveyPages = [
       {
         type: "image", 
         name: "feedback_image",
-        imageLink: getRandomImages("open_feedback", 1)[0]?.imageLink,
+        imageLink: displayedImages.open_feedback[0]?.imageLink,
         imageFit: "cover",
         imageHeight: "300px",
         imageWidth: "100%"
