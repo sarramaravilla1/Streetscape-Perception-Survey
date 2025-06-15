@@ -10,14 +10,15 @@ const imageFilenames = [
   "10588_103.97534255475_1.37690724605747.jpg",
   "11671_103.926255336454_1.361667093876.jpg",
   "11678_103.929033696236_1.36726328070099.jpg",
-  "1169_103.947519225051_1.35667191963618",
+  "1169_103.947519225051_1.35667191963618.jpg",
+  "1957_103.63244556433_1.32337975029413.jpg",
+  "22758_103.679235704984_1.31254933504438.jpg"
   // Add more filenames here...
   // "your_image_name.jpg",
 ];
 
 // 🔧 STEP 3: Automatically generate full URLs (no need to edit this part)
 export const streetImages = imageFilenames.map(filename => `${SUPABASE_STORAGE_URL}//${filename}`);
-
 
 
 // Function to get random images for questions
