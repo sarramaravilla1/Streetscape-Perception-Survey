@@ -68,8 +68,8 @@ cd streetscape-perception-survey
 
 2. **Add Credentials**: The script will create `.env.local` - edit it with your Supabase credentials:
 ```env
-NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+REACT_APP_SUPABASE_URL=https://your-project.supabase.co
+REACT_APP_SUPABASE_ANON_KEY=your-anon-key
 ```
 
 3. **Add Your Images**: Edit `src/config/streetImages.js` and replace with your image filenames:
@@ -110,8 +110,8 @@ git push origin main
 2. **Deploy**: Go to [vercel.com](https://vercel.com) and sign up
 3. **Import Project**: Click "New Project" and import your GitHub repository
 4. **Add Environment Variables**: In Vercel project settings, add these environment variables:
-   - Name: `NEXT_PUBLIC_SUPABASE_URL`, Value: `https://your-project.supabase.co`
-   - Name: `NEXT_PUBLIC_SUPABASE_ANON_KEY`, Value: `your-anon-key-here`
+   - Name: `REACT_APP_SUPABASE_URL`, Value: `https://your-project.supabase.co`
+   - Name: `REACT_APP_SUPABASE_ANON_KEY`, Value: `your-anon-key-here`
 5. **Deploy**: Click Deploy
 
 **🎉 Your survey will be live at `https://your-project.vercel.app`**

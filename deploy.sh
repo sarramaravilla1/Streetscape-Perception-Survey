@@ -43,12 +43,12 @@ if [ ! -f .env.local ]; then
     
     cat > .env.local << EOF
 # Supabase Configuration
-NEXT_PUBLIC_SUPABASE_URL=your-supabase-project-url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+REACT_APP_SUPABASE_URL=your-supabase-project-url
+REACT_APP_SUPABASE_ANON_KEY=your-supabase-anon-key
 
 # Example:
-# NEXT_PUBLIC_SUPABASE_URL=https://abcdefghijklmnop.supabase.co
-# NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+# REACT_APP_SUPABASE_URL=https://abcdefghijklmnop.supabase.co
+# REACT_APP_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 EOF
     
     echo -e "${GREEN}✅ .env.local template created!${NC}"
