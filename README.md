@@ -1,6 +1,6 @@
 # Streetscape Perception Survey Platform (SP-Survey)
 
-![Streetscape Perception Survey Cover](./public/cover-image.png)
+<img src="./public/cover-image.png" alt="Streetscape Perception Survey Cover" width="600">
 
 [![Paper](https://img.shields.io/badge/📄-Published_Paper-9cf)](https://www.sciencedirect.com/science/article/pii/S0360132325000514)
 [![Preprint](https://img.shields.io/badge/📥-Preprint_PDF-9cf)](https://arxiv.org/pdf/2410.11887)
