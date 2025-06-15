@@ -1,4 +1,4 @@
-# Streetscape Perception Survey Platform
+# Streetscape Perception Survey Platform (SP-Survey)
 
 ![Streetscape Perception Survey Cover](./public/cover-image.png)
 
