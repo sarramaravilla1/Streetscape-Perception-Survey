@@ -74,22 +74,25 @@ REACT_APP_SUPABASE_URL=https://your-project.supabase.co
 REACT_APP_SUPABASE_ANON_KEY=your-anon-key
 ```
 
-3. **Add Your Images**: Edit `src/config/streetImages.js` and replace with your image filenames:
-```javascript
-// Replace 'your-project' with your actual Supabase project reference
-const SUPABASE_STORAGE_URL = "https://your-project.supabase.co/storage/v1/object/public/street-images";
+3. **⚠️ IMPORTANT: Configure Your Images**: Edit `src/config/streetImages.js` and **MUST REPLACE** with your own data:
 
-export const streetImages = [
-  `${SUPABASE_STORAGE_URL}/street_001.jpg`,
-  `${SUPABASE_STORAGE_URL}/street_002.jpg`,
-  `${SUPABASE_STORAGE_URL}/street_003.jpg`,
-  `${SUPABASE_STORAGE_URL}/street_004.jpg`,
-  // Add more images by just adding the filename...
-  `${SUPABASE_STORAGE_URL}/your_image_name.jpg`,
+```javascript
+// 🔧 STEP 1: Replace with YOUR Supabase project URL
+const SUPABASE_STORAGE_URL = "https://YOUR-PROJECT-ID.supabase.co/storage/v1/object/public/street-images";
+
+// 🔧 STEP 2: Replace with YOUR actual image filenames
+const imageFilenames = [
+  "your_street_image_1.jpg",
+  "your_street_image_2.jpg", 
+  "your_street_image_3.jpg",
+  "your_street_image_4.jpg",
+  // Add ALL your uploaded image filenames here...
 ];
 ```
 
-**💡 Tip**: Just change the base URL once and add your image filenames!
+**🚨 CRITICAL**: You MUST replace both:
+- `YOUR-PROJECT-ID` with your actual Supabase project ID
+- The image filenames with your actual uploaded image names
 
 **🚀 Quick way to get all filenames**: After uploading images to Supabase Storage, you can:
 - In Supabase Storage, select all your images and copy the filenames
@@ -141,78 +144,239 @@ export const surveyConfig = {
 };
 ```
 
-### Question Types Available
+### 📝 How to Modify Survey Questions
 
-1. **Image Selection (Multiple Choice)**
-   - Participants choose one image from 4 random options
-   - Perfect for "most comfortable", "safest", etc.
+All survey questions are configured in `src/config/questions.js`. The system uses pre-generated random images for consistency.
 
-2. **Likert Scale Rating**
-   - Rate images on a 1-5 scale
-   - Good for intensity measurements
+#### 🔧 **Understanding the Image System**
 
-3. **Ranking Questions**
-   - Drag and drop to rank options
-   - Useful for priority ordering
-
-4. **Multiple Choice & Checkboxes**
-   - Select one or multiple options
-   - Good for categorical data
-
-5. **Text Input**
-   - Open-ended responses
-   - Demographic information
-
-### Adding Your Images
-
-1. Upload images to Supabase Storage
-2. Edit `src/config/streetImages.js`:
-
+Images are pre-generated when the survey loads using this logic:
 ```javascript
-export const streetImages = [
-  {
-    id: "street_001",
-    url: "https://your-supabase-url/storage/v1/object/public/street-images/street_001.jpg",
-    description: "Urban street with mixed-use buildings",
-    category: "urban"
-  },
-  // Add more images...
-];
+const displayedImages = {
+  safety_perception: getRandomImages("safety_perception", 2), // 2 images, choose 1
+  attractiveness_perception: getRandomImages("attractiveness_perception", 2), // 2 images, choose 1
+  liveliness_perception: getRandomImages("liveliness_perception", 4), // 4 images, choose 1
+  // ... more questions
+};
 ```
 
-### Demographic Questions
+#### 1. **Image Selection Questions** (Choose 1 from multiple images)
 
-The survey includes optional demographic questions in `src/config/questions.js`:
+**Current example**: Safety perception question
+```javascript
+{
+  type: "imagepicker",
+  name: "safety_perception",
+  title: "Safety Perception", 
+  description: "Which street environment do you perceive to be the SAFEST?",
+  choices: displayedImages.safety_perception, // Uses pre-generated images
+  multiSelect: false
+}
+```
 
-- Age group
-- Location (city, country)
-- Income level
-- Education level
-- Outdoor activity frequency
+**To modify**:
+1. **Change the question text**: Edit `title` and `description`
+2. **Change number of images**: Modify the count in `generateQuestionImages()`:
+   ```javascript
+   safety_perception: getRandomImages("safety_perception", 4), // Change 2 to 4 for more options
+   ```
+3. **Change perception type**: Replace "safety_perception" with your own (e.g., "beauty_perception")
+4. **Add new image question**: Add both in `generateQuestionImages()` and in the survey page
 
-All demographic questions are **optional** and can be skipped by participants.
+**🚨 IMPORTANT**: Current survey has 6 perception questions:
+- `safety_perception` (2 choose 1) - Which street is SAFEST?
+- `attractiveness_perception` (2 choose 1) - Which street is most ATTRACTIVE?  
+- `walkability_perception` (2 choose 1) - Which street is most WALKABLE?
+- `liveliness_perception` (4 choose 1) - Which street is most LIVELY?
+- `relaxation_perception` (4 choose 1) - Which street is most RELAXING?
+- `cleanliness_perception` (4 choose 1) - Which street is most CLEAN?
 
-### Sample Survey Structure
+#### 2. **Likert Scale Rating** (Rate 1-5 scale with image)
 
-The default survey includes:
+**Current example**: Comfort rating
+```javascript
+{
+  type: "image",
+  name: "comfort_image", 
+  imageLink: displayedImages.comfort_rating[0]?.imageLink, // Shows 1 random image
+},
+{
+  type: "radiogroup",
+  name: "comfort_level",
+  title: "How comfortable would you feel walking in this street?",
+  choices: [
+    { value: 1, text: "Very Uncomfortable" },
+    { value: 2, text: "Uncomfortable" },
+    { value: 3, text: "Neutral" },
+    { value: 4, text: "Comfortable" },
+    { value: 5, text: "Very Comfortable" }
+  ]
+}
+```
 
-1. **Background Information** (Optional)
-   - Demographic questions that can be skipped
+**To modify**:
+1. **Change the question**: Edit `title` 
+2. **Change scale labels**: Modify the `choices` array text
+3. **Change scale range**: Add/remove choice options (e.g., 1-7 scale)
+4. **Ensure image is generated**: Make sure `comfort_rating` is in `generateQuestionImages()`
 
-2. **Safety Perception**
-   - Choose the safest street from 4 random images
+#### 3. **Multiple Choice Questions** (Select one option)
 
-3. **Comfort Rating**
-   - Rate comfort level on a 1-5 scale for a single image
+**Current example**: Age demographics
+```javascript
+{
+  name: "age",
+  title: "What is your age group?",
+  type: "radiogroup",
+  choices: [
+    { value: "18-24", text: "18-24 years old" },
+    { value: "25-34", text: "25-34 years old" },
+    { value: "35-44", text: "35-44 years old" },
+    // ... more options
+  ]
+}
+```
 
-4. **Street Elements**
-   - Identify visible elements in a street image (checkboxes)
+**To modify**:
+- Change `title` to your question
+- Replace `choices` array with your options
+- Each choice needs `value` (data saved) and `text` (displayed)
 
-5. **Feature Ranking**
-   - Rank street features by importance (drag & drop)
+#### 4. **Checkbox Questions** (Select multiple options with image)
 
-6. **Open Feedback**
-   - Optional text input for additional thoughts
+**Current example**: Street elements identification
+```javascript
+{
+  type: "image", 
+  name: "elements_image",
+  imageLink: displayedImages.street_elements[0]?.imageLink, // Shows 1 random image
+},
+{
+  type: "checkbox",
+  name: "visible_elements",
+  title: "Which elements do you notice in this street? (Select all that apply)",
+  choices: [
+    "Trees and vegetation",
+    "Street furniture (benches, lights)",
+    "Bicycle lanes", 
+    "Pedestrian crossings",
+    "Public art or decorations",
+    // ... more options
+  ]
+}
+```
+
+**To modify**:
+1. **Change the question**: Edit `title`
+2. **Change options**: Replace `choices` array with your options
+3. **Ensure image is generated**: Make sure `street_elements` is in `generateQuestionImages()`
+
+#### 5. **Ranking Questions** (Drag & drop to order with image)
+
+**Current example**: Feature importance ranking
+```javascript
+{
+  type: "image", 
+  name: "ranking_image",
+  imageLink: displayedImages.feature_ranking[0]?.imageLink, // Shows 1 random image
+},
+{
+  type: "ranking",
+  name: "street_features",
+  title: "Based on the image above, drag to rank these features from most important (top) to least important (bottom):",
+  choices: [
+    { value: "safety", text: "Safety and security" },
+    { value: "greenery", text: "Trees and greenery" },
+    { value: "walkability", text: "Wide sidewalks and walkability" },
+    { value: "aesthetics", text: "Visual appeal and aesthetics" },
+    { value: "amenities", text: "Street furniture and amenities" }
+  ]
+}
+```
+
+**To modify**:
+1. **Change the question**: Edit `title`
+2. **Change ranking items**: Replace `choices` array (use `value` and `text` format)
+3. **Ensure image is generated**: Make sure `feature_ranking` is in `generateQuestionImages()`
+
+#### 6. **Text Input Questions** (Open-ended responses with image)
+
+**Current example**: Additional feedback
+```javascript
+{
+  type: "image", 
+  name: "feedback_image",
+  imageLink: displayedImages.open_feedback[0]?.imageLink, // Shows 1 random image
+},
+{
+  type: "comment",
+  name: "general_feedback", 
+  title: "Looking at this street, what makes a street environment appealing to you? (Optional)",
+  description: "Please share your thoughts about streetscape design, walkability, or any other aspects that matter to you.",
+  maxLength: 500
+}
+```
+
+**To modify**:
+1. **Change the question**: Edit `title` and `description`
+2. **Adjust text box**: Change `maxLength` or use `type: "text"` for single-line
+3. **Ensure image is generated**: Make sure `open_feedback` is in `generateQuestionImages()`
+
+#### 7. **Adding New Image Questions**
+
+To add a completely new image-based question:
+
+**Step 1**: Add to `generateQuestionImages()`:
+```javascript
+const questionImages = {
+  // ... existing questions
+  your_new_question: getRandomImages("your_new_question", 4), // 4 images to choose from
+};
+```
+
+**Step 2**: Add to the appropriate survey page:
+```javascript
+{
+  type: "imagepicker",
+  name: "your_new_question",
+  title: "Your Question Title",
+  description: "Your question description",
+  choices: displayedImages.your_new_question,
+  multiSelect: false // or true for multiple selection
+}
+```
+
+#### 8. **Question Logic & Conditions**
+
+Make questions appear based on previous answers:
+
+```javascript
+{
+  name: "follow_up_question",
+  title: "Follow-up question",
+  type: "text",
+  visibleIf: "{previous_question} = 'specific_answer'"
+}
+```
+
+#### 9. **Changing Question Order**
+
+Questions appear in the order they're listed in each page's `elements` array. Simply reorder them in the file.
+
+#### 10. **Making Questions Optional**
+
+Remove `required: true` or set `required: false` to make any question optional.
+
+### Current Survey Structure
+
+The default survey includes 6 parts:
+
+1. **Part 1: Demographics** (Optional) - Age, location, income, education, outdoor activities
+2. **Part 2: Street Perception** (6 questions) - Safety, attractiveness, walkability, liveliness, relaxation, cleanliness  
+3. **Part 3: Comfort Rating** - 1-5 scale rating with image
+4. **Part 4: Street Elements** - Checkbox identification with image
+5. **Part 5: Feature Ranking** - Drag & drop ranking with image
+6. **Part 6: Open Feedback** - Text input with image
 
 ## 🔧 Advanced Configuration
 
@@ -224,18 +388,7 @@ Edit `src/styles/globals.css` to match your brand:
 - Layout spacing
 - Component styling
 
-### Question Logic
 
-Add conditional logic in `src/config/questions.js`:
-
-```javascript
-{
-  name: "follow_up",
-  title: "Follow-up question",
-  type: "text",
-  visibleIf: "{previous_question} = 'specific_answer'"
-}
-```
 
 ### Data Export
 

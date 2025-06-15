@@ -1,8 +1,12 @@
-// Street view images configuration
-// 🔧 STEP 1: Replace 'your-project' with your actual Supabase project reference
+// ⚠️ CRITICAL: YOU MUST REPLACE THIS WITH YOUR OWN DATA!
+// The data below is just an EXAMPLE - replace with your own Supabase URL and image filenames
+
+// 🔧 STEP 1: Replace with YOUR Supabase project URL
+// Example format: https://YOUR-PROJECT-ID.supabase.co/storage/v1/object/public/street-images
 const SUPABASE_STORAGE_URL = "https://hsblghbczhayitazlhsh.supabase.co/storage/v1/object/public/street-images";
 
-// 🔧 STEP 2: Add your image filenames here (just the filename, not the full URL)
+// 🔧 STEP 2: Replace with YOUR actual uploaded image filenames
+// Example filenames shown below - replace with your own image names
 const imageFilenames = [
   "10188_103.828278905746_1.44319655784859.jpg",
   "10396_103.687376020797_1.32301216979197.jpg", 
@@ -13,8 +17,8 @@ const imageFilenames = [
   "1169_103.947519225051_1.35667191963618.jpg",
   "1957_103.63244556433_1.32337975029413.jpg",
   "22758_103.679235704984_1.31254933504438.jpg"
-  // Add more filenames here...
-  // "your_image_name.jpg",
+  // 🚨 IMPORTANT: Replace ALL filenames above with YOUR own image names!
+  // You need at least 10+ images for the survey to work properly
 ];
 
 // 🔧 STEP 3: Automatically generate full URLs (no need to edit this part)
