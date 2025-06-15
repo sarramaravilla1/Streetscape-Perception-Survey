@@ -90,68 +90,76 @@ export const surveyPages = [
         description: "Take your time to examine each image carefully."
       },
       
-      // Question 1: Safety (4 choose 1)
+      // Question 1: Safety (2 choose 1)
       {
         type: "imagepicker",
         name: "safety_perception",
         title: "Safety Perception",
         description: "Which street environment do you perceive to be the SAFEST?",
         isRequired: true,
-        choices: getRandomImages("safety_perception", 4),
+        choices: getRandomImages("safety_perception", 2),
         imageFit: "cover",
         multiSelect: false
       },
       
-      // Question 2: Attractiveness (4 choose 1)  
+      // Question 2: Attractiveness (2 choose 1)  
       {
         type: "imagepicker",
         name: "attractiveness_perception",
         title: "Visual Attractiveness",
         description: "Which street environment do you find most VISUALLY ATTRACTIVE?",
         isRequired: true,
-        choices: getRandomImages("attractiveness_perception", 4),
+        choices: getRandomImages("attractiveness_perception", 2),
         imageFit: "cover",
         multiSelect: false
       },
       
-      // Question 3: Walkability (4 choose 1)
+      // Question 3: Walkability (2 choose 1)
       {
         type: "imagepicker", 
         name: "walkability_perception",
         title: "Walkability",
         description: "Which street environment would be most COMFORTABLE for walking?",
         isRequired: true,
-        choices: getRandomImages("walkability_perception", 4),
+        choices: getRandomImages("walkability_perception", 2),
         imageFit: "cover",
         multiSelect: false
       },
       
-      // Question 4: Liveliness (6 choose 2)
+      // Question 4: Liveliness (4 choose 1)
       {
         type: "imagepicker",
         name: "liveliness_perception", 
         title: "Liveliness and Vitality",
-        description: "Which TWO street environments appear most LIVELY and full of activity? (Select 2)",
+        description: "Which street environment appears most LIVELY and full of activity?",
         isRequired: true,
-        choices: getRandomImages("liveliness_perception", 6),
+        choices: getRandomImages("liveliness_perception", 4),
         imageFit: "cover",
-        multiSelect: true,
-        maxSelectedChoices: 2,
-        minSelectedChoices: 2
+        multiSelect: false
       },
       
-      // Question 5: Relaxation (6 choose 2)
+      // Question 5: Relaxation (4 choose 1)
       {
         type: "imagepicker",
         name: "relaxation_perception",
         title: "Relaxation and Tranquility", 
-        description: "Which TWO street environments seem most RELAXING and peaceful? (Select 2)",
+        description: "Which street environment seems most RELAXING and peaceful?",
         isRequired: true,
-        choices: getRandomImages("relaxation_perception", 6),
+        choices: getRandomImages("relaxation_perception", 4),
         imageFit: "cover",
-        multiSelect: true,
-        maxSelectedChoices: 2,
-        minSelectedChoices: 2
+        multiSelect: false
+      },
+      
+      // Question 6: Cleanliness (4 choose 1)
+      {
+        type: "imagepicker",
+        name: "cleanliness_perception",
+        title: "Cleanliness and Maintenance", 
+        description: "Which street environment appears most CLEAN and well-maintained?",
+        isRequired: true,
+        choices: getRandomImages("cleanliness_perception", 4),
+        imageFit: "cover",
+        multiSelect: false
       }
     ]
   },
