@@ -72,31 +72,86 @@ export const surveyPages = [
   // Page 1: Demographic Questions
   {
     name: "demographics",
-    title: "Background Information (Optional)",
+    title: "Part 1: Background Information (Optional)",
     description: "Please tell us a bit about yourself. All questions are optional and can be skipped.",
     elements: demographicQuestions
   },
   
-  // Page 2: Image Selection - Safety
+  // Page 2: Street Perception Questions
   {
-    name: "safety_perception", 
-    title: "Part 1: Safety Perception",
-    description: "Please choose the image which you find to be the safest streetscape.",
+    name: "street_perception", 
+    title: "Part 2: Street Perception",
+    description: "Please evaluate different street environments based on various aspects.",
     elements: [
       {
         type: "expression",
-        name: "safety_instruction",
-        title: "Among the provided street view images, which place do you perceive to be the safest?",
-        description: "Please select one image from each set."
+        name: "perception_instruction",
+        title: "In this section, you will see different sets of street images. Please select the image(s) that best match each question.",
+        description: "Take your time to examine each image carefully."
       },
+      
+      // Question 1: Safety (4 choose 1)
       {
         type: "imagepicker",
-        name: "safety_1",
+        name: "safety_perception",
         title: "Safety Perception",
-        description: "Choose the safest street environment",
+        description: "Which street environment do you perceive to be the SAFEST?",
         isRequired: true,
-        choices: getRandomImages("safety_1"),
-        imageFit: "cover"
+        choices: getRandomImages("safety_perception", 4),
+        imageFit: "cover",
+        multiSelect: false
+      },
+      
+      // Question 2: Attractiveness (4 choose 1)  
+      {
+        type: "imagepicker",
+        name: "attractiveness_perception",
+        title: "Visual Attractiveness",
+        description: "Which street environment do you find most VISUALLY ATTRACTIVE?",
+        isRequired: true,
+        choices: getRandomImages("attractiveness_perception", 4),
+        imageFit: "cover",
+        multiSelect: false
+      },
+      
+      // Question 3: Walkability (4 choose 1)
+      {
+        type: "imagepicker", 
+        name: "walkability_perception",
+        title: "Walkability",
+        description: "Which street environment would be most COMFORTABLE for walking?",
+        isRequired: true,
+        choices: getRandomImages("walkability_perception", 4),
+        imageFit: "cover",
+        multiSelect: false
+      },
+      
+      // Question 4: Liveliness (6 choose 2)
+      {
+        type: "imagepicker",
+        name: "liveliness_perception", 
+        title: "Liveliness and Vitality",
+        description: "Which TWO street environments appear most LIVELY and full of activity? (Select 2)",
+        isRequired: true,
+        choices: getRandomImages("liveliness_perception", 6),
+        imageFit: "cover",
+        multiSelect: true,
+        maxSelectedChoices: 2,
+        minSelectedChoices: 2
+      },
+      
+      // Question 5: Relaxation (6 choose 2)
+      {
+        type: "imagepicker",
+        name: "relaxation_perception",
+        title: "Relaxation and Tranquility", 
+        description: "Which TWO street environments seem most RELAXING and peaceful? (Select 2)",
+        isRequired: true,
+        choices: getRandomImages("relaxation_perception", 6),
+        imageFit: "cover",
+        multiSelect: true,
+        maxSelectedChoices: 2,
+        minSelectedChoices: 2
       }
     ]
   },
@@ -104,7 +159,7 @@ export const surveyPages = [
   // Page 3: Likert Scale Rating
   {
     name: "comfort_rating",
-    title: "Part 2: Comfort Rating", 
+    title: "Part 3: Comfort Rating", 
     description: "Please rate how comfortable you would feel in this street environment.",
     elements: [
       {
@@ -134,7 +189,7 @@ export const surveyPages = [
   // Page 4: Multiple Choice - Street Elements
   {
     name: "street_elements",
-    title: "Part 3: Street Elements",
+    title: "Part 4: Street Elements",
     description: "Identify the elements you notice in this street environment.",
     elements: [
       {
@@ -169,13 +224,21 @@ export const surveyPages = [
   // Page 5: Ranking Question
   {
     name: "feature_ranking",
-    title: "Part 4: Feature Importance Ranking",
-    description: "Rank the following street features in order of importance for creating a pleasant walking environment.",
+    title: "Part 5: Feature Importance Ranking",
+    description: "Look at this street environment and rank the features by importance for creating a pleasant walking experience.",
     elements: [
+      {
+        type: "image", 
+        name: "ranking_image",
+        imageLink: getRandomImages("feature_ranking", 1)[0]?.imageLink,
+        imageFit: "cover",
+        imageHeight: "300px",
+        imageWidth: "100%"
+      },
       {
         type: "ranking",
         name: "street_features",
-        title: "Drag to rank these features from most important (top) to least important (bottom):",
+        title: "Based on the image above, drag to rank these features from most important (top) to least important (bottom):",
         isRequired: true,
         choices: [
           { value: "safety", text: "Safety and security" },
@@ -191,13 +254,22 @@ export const surveyPages = [
   // Page 6: Open Text Response
   {
     name: "open_feedback",
-    title: "Part 5: Your Thoughts",
-    description: "Share your thoughts about streetscape design.",
+    title: "Part 6: Your Thoughts",
+    description: "Finally, share your thoughts about what makes a great street environment.",
     elements: [
+      {
+        type: "image", 
+        name: "feedback_image",
+        imageLink: getRandomImages("open_feedback", 1)[0]?.imageLink,
+        imageFit: "cover",
+        imageHeight: "300px",
+        imageWidth: "100%"
+      },
       {
         type: "comment",
         name: "general_feedback", 
-        title: "What makes a street environment appealing to you? (Optional)",
+        title: "Looking at this street, what makes a street environment appealing to you? (Optional)",
+        description: "Please share your thoughts about streetscape design, walkability, or any other aspects that matter to you.",
         isRequired: false,
         maxLength: 500
       }
