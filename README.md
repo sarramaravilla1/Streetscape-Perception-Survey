@@ -109,9 +109,9 @@ git push origin main
 
 2. **Deploy**: Go to [vercel.com](https://vercel.com) and sign up
 3. **Import Project**: Click "New Project" and import your GitHub repository
-4. **Add Environment Variables**: Add your environment variables in Vercel:
-   - `NEXT_PUBLIC_SUPABASE_URL`
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+4. **Add Environment Variables**: In Vercel project settings, add these environment variables:
+   - Name: `NEXT_PUBLIC_SUPABASE_URL`, Value: `https://your-project.supabase.co`
+   - Name: `NEXT_PUBLIC_SUPABASE_ANON_KEY`, Value: `your-anon-key-here`
 5. **Deploy**: Click Deploy
 
 **🎉 Your survey will be live at `https://your-project.vercel.app`**
