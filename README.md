@@ -1,6 +1,11 @@
 # Streetscape Perception Survey Platform
 
-[![Paper](https://img.shields.io/badge/📄-Published_Paper-9cf)](https://www.sciencedirect.com/science/article/pii/S0360132325000514) [![Thermal Affordance](https://img.shields.io/badge/🔗-Thermal_Affordance_Study-blue)](https://github.com/Sijie-Yang/Thermal-Affordance)
+[![Paper](https://img.shields.io/badge/📄-Published_Paper-9cf)](https://www.sciencedirect.com/science/article/pii/S0360132325000514)
+[![Preprint](https://img.shields.io/badge/📥-Preprint_PDF-9cf)](https://arxiv.org/pdf/2410.11887)
+[![Website](https://img.shields.io/badge/🌐-Project_Website_&_Dataset-blue)](https://thermal-affordance.ual.sg)
+[![Blog](https://img.shields.io/badge/📝-Blog_Post-green)](https://sijie-yang.com/blog/2025/thermal-comfort/)
+[![Blog](https://img.shields.io/badge/🔬-Lab_Post-green)](https://ual.sg/post/2025/01/25/new-paper-thermal-comfort-in-sight/)
+[![Thermal Affordance](https://img.shields.io/badge/🔗-Thermal_Affordance_Study-blue)](https://github.com/Sijie-Yang/Thermal-Affordance)
 
 A simple and powerful platform for conducting streetscape perception surveys with image-based questions. Deploy in minutes with Supabase and Vercel.
 
