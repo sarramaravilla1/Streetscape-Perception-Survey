@@ -1,6 +1,6 @@
 export const surveyConfig = {
   // Basic Information
-  title: "Urban Streetscape Perception Surveyy",
+  title: "Urban Streetscape Perception Survey",
   description: "Hello! I'm Sarra Maravilla from the University of the Philippines Diliman. I am currently conducting an online perception survey that will take approximately 15 minutes to complete and consists of around 50 questions regarding photos taken at the street-level. Such a survey will help us understand what drives people's perception and how to design spaces that are visually appealing. Throughout the survey, participants' main task is to select the most suitable street view image among multiple images based on certain dimensions and personal impressions. As a token of appreciation, participants who successfully complete the full survey will receive a compensation fee of Php 50.",
 
   // Lab Information - Replace with your own
