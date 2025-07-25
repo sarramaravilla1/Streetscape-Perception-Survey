@@ -5,6 +5,7 @@ export const surveyConfig = {
 
   // Lab Information - Replace with your own
   logo: "https://raw.githubusercontent.com/sarramaravilla1/Streetscape-Perception-Survey/d72dd772aa8bcd1dbd3bde2d821491227498c43d/logos/up_logo.png",
+  logo: "https://raw.githubusercontent.com/sarramaravilla1/Streetscape-Perception-Survey/3c8fe2c58837794aa61d07d12ba7b8d4226d3a83/logos/up_ceng_logo.png",
   logoPosition: "right",
   labDescription: "This research is conducted by Urban Analytics Lab at the National University of Singapore.",
   
