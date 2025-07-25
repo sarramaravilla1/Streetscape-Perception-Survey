@@ -4,8 +4,7 @@ export const surveyConfig = {
   description: "Hello! I'm Sarra Maravilla from the University of the Philippines Diliman. I am currently conducting an online perception survey that will take approximately 15 minutes to complete and consists of around 50 questions regarding photos taken at the street-level. Such a survey will help us understand what drives people's perception and how to design spaces that are visually appealing. Throughout the survey, participants' main task is to select the most suitable street view image among multiple images based on certain dimensions and personal impressions. As a token of appreciation, participants who successfully complete the full survey will receive a compensation fee of Php 50.",
 
   // Lab Information - Replace with your own
-  logo: "https://raw.githubusercontent.com/sarramaravilla1/Streetscape-Perception-Survey/d72dd772aa8bcd1dbd3bde2d821491227498c43d/logos/up_logo.png",
-  logo: "https://raw.githubusercontent.com/sarramaravilla1/Streetscape-Perception-Survey/3c8fe2c58837794aa61d07d12ba7b8d4226d3a83/logos/up_ceng_logo.png",
+  logo: "https://raw.githubusercontent.com/sarramaravilla1/Streetscape-Perception-Survey/6d66e11ac34160d941a4c353d4d0107ef158c0b3/logos/survey_logo.png",
   logoPosition: "right",
   labDescription: "This research is conducted by Urban Analytics Lab at the National University of Singapore.",
   
